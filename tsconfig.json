@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": false,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  }
+}
