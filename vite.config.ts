@@ -42,6 +42,11 @@ export default defineConfig({
                 },
               },
               {
+                injectTo: 'head-prepend',
+                tag: 'title',
+                children: 'BigO Diner'
+              },
+              {
                 injectTo: 'head',
                 tag: 'script',
                 attrs: {
