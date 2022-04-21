@@ -13,9 +13,10 @@
     "noUnusedParameters": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
+      "@/*": [ // check vite.config.ts => resolve => alias
         "src/*"
       ]
-    }
+    },
+    "jsx": "preserve",
   }
 }

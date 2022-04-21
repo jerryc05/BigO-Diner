@@ -108,7 +108,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './src'),  // check tsconfig.json => paths
     },
   },
   // base: ''  # Default: '/'
@@ -137,6 +137,7 @@ export default defineConfig({
     }
   },
   server: {
+    host: true,
     port: 5000,
     strictPort: false,
     // https: {
