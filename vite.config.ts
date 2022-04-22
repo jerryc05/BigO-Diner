@@ -32,14 +32,14 @@ const tags: HtmlTagDescriptor[] = [
     tag: 'title',
     children: 'BigO Diner'
   },
-  // {
-  //   injectTo: 'head-prepend',
-  //   tag: 'link',
-  //   attrs: {
-  //     rel: 'icon',
-  //     href: '/favicon.ico',
-  //   },
-  // },
+  {
+    injectTo: 'head-prepend',
+    tag: 'link',
+    attrs: {
+      rel: 'icon',
+      href: '/logo.png'
+    },
+  },
   {
     injectTo: 'head-prepend',
     tag: 'meta',
