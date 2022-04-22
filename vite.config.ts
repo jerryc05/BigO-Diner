@@ -57,34 +57,34 @@ const tags: HtmlTagDescriptor[] = [
   },
 ]
 let extPlug = undefined
-if (process.env.NODE_ENV === 'production') {
-  tags.push(
-    {
-      injectTo: 'head',
-      tag: 'script',
-      attrs: {
-        src: 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.runtime.global.prod.js',
-      },
-    },
-    {
-      injectTo: 'head',
-      tag: 'script',
-      attrs: {
-        src: 'https://cdn.jsdelivr.net/npm/vue-demi',
-      },
-    },
-    {
-      injectTo: 'head',
-      tag: 'script',
-      attrs: {
-        src: 'https://cdn.jsdelivr.net/npm/pinia',
-      },
-    })
-  extPlug = viteExternalsPlugin({
-    vue: 'Vue',
-    pinia: 'Pinia'
-  })
-}
+// if (process.env.NODE_ENV === 'production') {
+//   tags.push(
+//     {
+//       injectTo: 'head',
+//       tag: 'script',
+//       attrs: {
+//         src: 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.runtime.global.prod.js',
+//       },
+//     },
+//     {
+//       injectTo: 'head',
+//       tag: 'script',
+//       attrs: {
+//         src: 'https://cdn.jsdelivr.net/npm/vue-demi',
+//       },
+//     },
+//     {
+//       injectTo: 'head',
+//       tag: 'script',
+//       attrs: {
+//         src: 'https://cdn.jsdelivr.net/npm/pinia',
+//       },
+//     })
+//   extPlug = viteExternalsPlugin({
+//     vue: 'Vue',
+//     pinia: 'Pinia'
+//   })
+// }
 export default defineConfig({
   plugins: [
     vue(),
