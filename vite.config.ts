@@ -3,13 +3,88 @@ import * as path from 'path'
 import { brotliCompress } from 'zlib'
 
 import vue from '@vitejs/plugin-vue'
-import { defineConfig, normalizePath, Plugin } from 'vite'
+import { defineConfig, normalizePath, Plugin, HtmlTagDescriptor } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { viteExternalsPlugin } from 'vite-plugin-externals'
 
 
 // https://vitejs.dev/config/
 const target = 'esnext'
+const tags: HtmlTagDescriptor[] = [
+  {
+    injectTo: 'head-prepend',
+    tag: 'meta',
+    attrs: {
+      'http-equiv': 'Content-Security-Policy',
+      content: "default-src 'self';script-src-elem 'self' https://cdn.jsdelivr.net;style-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
+    },
+  },
+  {
+    injectTo: 'head-prepend',
+    tag: 'meta',
+    attrs: {
+      'http-equiv': 'X-Content-Type-Options',
+      content: 'nosniff',
+    },
+  },
+  {
+    injectTo: 'head-prepend',
+    tag: 'title',
+    children: 'BigO Diner'
+  },
+  // {
+  //   injectTo: 'head-prepend',
+  //   tag: 'link',
+  //   attrs: {
+  //     rel: 'icon',
+  //     href: '/favicon.ico',
+  //   },
+  // },
+  {
+    injectTo: 'head-prepend',
+    tag: 'meta',
+    attrs: {
+      name: 'viewport',
+      content: 'width=device-width,initial-scale=1.0',
+    },
+  },
+  {
+    injectTo: 'head-prepend',
+    tag: 'meta',
+    attrs: {
+      charset: 'UTF-8',
+    },
+  },
+]
+let extPlug = undefined
+if (process.env.NODE_ENV === 'production') {
+  tags.push(
+    {
+      injectTo: 'head',
+      tag: 'script',
+      attrs: {
+        src: 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.runtime.global.prod.js',
+      },
+    },
+    {
+      injectTo: 'head',
+      tag: 'script',
+      attrs: {
+        src: 'https://cdn.jsdelivr.net/npm/vue-demi',
+      },
+    },
+    {
+      injectTo: 'head',
+      tag: 'script',
+      attrs: {
+        src: 'https://cdn.jsdelivr.net/npm/pinia',
+      },
+    })
+  extPlug = viteExternalsPlugin({
+    vue: 'Vue',
+    pinia: 'Pinia'
+  })
+}
 export default defineConfig({
   plugins: [
     vue(),
@@ -24,58 +99,12 @@ export default defineConfig({
             data: {
               htmlLang: '"en-US"',  // '"zh-cmn-Hans"',
             },
-            tags: [
-              {
-                injectTo: 'head-prepend',
-                tag: 'meta',
-                attrs: {
-                  'http-equiv': 'Content-Security-Policy',
-                  content: "default-src 'self';script-src-elem 'self' https://cdn.jsdelivr.net;style-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
-                },
-              },
-              {
-                injectTo: 'head-prepend',
-                tag: 'meta',
-                attrs: {
-                  'http-equiv': 'X-Content-Type-Options',
-                  content: 'nosniff',
-                },
-              },
-              {
-                injectTo: 'head-prepend',
-                tag: 'title',
-                children: 'BigO Diner'
-              },
-              {
-                injectTo: 'head',
-                tag: 'script',
-                attrs: {
-                  src: 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.runtime.global.prod.js',
-                },
-              },
-              {
-                injectTo: 'head',
-                tag: 'script',
-                attrs: {
-                  src: 'https://cdn.jsdelivr.net/npm/vue-demi',
-                },
-              },
-              {
-                injectTo: 'head',
-                tag: 'script',
-                attrs: {
-                  src: 'https://cdn.jsdelivr.net/npm/pinia',
-                },
-              },
-            ],
+            tags,
           },
         }
       ]
     }),
-    viteExternalsPlugin({
-      vue: 'Vue',
-      pinia: 'Pinia'
-    }),
+    extPlug,
     MyPostProcessorOnBuild(async p => {
       if (/\.(\w?js|css)$/.test(p)) {
         let content = await (await readFile(p)).toString()
@@ -117,19 +146,19 @@ export default defineConfig({
     modules: {
       localsConvention: 'camelCase',
     },
-    postcss: {
-      plugins: [
-        {  // Remove @charset warnings
-          postcssPlugin: 'internal:charset-removal',
-          AtRule: {
-            charset: (atRule) => {
-              if (atRule.name === 'charset') {
-                atRule.remove()
-              }
-            }
-          }
-        }]
-    }
+    // postcss: {
+    //   plugins: [
+    //     {  // Remove @charset warnings
+    //       postcssPlugin: 'internal:charset-removal',
+    //       AtRule: {
+    //         charset: (atRule) => {
+    //           if (atRule.name === 'charset') {
+    //             atRule.remove()
+    //           }
+    //         }
+    //       }
+    //     }]
+    // }
   },
   optimizeDeps: {
     esbuildOptions: {
