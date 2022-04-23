@@ -1,10 +1,12 @@
 const c = document.documentElement.classList
 
 function d() {
+  document.title = 'BigO Diner'
   c.add('dark')
 }
 
 function l() {
+  document.title = 'MilkTea Diner'
   c.remove('dark')
 }
 

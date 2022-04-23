@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '@/stores'
+import { darkBgBigOColor, textBigOColor, darkTextBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
 
 const store = useStore()
 </script>
@@ -10,7 +11,7 @@ const store = useStore()
 
 
 <template>
-  <nav class="bg-white border-gray-200 px-2 py-2.5 rounded" :class="[store.darkBgThemeColor]">
+  <nav class="bg-white border-gray-200 px-2 py-2.5 rounded" :class="[darkBgBigOColor]">
     <div class="container grid grid-cols-3 file:mx-auto">
 
       <div class="md:hidden"></div>
@@ -18,7 +19,7 @@ const store = useStore()
       <a href="/" class="justify-self-center flex">
         <img src="/logo.png" class="mr-2 h-6 sm:h-9 self-center" />
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-          :class="[store.textThemeColor]">BigO
+          :class="[store.isDark ? textBigOColor : textMtColor]">{{ store.isDark ? 'BigO' : 'MilkTea' }}
           Diner</span>
       </a>
 
@@ -34,13 +35,13 @@ const store = useStore()
           </div>
           <input type="text" id="email-adress-icon"
             class="block p-2 pl-10 w-full text-sm text-gray-900 rounded-lg border border-gray-300 dark:border-gray-600 dark:placeholder-gray-400"
-            :class="[store.darkTextThemeColor]" placeholder="Search...">
+            :class="[darkTextBigOColor]" placeholder="Search...">
         </div>
         <button data-collapse-toggle="mobile-menu-3" type="button"
           class="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden focus:outline-none  "
           aria-controls="mobile-menu-3" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
-          <svg class="w-6 h-6 dark:text-white" :class="[store.textThemeColor]" fill="currentColor" viewBox="0 0 20 20"
+          <svg class="w-6 h-6 dark:text-white" :class="[textBigOColor]" fill="currentColor" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -57,21 +58,20 @@ const store = useStore()
       <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
         <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
           <li>
-            <a href="#"
-              class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-              aria-current="page">猫粮</a>
+            <a href="#" class="block py-2 pr-4 pl-3 dark:text-white rounded md:bg-transparent  md:p-0  "
+              :class="[bgMtColor]" aria-current="page">猫粮</a>
           </li>
           <li>
-            <a href="#"
-              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫罐头</a>
+            <a href="#" :class="[textMtColor]"
+              class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫罐头</a>
           </li>
           <li>
-            <a href="#"
-              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">冻干</a>
+            <a href="#" :class="[textMtColor]"
+              class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">冻干</a>
           </li>
           <li>
-            <a href="#"
-              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫条</a>
+            <a href="#" :class="[textMtColor]"
+              class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫条</a>
           </li>
         </ul>
       </div>
@@ -80,10 +80,9 @@ const store = useStore()
   </nav>
 
   <img
-    :src="store.isDark ? 'https://media-exp1.licdn.com/dms/image/D4D35AQE8tx0xNeh68w/profile-framedphoto-shrink_200_200/0/1647614603153?e=2147483647&v=beta&t=Vxdt4VfeMmSyx4ilqRMBXrVezGvSZOIsSZk329-Z9P4' : 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg'"
+    :src="store.isDark ? 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg' : 'https://media-exp1.licdn.com/dms/image/D4D35AQE8tx0xNeh68w/profile-framedphoto-shrink_200_200/0/1647614603153?e=2147483647&v=beta&t=Vxdt4VfeMmSyx4ilqRMBXrVezGvSZOIsSZk329-Z9P4'"
     class="h-96 object-contain w-1/2 ml-auto mr-auto" />
 
-
-  <div>大橘：{{ store.isDark ? '老吴~~~啊~吴~吃~~麻麻香' : '嗷呜~~猫呜~~母猫~~猫粮呜' }}！</div>
+  <div class="dark:text-white">大橘：{{ store.isDark ? '嗷呜~~猫呜~~母猫~~猫粮呜' : '老吴~~~啊~吴~吃~~麻麻香' }}！</div>
 
 </template>

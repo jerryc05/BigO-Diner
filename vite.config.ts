@@ -30,11 +30,6 @@ const tags: HtmlTagDescriptor[] = [{
 },
 {
   injectTo: 'head-prepend',
-  tag: 'title',
-  children: 'BigO Diner'
-},
-{
-  injectTo: 'head-prepend',
   tag: 'link',
   attrs: {
     rel: 'icon',
