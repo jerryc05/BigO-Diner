@@ -117,18 +117,16 @@ export default defineConfig({
       }
     }),
     MyPostProcessorOnBuild(async p => {
-      /* if (/\.(\w?js|css|\w?html)$/.test(p)) */ {
-        const newFileName = `${p}.br`
-        const orig = await readFile(p)
+      if (/\.\w?(js|css|html)$/.test(p)) {
+        const f = await open(p, 'r+')
+        const orig = await f.read()
         const compressed: Buffer = await new Promise((acc, rej) =>
-          brotliCompress(orig, (e, b) => e ? rej(e) : acc(b))
+          brotliCompress(orig.buffer, (e, b) => e ? rej(e) : acc(b))
         )
-        const newSz = compressed.byteLength
-        const origSz = await stat(p).then(s => s.size)
-        const willSave = newSz < origSz * 0.95
-        if (willSave)
-          await open(newFileName, 'wx').then(async f => f.write(compressed))  // if alredy exist then err out
-        console.log(`${p}\n\t${origSz} \t-> ${newSz} bytes \t${(newSz / origSz).toFixed(4)}x ${willSave ? '✅' : '❌'}`)
+        await f.write(compressed, 0, compressed.length, 0)
+        const origSz = orig.bytesRead
+        const newSz = compressed.length
+        console.log(`${p}\n\t${origSz} \t-> ${newSz} bytes \t${(newSz / origSz).toFixed(4)}x`)
       }
     })
   ],

@@ -8,6 +8,15 @@
           "value": "public,max-age=9999999,immutable"
         }
       ]
+    },
+    {
+      "source": "/(.+?)\\.\\w?(?:js|css|html)",
+      "headers": [
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        }
+      ]
     }
   ]
 }
