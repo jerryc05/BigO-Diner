@@ -17,8 +17,7 @@ const store = useStore()
 
       <a href="/" class="col-start-2 col-span-3 flex place-content-center">
         <img src="/logo.png" class="mx-1 h-7 w-7 place-self-center -scale-x-100" />
-        <span class="place-self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-          :class="[store.isDark ? textBigOColor : textMtColor]">{{ store.isDark ? 'BigO' : 'MilkTea' }}
+        <span class="place-self-center text-xl font-semibold whitespace-nowrap ">{{ store.isDark ? 'BigO' : 'MilkTea' }}
           Diner</span>
         <img src="/logo.png" class="mx-1 h-7 w-7 place-self-center" />
       </a>
@@ -35,14 +34,13 @@ const store = useStore()
           </div>
           <input type="text" id="email-adress-icon"
             class="block p-2 pl-10 w-full text-sm text-gray-900 rounded-lg border border-gray-300 dark:border-gray-600 dark:placeholder-gray-400"
-            :class="[darkTextBigOColor]" placeholder="Search...">
+            placeholder="Search...">
         </div>
         <button data-collapse-toggle="mobile-menu-3" type="button"
           class="inline-flex items-center p-2 text-sm rounded-lg md:hidden focus:outline-none  "
           aria-controls="mobile-menu-3" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
-          <svg class="w-6 h-6 dark:text-white" :class="[textBigOColor]" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
               clip-rule="evenodd"></path>
@@ -58,8 +56,8 @@ const store = useStore()
       <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
         <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
           <li>
-            <a href="#" class="block py-2 pr-4 pl-3 dark:text-white rounded md:bg-transparent  md:p-0  "
-              :class="[bgMtColor]" aria-current="page">猫粮</a>
+            <a href="#" class="block py-2 pr-4 pl-3 rounded md:bg-transparent  md:p-0  " :class="[bgMtColor]"
+              aria-current="page">猫粮</a>
           </li>
           <li>
             <a href="#" :class="[textMtColor]"
@@ -78,11 +76,4 @@ const store = useStore()
 
     </div>
   </nav>
-
-  <img
-    :src="store.isDark ? 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg' : 'https://media-exp1.licdn.com/dms/image/D4D35AQE8tx0xNeh68w/profile-framedphoto-shrink_200_200/0/1647614603153?e=2147483647&v=beta&t=Vxdt4VfeMmSyx4ilqRMBXrVezGvSZOIsSZk329-Z9P4'"
-    class="h-4/6 object-contain ml-auto mr-auto" />
-
-  <div class="dark:text-white">大橘：{{ store.isDark ? '嗷呜~~猫呜~~母猫~~猫粮呜' : '老吴~~~啊~吴~吃~~麻麻香' }}！</div>
-
 </template>
