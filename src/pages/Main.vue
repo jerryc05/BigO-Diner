@@ -11,19 +11,18 @@ const store = useStore()
 
 
 <template>
-  <nav class="bg-white border-gray-200 px-2 py-2.5 rounded" :class="[darkBgBigOColor]">
-    <div class="container grid grid-cols-3 file:mx-auto">
-
+  <nav class="px-2 py-2.5 rounded-b-lg" :class="[darkBgBigOColor]">
+    <div class="container grid grid-cols-5 grid-flow-col">
       <div class="md:hidden"></div>
 
-      <a href="/" class="justify-self-center flex">
-        <img src="/logo.png" class="mr-2 h-6 sm:h-9 self-center" />
+      <a href="/" class="col-start-2 col-span-3 place-self-center flex">
+        <img src="/logo.png" class="mr-2 h-7 w-7 self-center" />
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
           :class="[store.isDark ? textBigOColor : textMtColor]">{{ store.isDark ? 'BigO' : 'MilkTea' }}
           Diner</span>
       </a>
 
-      <div class="flex justify-self-center md:order-2">
+      <div class="flex place-self-end md:order-2">
         <div class="hidden relative mr-3 md:mr-0 md:block">
           <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
             <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
@@ -38,7 +37,7 @@ const store = useStore()
             :class="[darkTextBigOColor]" placeholder="Search...">
         </div>
         <button data-collapse-toggle="mobile-menu-3" type="button"
-          class="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden focus:outline-none  "
+          class="inline-flex items-center p-2 text-sm rounded-lg md:hidden focus:outline-none  "
           aria-controls="mobile-menu-3" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-6 h-6 dark:text-white" :class="[textBigOColor]" fill="currentColor" viewBox="0 0 20 20"
@@ -81,7 +80,7 @@ const store = useStore()
 
   <img
     :src="store.isDark ? 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg' : 'https://media-exp1.licdn.com/dms/image/D4D35AQE8tx0xNeh68w/profile-framedphoto-shrink_200_200/0/1647614603153?e=2147483647&v=beta&t=Vxdt4VfeMmSyx4ilqRMBXrVezGvSZOIsSZk329-Z9P4'"
-    class="h-96 object-contain w-1/2 ml-auto mr-auto" />
+    class="h-4/6 object-contain ml-auto mr-auto" />
 
   <div class="dark:text-white">大橘：{{ store.isDark ? '嗷呜~~猫呜~~母猫~~猫粮呜' : '老吴~~~啊~吴~吃~~麻麻香' }}！</div>
 
