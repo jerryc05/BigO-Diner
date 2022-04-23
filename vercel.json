@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/*.{js,css,html}",
+      "source": "/assets/(.*).(js|css|html)",
       "headers": [
         {
           "key": "Content-Encoding",

@@ -1,4 +1,4 @@
-import { open, readdir, readFile, stat } from 'fs/promises'
+import { open, readdir, readFile, stat, writeFile } from 'fs/promises'
 import * as path from 'path'
 import { brotliCompress } from 'zlib'
 
@@ -117,16 +117,18 @@ export default defineConfig({
       }
     }),
     MyPostProcessorOnBuild(async p => {
-      if (/\.\w?(js|css|html)$/.test(p)) {
-        const f = await open(p, 'r+')
-        const orig = await f.read()
+      p = p.split(path.sep).join(path.posix.sep)
+      if (/\/assets\/.+\w?(js|css|html)$/.test(p)) {
+        const orig = await readFile(p)
         const compressed: Buffer = await new Promise((acc, rej) =>
           brotliCompress(orig.buffer, (e, b) => e ? rej(e) : acc(b))
         )
-        await f.write(compressed, 0, compressed.length, 0)
-        const origSz = orig.bytesRead
+        await writeFile(p, compressed)
+        const origSz = orig.length
         const newSz = compressed.length
         console.log(`${p}\n\t${origSz} \t-> ${newSz} bytes \t${(newSz / origSz).toFixed(4)}x`)
+      } else {
+        console.log(`${p} \tskipped ...`)
       }
     })
   ],
