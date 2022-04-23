@@ -10,7 +10,7 @@ const store = useStore()
 
 
 <template>
-  <nav class="bg-white border-gray-200 px-2 py-2.5 rounded" :class="[`dark:bg-${store.themeColor}`]">
+  <nav class="bg-white border-gray-200 px-2 py-2.5 rounded" :class="[store.darkBgThemeColor]">
     <div class="container grid grid-cols-3 file:mx-auto">
 
       <div class="md:hidden"></div>
@@ -18,7 +18,7 @@ const store = useStore()
       <a href="/" class="justify-self-center flex">
         <img src="/logo.png" class="mr-2 h-6 sm:h-9 self-center" />
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-          :class="[`text-${store.themeColor}`]">BigO
+          :class="[store.textThemeColor]">BigO
           Diner</span>
       </a>
 
@@ -34,14 +34,14 @@ const store = useStore()
           </div>
           <input type="text" id="email-adress-icon"
             class="block p-2 pl-10 w-full text-sm text-gray-900 rounded-lg border border-gray-300 dark:border-gray-600 dark:placeholder-gray-400"
-            :class="[`dark:text-${store.themeColor}`]" placeholder="Search...">
+            :class="[store.darkTextThemeColor]" placeholder="Search...">
         </div>
         <button data-collapse-toggle="mobile-menu-3" type="button"
           class="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden focus:outline-none  "
           aria-controls="mobile-menu-3" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
-          <svg class="w-6 h-6 dark:text-white" :class="[`text-${store.themeColor}`]" fill="currentColor"
-            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-6 h-6 dark:text-white" :class="[store.textThemeColor]" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
               clip-rule="evenodd"></path>

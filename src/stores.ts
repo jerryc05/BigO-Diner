@@ -30,7 +30,11 @@ x_.x == 'example'
 export const useStore = defineStore('', {
   state: () => ({
     isDark: detectDarkMode(),
-    themeColor: 'amber-600'
+    themeColor: 'amber-600',
+    bgThemeColor: 'bg-amber-600',
+    darkBgThemeColor: 'dark:bg-amber-600',
+    textThemeColor: 'text-amber-600',
+    darkTextThemeColor: 'dark:text-amber-600',
   }),
   getters: {  // Same as computed
   },

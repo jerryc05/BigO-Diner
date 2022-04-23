@@ -14,7 +14,7 @@ const store = useStore()
   <Main />
 
   <div class="grid place-content-center">
-    <button class="rounded text-white p-3" :class="[`bg-${store.themeColor}`]" @click="store.toggleLightDarkMode">Change
+    <button class="rounded text-white p-3" :class="[store.bgThemeColor]" @click="store.toggleLightDarkMode">Change
       to
       {{ store.isDark ? 'Light' : 'Dark' }} mode</button>
   </div>
