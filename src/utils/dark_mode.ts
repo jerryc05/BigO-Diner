@@ -16,8 +16,10 @@ export function detectDarkMode() {
   const s: '1' | '0' | null = localStorage['dark']
   if (s == '1' || (s == null && a())) {
     d()
+    return true
   } else {
     l()
+    return false
   }
 }
 
