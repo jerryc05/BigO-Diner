@@ -5,12 +5,12 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public,max-age=9999999,immutable"
+          "value": "public,max-age=999999,immutable"
         }
       ]
     },
     {
-      "source": "/(.+?)\\.\\w?(?:js|css|html)",
+      "source": "/*.{js,css,html}",
       "headers": [
         {
           "key": "Content-Encoding",
