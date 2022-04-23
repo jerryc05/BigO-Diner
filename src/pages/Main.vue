@@ -15,11 +15,12 @@ const store = useStore()
     <div class="container grid grid-cols-5 grid-flow-col">
       <div class="md:hidden"></div>
 
-      <a href="/" class="col-start-2 col-span-3 place-self-center flex">
-        <img src="/logo.png" class="mr-2 h-7 w-7 self-center" />
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+      <a href="/" class="col-start-2 col-span-3 flex place-content-center">
+        <img src="/logo.png" class="mx-1 h-7 w-7 place-self-center -scale-x-100" />
+        <span class="place-self-center text-xl font-semibold whitespace-nowrap dark:text-white"
           :class="[store.isDark ? textBigOColor : textMtColor]">{{ store.isDark ? 'BigO' : 'MilkTea' }}
           Diner</span>
+        <img src="/logo.png" class="mx-1 h-7 w-7 place-self-center" />
       </a>
 
       <div class="flex place-self-end md:order-2">
