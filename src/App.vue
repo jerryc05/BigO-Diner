@@ -15,7 +15,7 @@ const store = useStore()
 
 
 <template>
-  <div class="w-full h-full dark:bg-black dark:text-white" :class='[textMtColor]'>
+  <div class="w-full min-h-screen dark:bg-black dark:text-white" :class='[textMtColor]'>
     <NavBar />
 
     <div class="mx-7 mt-5">
