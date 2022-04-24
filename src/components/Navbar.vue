@@ -12,7 +12,7 @@ const store = useStore()
 
 <template>
   <nav class="px-2 py-2.5 rounded-b-lg" :class="[darkBgBigOColor]">
-    <div class="container grid grid-cols-5 grid-flow-col">
+    <div class="grid grid-cols-5 grid-flow-col">
       <div class="md:hidden"></div>
 
       <a href="/" class="col-start-2 col-span-3 flex place-content-center">

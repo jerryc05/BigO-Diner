@@ -8,5 +8,7 @@ const props = defineProps({ text: String })
 
 
 <template>
-  <div class="text-center bg-blue-300 w-32 m-1">{{ props.text }}</div>
+  <div class="bg-blue-400 w-32 h-10 m-1">
+    <div class="text-center relative top-1/2 -translate-y-1/2">{{ props.text }}</div>
+  </div>
 </template>
