@@ -11,7 +11,7 @@ const store = useStore()
 
 
 <template>
-  <nav class="px-2 py-2.5 rounded-b-lg" :class="[darkBgBigOColor]">
+  <nav class="px-2 py-2.5 rounded-b-lg bg-gray-300" :class="[darkBgBigOColor]">
     <div class="grid grid-cols-5 grid-flow-col">
       <div class="md:hidden"></div>
 
