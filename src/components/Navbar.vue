@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useStore } from '@/stores'
-import { darkBgBigOColor, textBigOColor, darkTextBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
+import { darkBgBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
+import big_o from '@/assets/big_o.png'
+import bingbing from '@/assets/bingbing.png'
 
 const store = useStore()
 </script>
@@ -11,18 +13,81 @@ const store = useStore()
 
 
 <template>
-  <nav class="px-2 py-2.5 rounded-b-lg bg-gray-300" :class="[darkBgBigOColor]">
-    <div class="grid grid-cols-5 grid-flow-col">
-      <div class="md:hidden"></div>
+  <nav class="px-1 py-2.5 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300" :class="[darkBgBigOColor]">
 
-      <a href="/" class="col-start-2 col-span-3 flex place-content-center">
-        <img src="/logo.png" class="mx-1 h-7 w-7 place-self-center -scale-x-100" />
-        <span class="place-self-center text-xl font-semibold whitespace-nowrap ">{{ store.isDark ? 'BigO' : 'MilkTea' }}
-          Diner</span>
-        <img src="/logo.png" class="mx-1 h-7 w-7 place-self-center" />
-      </a>
+    <a href="/" class="h-full col-start-2 col-span-5 flex place-content-center">
+      <img :src="store.isDark ? big_o : bingbing" class="mx-1 h-6 w-6 place-self-center -scale-x-100" />
+      <span class="place-self-center text-2xl font-semibold whitespace-nowrap ">{{ store.isDark ? 'BigO' : 'MilkTea' }}
+        Diner</span>
+      <img :src="store.isDark ? big_o : bingbing" class="mx-1 h-6 w-6 place-self-center" />
+    </a>
 
-      <div class="flex place-self-end md:order-2">
+    <div class="justify-end flex md:order-2">
+      <button type="button" class="flex text-sm rounded-full focus:ring-gray-300 dark:focus:ring-gray-600"
+        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+        <span class="sr-only">Open user menu</span>
+        <span class="h-full aspect-square self-center rounded-full flex place-content-center bg-white">
+          <img class="h-4/5 aspect-square self-center" :src="store.isDark ? big_o : bingbing">
+        </span>
+      </button>
+      <!-- Dropdown menu -->
+      <div
+        class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+        id="dropdown">
+        <div class="py-3 px-4">
+          <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+          <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+        </div>
+        <ul class="py-1" aria-labelledby="dropdown">
+          <li>
+            <a href="#"
+              class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+              out</a>
+          </li>
+        </ul>
+      </div>
+      <!-- <button data-collapse-toggle="mobile-menu-2" type="button"
+          class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="mobile-menu-2" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button> -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="flex place-self-end md:order-2">
         <div class="hidden relative mr-3 md:mr-0 md:block">
           <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
             <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
@@ -51,29 +116,27 @@ const store = useStore()
               clip-rule="evenodd"></path>
           </svg>
         </button>
-      </div>
+      </div> -->
 
-      <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
-        <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-          <li>
-            <a href="#" class="block py-2 pr-4 pl-3 rounded md:bg-transparent  md:p-0  " :class="[bgMtColor]"
-              aria-current="page">猫粮</a>
-          </li>
-          <li>
-            <a href="#" :class="[textMtColor]"
-              class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫罐头</a>
-          </li>
-          <li>
-            <a href="#" :class="[textMtColor]"
-              class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">冻干</a>
-          </li>
-          <li>
-            <a href="#" :class="[textMtColor]"
-              class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫条</a>
-          </li>
-        </ul>
-      </div>
-
+    <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
+      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+        <li>
+          <a href="#" class="block py-2 pr-4 pl-3 rounded md:bg-transparent  md:p-0  " :class="[bgMtColor]"
+            aria-current="page">猫粮</a>
+        </li>
+        <li>
+          <a href="#" :class="[textMtColor]"
+            class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫罐头</a>
+        </li>
+        <li>
+          <a href="#" :class="[textMtColor]"
+            class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">冻干</a>
+        </li>
+        <li>
+          <a href="#" :class="[textMtColor]"
+            class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫条</a>
+        </li>
+      </ul>
     </div>
   </nav>
 </template>

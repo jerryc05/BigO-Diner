@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { darkBgBigOColor } from '@/utils/colors'
 const props = defineProps({ text: String })
 </script>
 
@@ -8,7 +9,6 @@ const props = defineProps({ text: String })
 
 
 <template>
-  <div class="bg-blue-400 w-32 h-10 m-1">
-    <div class="text-center relative top-1/2 -translate-y-1/2">{{ props.text }}</div>
-  </div>
+  <button class="w-32 h-10 rounded m-1 bg-gray-300" :class="[darkBgBigOColor]"
+    @click="(e) => { (e.target as HTMLButtonElement).innerText = '妙啊' }">{{ props.text }}</button>
 </template>

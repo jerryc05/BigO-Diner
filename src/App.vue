@@ -23,7 +23,7 @@ const store = useStore()
       <ChefsSpecial />
 
       <img :src="store.isDark ? 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg' : bingbing"
-        class="h-[34rem] object-contain ml-auto mr-auto" />
+        class="h-36 object-contain ml-auto mr-auto" />
 
       <div>{{ store.isDark ? '大橘：老吴~~~啊~吴~吃~~麻麻香' : '大饼：嗷呜~~猫呜~~母猫~~猫粮呜' }}！</div>
 

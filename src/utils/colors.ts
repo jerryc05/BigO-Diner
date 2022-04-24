@@ -1,7 +1,7 @@
-export const bgBigOColor = 'bg-amber-600'
-export const darkBgBigOColor = 'dark:bg-amber-600'
-export const textBigOColor = 'text-amber-600'
-export const darkTextBigOColor = 'dark:text-amber-600'
+export const bgBigOColor = 'bg-[#ab641b]'
+export const darkBgBigOColor = 'dark:bg-[#ab641b]'
+export const textBigOColor = 'text-[#ab641b]'
+export const darkTextBigOColor = 'dark:text-[#ab641b]'
 
 
 export const bgMtColor = 'bg-[#3e2d14]'
