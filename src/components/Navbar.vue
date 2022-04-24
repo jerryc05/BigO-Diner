@@ -21,7 +21,7 @@ const store = useStore()
       <img :src="store.isDark ? big_o : bingbing" class="mx-1 h-6 w-6 place-self-center" />
     </a>
 
-    <div class="justify-end flex md:order-2">
+    <div class="justify-end flex pr-2 md:order-2">
       <button type="button" class="flex text-sm rounded-full focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
         <span class="sr-only">Open user menu</span>
