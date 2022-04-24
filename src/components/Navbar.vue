@@ -14,7 +14,6 @@ const store = useStore()
 
 <template>
   <nav class="px-1 py-2.5 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300" :class="[darkBgBigOColor]">
-
     <a href="/" class="h-full col-start-2 col-span-5 flex place-content-center">
       <img :src="store.isDark ? big_o : bingbing" class="mx-1 h-6 w-6 place-self-center -scale-x-100" />
       <span class="place-self-center text-2xl font-semibold whitespace-nowrap ">{{ store.isDark ? 'BigO' : 'MilkTea' }}

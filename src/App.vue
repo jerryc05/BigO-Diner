@@ -18,7 +18,7 @@ const store = useStore()
   <div class="w-full min-h-screen dark:bg-black dark:text-white" :class='[textMtColor]'>
     <NavBar />
 
-    <div class="mx-7 mt-5">
+    <div class="px-7 pt-5">
       <Category />
       <ChefsSpecial />
 
