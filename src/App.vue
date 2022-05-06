@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import NavBar from './components/NavBar.vue'
-import Category from './components/Category.vue'
-import ChefsSpecial from './components/ChefsSpecial.vue'
+import NavBar from '@/components/NavBar.vue'
+import Category from '@/components/Category.vue'
+import ChefsSpecial from '@/components/ChefsSpecial.vue'
 import bingbing from '@/assets/bingbing.png'
-import { useStore } from './stores'
+import { useStore } from '@/stores'
 import { bgMtColor, textMtColor, darkBgBigOColor } from '@/utils/colors'
 
 const store = useStore()

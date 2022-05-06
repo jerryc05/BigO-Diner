@@ -1,4 +1,5 @@
-import { open, readdir, readFile, stat, writeFile } from 'fs/promises'
+import { constants } from 'fs'
+import { access, open, readdir, readFile, stat, writeFile } from 'fs/promises'
 import * as path from 'path'
 import { brotliCompress } from 'zlib'
 
@@ -95,7 +96,7 @@ export default defineConfig({
     extPlug,
     MyPostProcessorOnBuild(async p => {
       if (/\.(\w?js|css)$/.test(p)) {
-        let content = await (await readFile(p)).toString()
+        let content = (await readFile(p)).toString()
         const commentRegex = /\/\*[\s\S]*?\*\//g
         if (commentRegex.test(content)) {
           content = content.replace(commentRegex, '')
@@ -175,6 +176,6 @@ function MyPostProcessorOnBuild(fn: (p: string) => Promise<void> | void): Plugin
     configResolved(conf) {
       outRoot = normalizePath(path.resolve(conf.root, conf.build.outDir))
     },
-    async closeBundle() { await iterDir(outRoot) }
+    async closeBundle() { access(outRoot, constants.F_OK).then(_ => iterDir(outRoot)) }
   }
 }
