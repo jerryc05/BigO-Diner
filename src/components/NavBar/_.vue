@@ -16,12 +16,15 @@ const store = useStore()
 <template>
   <nav class="px-1 py-3 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300" :class="[darkBgBigOColor]">
     <!-- Title and icon -->
-    <a href="/" class="h-full col-start-2 col-span-5 flex place-content-center">
-      <TitleIcon moreClass='-scale-x-100' />
-      <span class="place-self-center text-2xl font-semibold whitespace-nowrap ">{{ store.isDark ? 'BigO' : 'MilkTea' }}
-        Diner</span>
-      <TitleIcon />
-    </a>
+    <span class="col-start-2 col-span-5 flex place-content-center">
+      <a href="/" class="h-full w-min flex place-content-center">
+        <TitleIcon moreClass='-scale-x-100' />
+        <span
+          class="place-self-center text-2xl font-semibold whitespace-nowrap ">{{ store.isDark ? 'BigO' : 'MilkTea' }}
+          Diner</span>
+        <TitleIcon />
+      </a>
+    </span>
 
     <div class="justify-end flex pr-2 md:order-2">
       <!-- User avatar -->
