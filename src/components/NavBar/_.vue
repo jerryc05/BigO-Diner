@@ -2,7 +2,7 @@
 import { useStore } from '@/stores'
 import { darkBgBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
 import TitleIcon from './TitleIcon.vue'
-import big_o from '@/assets/big_o.png'
+import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 
 const store = useStore()
@@ -28,7 +28,7 @@ const store = useStore()
       <button type="button" class="flex text-sm rounded-full focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
         <span class="h-full aspect-square self-center rounded-full flex place-content-center bg-white">
-          <img class="h-4/5 aspect-square self-center" :src="store.isDark ? big_o : bingbing">
+          <img class="h-4/5 aspect-square self-center" :src="store.isDark ? bigO : bingbing">
         </span>
       </button>
 

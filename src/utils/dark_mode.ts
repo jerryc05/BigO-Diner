@@ -1,4 +1,4 @@
-import big_o from '@/assets/big_o.png'
+import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 
 
@@ -20,7 +20,7 @@ function i() {
 }
 
 function d() {
-  i().href = big_o
+  i().href = bigO
   document.title = 'BigO Diner'
   c.add('dark')
 }
