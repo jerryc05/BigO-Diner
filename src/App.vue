@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavBar from '@/components/NavBar.vue'
+import NavBar from '@/components/NavBar/_.vue'
 import Category from '@/components/Category.vue'
 import ChefsSpecial from '@/components/ChefsSpecial.vue'
 import bingbing from '@/assets/bingbing.png'

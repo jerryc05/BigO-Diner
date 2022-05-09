@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useStore } from '@/stores'
 import { darkBgBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
+import TitleIcon from './TitleIcon.vue'
 import big_o from '@/assets/big_o.png'
 import bingbing from '@/assets/bingbing.png'
 
@@ -13,22 +14,24 @@ const store = useStore()
 
 
 <template>
-  <nav class="px-1 py-2.5 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300" :class="[darkBgBigOColor]">
+  <nav class="px-1 py-3 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300" :class="[darkBgBigOColor]">
+    <!-- Title and icon -->
     <a href="/" class="h-full col-start-2 col-span-5 flex place-content-center">
-      <img :src="store.isDark ? big_o : bingbing" class="mx-1 h-6 w-6 place-self-center -scale-x-100" />
+      <TitleIcon moreClass='-scale-x-100' />
       <span class="place-self-center text-2xl font-semibold whitespace-nowrap ">{{ store.isDark ? 'BigO' : 'MilkTea' }}
         Diner</span>
-      <img :src="store.isDark ? big_o : bingbing" class="mx-1 h-6 w-6 place-self-center" />
+      <TitleIcon />
     </a>
 
     <div class="justify-end flex pr-2 md:order-2">
+      <!-- User avatar -->
       <button type="button" class="flex text-sm rounded-full focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
-        <span class="sr-only">Open user menu</span>
         <span class="h-full aspect-square self-center rounded-full flex place-content-center bg-white">
           <img class="h-4/5 aspect-square self-center" :src="store.isDark ? big_o : bingbing">
         </span>
       </button>
+
       <!-- Dropdown menu -->
       <div
         class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
