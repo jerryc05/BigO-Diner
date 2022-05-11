@@ -4,7 +4,7 @@ import { Chef } from './chefs'
 export class Item {
   cnName: Readonly<string>
   enName: Readonly<string>
-  ingredients: Readonly<Ingredient>[]
+  ingredients: (Readonly<Ingredient>[] | undefined)
   chefs: Readonly<Chef[]>
   constructor(cnName: Readonly<string>, enName: Readonly<string>, ingredients: Readonly<Ingredient>[], chefs: Readonly<Chef[]>) {
     this.cnName = cnName

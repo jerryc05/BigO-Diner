@@ -1,4 +1,3 @@
-import { title } from 'process'
 import { BeefShank, Chicken, ChickenFeet, Corn, Cucumber, Egg, Goji, Jellyfish, Lemon, Millet, MungBean, Mushroom, Peanut, Pork, Potato, PotherbMustard, PreservedEgg, Sesame, Shrimp, WoodEar } from './ingredients'
 import { Item, ColdDish, CongeeDish, FlourDish, NoodleDish, RiceDish, SoupDish, PorkDish, BeefDish, LambDish, ChickenDish, SeafoodDish, VegetableDish, StreetFoodDish, Drink, Dessert, DessertCake } from './menu_types'
 
