@@ -37,8 +37,6 @@ export const menu: ReadonlyArray<Item> = [
   new FlourDish('云吞', 'Wonton', undefined, ['Jaybase']),
   new FlourDish('韭菜盒子', 'Fried Chinese Chives Pocket', undefined, ['Jaybase']),
   new FlourDish('海鲜煎饼', undefined, undefined, ['Jaybase', 'Jerryc05']),
-  new NoodleDish('手擀面（面种）', undefined, [], null),
-  new NoodleDish('荞麦面（面种）', undefined, [], null),
   new NoodleDish('香菇鸡肉面', undefined, undefined, ['Jaybase']),
   new NoodleDish('红烧牛肉面', undefined, undefined, ['Jaybase']),
   new NoodleDish('重庆小面', undefined, undefined, ['Jaybase']),
