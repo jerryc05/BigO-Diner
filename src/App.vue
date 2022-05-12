@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar/_.vue'
-import Category from '@/components/Category.vue'
-import ChefsSpecial from '@/components/ChefsSpecial.vue'
+import Category from '@/components/Category/_.vue'
+import AllDishes from '@/components/AllDishes/_.vue'
 import bingbing from '@/assets/bingbing.png'
 import { useStore } from '@/stores'
 import { bgMtColor, textMtColor, darkBgBigOColor } from '@/utils/colors'
@@ -20,7 +20,7 @@ const store = useStore()
 
     <div class="px-7 pt-5">
       <Category />
-      <ChefsSpecial />
+      <AllDishes />
 
       <img :src="store.isDark ? 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg' : bingbing"
         class="h-36 object-contain ml-auto mr-auto" />

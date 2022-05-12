@@ -3,7 +3,7 @@ import { useStore } from '@/stores'
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 
-const props = defineProps({ moreClass: String })
+const props = withDefaults(defineProps<{ moreClass: string }>(), { moreClass: '' })
 
 const store = useStore()
 </script>

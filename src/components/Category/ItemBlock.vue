@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { darkBgBigOColor } from '@/utils/colors'
-const props = defineProps({ text: String })
+
+const props = defineProps<{ text: string }>()
 </script>
 
 
