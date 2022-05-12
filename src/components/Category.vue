@@ -34,7 +34,7 @@ for (let i = 0; i < allCategories.length;) {
       <span>Category</span>
       <a href="#">See All >></a>
     </div>
-    <div v-for='x of groupedCategories' :key='x.reduce((p, c) => p + c, "")'>
+    <div v-for='x of groupedCategories' :key='x.join()'>
       <div class="flex justify-around">
         <span v-for='i of [0, 1, 2]'>
           <ItemBlock v-if='x.length >= i' :text='x[i]' />

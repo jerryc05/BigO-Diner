@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ItemBlock from './ItemBlock.vue'
 import { useStore } from '@/stores'
-import { darkBgBigOColor, textBigOColor, darkTextBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
+import { menu } from '@/menu/menu'
 
 const store = useStore()
 </script>
@@ -17,21 +17,9 @@ const store = useStore()
       <span>Chef's Special</span>
       <a href="#">See All >></a>
     </div>
-    <div>
+    <div v-for='x of menu' :key='x.cnName'>
       <div class="flex justify-around">
-        <ItemBlock :text="'吴'" />
-        <ItemBlock :text="'哥'" />
-        <ItemBlock :text="'窟'" />
-      </div>
-      <div class="flex justify-around">
-        <ItemBlock :text="'吴'" />
-        <ItemBlock :text="'哥'" />
-        <ItemBlock :text="'窟'" />
-      </div>
-      <div class="flex justify-around">
-        <ItemBlock :text="'吴'" />
-        <ItemBlock :text="'哥'" />
-        <ItemBlock :text="'窟'" />
+        <ItemBlock :text='x.cnName' />
       </div>
     </div>
   </div>
