@@ -1,11 +1,28 @@
 <script setup lang="ts">
 import ItemBlock from './ItemBlock.vue'
 import { useStore } from '@/stores'
-import { darkBgBigOColor, textBigOColor, darkTextBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
+import { menu } from '@/menu/menu'
 
 const store = useStore()
-</script>
 
+const allCategories = [...new Set(menu.map(x => x.category.cnName))]
+const groupedCategories: string[][] = []
+for (let i = 0; i < allCategories.length;) {
+  if (i < allCategories.length) {
+    const x = [allCategories[i]]
+    ++i
+    if (i < allCategories.length) {
+      x.push(allCategories[i])
+      ++i
+    }
+    if (i < allCategories.length) {
+      x.push(allCategories[i])
+      ++i
+    }
+    groupedCategories.push(x)
+  } else break
+}
+</script>
 
 
 
@@ -17,21 +34,11 @@ const store = useStore()
       <span>Category</span>
       <a href="#">See All >></a>
     </div>
-    <div>
+    <div v-for='x of groupedCategories' :key='x.reduce((p, c) => p + c, "")'>
       <div class="flex justify-around">
-        <ItemBlock :text="'吴'" />
-        <ItemBlock :text="'哥'" />
-        <ItemBlock :text="'窟'" />
-      </div>
-      <div class="flex justify-around">
-        <ItemBlock :text="'吴'" />
-        <ItemBlock :text="'哥'" />
-        <ItemBlock :text="'窟'" />
-      </div>
-      <div class="flex justify-around">
-        <ItemBlock :text="'吴'" />
-        <ItemBlock :text="'哥'" />
-        <ItemBlock :text="'窟'" />
+        <span v-for='i of [0, 1, 2]'>
+          <ItemBlock v-if='x.length >= i' :text='x[i]' />
+        </span>
       </div>
     </div>
   </div>
