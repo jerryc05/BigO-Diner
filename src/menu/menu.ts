@@ -27,7 +27,7 @@ export const menu: ReadonlyArray<Item> = [
   new WheatenDish('油条', 'Fried Dough Fritter', [], ['Jaybase']),
   new WheatenDish('葱油饼', 'Scallion Crepe', [], ['Jaybase']),
   new WheatenDish('农家酱香饼', 'Soy Flavored Flatbread Crepe', [], ['Jaybase']),
-  new WheatenDish('鸡蛋饼', 'Egg Crepe', [Egg], ['Jaybase']),
+  new WheatenDish('鸡蛋饼', 'Egg Crepe', [Egg], ['Jaybase', 'Jerryc05']),
   new WheatenDish('春饼', 'Spring Crepe', [], ['Jaybase']),
   new WheatenDish('麻酱红糖饼', 'Brown Sugar Crepe w/ Sesame Paste', [Sesame], ['Jaybase']),
   new WheatenDish('煎饺', 'Fried Dumpling', [], ['Jaybase']),
