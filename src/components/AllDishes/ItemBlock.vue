@@ -46,17 +46,9 @@ price[2] = x
 
     <!-- Price -->
     <span class="mt-2 self-end">
-      <span class="inline-flex" v-if="price[0] > 0">
-        {{ price[0] }}
-        <PriceImg :src="catFood" />
-      </span>
-      <span class="inline-flex" v-if="price[0] > 0 || price[1] > 0">
-        {{ price[1] }}
-        <PriceImg :src="catFoodCan" />
-      </span>
-      <span class="inline-flex">{{ price[2] }}
-        <PriceImg :src="fish" />
-      </span>
+      <PriceImg :price="price[0]" :src="catFood" v-if="price[0] > 0" />
+      <PriceImg :price="price[1]" :src="catFoodCan" v-if="price[0] > 0 || price[1] > 0" />
+      <PriceImg :price="price[2]" :src="fish" />
     </span>
   </div>
 </template>

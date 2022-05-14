@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ src: string }>()
+const props = defineProps<{ price: string, src: string }>()
 </script>
 
 
@@ -8,5 +8,12 @@ const props = defineProps<{ src: string }>()
 
 
  <template>
-  <img :src="props.src" class="ml-1 mr-4 h-6 max-h-full aspect-square inline-block dark:invert" />
+  <span class="ml-2 inline-flex place-items-center">
+    {{ props.price }}
+    <img :src="props.src" class="mx-1 h-6 aspect-square inline-block dark:invert" />
+  </span>
+
+
+
+
 </template>
