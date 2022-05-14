@@ -7,7 +7,7 @@ import bingbing from '@/assets/bingbing.png'
 
 const store = useStore()
 
-const navBarHeight = 'h-20'
+const navBarHeight = 'h-16'
 </script>
 
 
@@ -16,7 +16,7 @@ const navBarHeight = 'h-20'
 
 
 <template>
-  <nav class="px-2 py-3 h-20 fixed top-0 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300 z-10"
+  <nav class="px-2 fixed top-0 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300 z-10"
     :class="[darkBgBigOColor, navBarHeight]">
     <!-- Title and icon -->
     <span class="col-start-2 col-span-5 flex place-content-center">

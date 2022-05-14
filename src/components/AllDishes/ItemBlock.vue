@@ -25,19 +25,17 @@ price[2] = x
 
 
 <template>
-  <div class="h-36 p-2 my-3 rounded-xl flex flex-col justify-center" :class="[darkBgBigOColor]">
+  <div class="h-32 p-2 my-3 rounded-xl flex flex-col justify-center" :class="[darkBgBigOColor]">
     <!-- Item & Image -->
     <span class="flex">
       <!-- Item -->
-      <span class='ml-2 w-full flex flex-col justify-center'>
-        <!-- Title 1 -->
-        <b class="mb-1">{{ props.item.cnName }}</b>
-        <!-- Title 2 -->
-        <span
-          class="whitespace-nowrap overflow-hidden overflow-ellipsis text-gray-300">{{ props.item.enName || '-' }}</span>
-        <!-- Category & Chefs -->
-        <span class="whitespace-nowrap text-gray-300">{{ props.item.category.cnName }} |
-          {{ props.item.chefs.join(' · ') }}</span>
+      <span class='ml-2 w-full flex flex-col justify-center whitespace-nowrap overflow-hidden'>
+        <!-- Title -->
+        <b class="mb-1 text-lg">{{ props.item.cnName }}</b>
+        <!-- Category -->
+        <span class="overflow-hidden overflow-ellipsis text-gray-300">{{ props.item.category.cnName }}</span>
+        <!-- Chefs -->
+        <span class="overflow-hidden overflow-ellipsis text-gray-300">{{ props.item.chefs.join(' · ') }}</span>
       </span>
 
       <!-- Image -->
