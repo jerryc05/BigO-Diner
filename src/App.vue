@@ -18,7 +18,7 @@ const store = useStore()
   <div class="w-full min-h-screen dark:bg-black dark:text-white" :class='[textMtColor]'>
     <NavBar />
 
-    <div class="px-7 pt-5">
+    <div class="p-4">
       <Category />
       <AllDishes />
 

@@ -17,7 +17,8 @@ export const menu: ReadonlyArray<Item> = [
   new ColdDish('酱牛肉', 'Spiced Beef', [BeefShank], ['Jaybase', 'Jerryc05', 'Titi', 'Tuge']),
   new ColdDish('卤蛋', 'Marinated Egg', [Egg], ['Jaybase']),
   new ColdDish('酸辣虾', 'Sour & Spicy Shrimp', [Shrimp], ['Jaybase', 'Titi']),
-  new ColdDish('酸辣鸡爪', 'Sour & Spicy Chicken Feet', [ChickenFeet], ['Jaybase', 'Wuge']),
+  new ColdDish('泰式柠檬虾', undefined, undefined, ['Titi']),
+  new ColdDish('酸辣无骨鸡爪', 'Sour & Spicy Chicken Feet', [ChickenFeet], ['Jaybase', 'Jerryc05', 'Titi', 'Wuge']),
   new ColdDish('凉拌土豆丝', 'Shredded Potato Salad', [Potato], ['Jaybase']),
   new ColdDish('酸辣土豆丝', 'Sour & Spicy Shredded Potato', [Potato], ['Jaybase']),
   new ColdDish('白糖西红柿', 'Sour & Spicy Shredded Potato', [Potato], ['Jaybase']),
@@ -275,6 +276,8 @@ export const menu: ReadonlyArray<Item> = [
   new StreetFoodDish('铁板豆腐', undefined, undefined, ['Jerryc05']),
   new Drink('芝芝莓莓', undefined, undefined, ['Jerryc05']),
   new Drink('草莓牛乳茶', undefined, undefined, ['Jerryc05']),
+  new Drink('满杯葡萄', undefined, undefined, ['Titi']),
+  new Drink('芒果冰沙', undefined, undefined, ['Titi']),
   new DessertCake('草莓雪山蛋糕', undefined, undefined, ['Jerryc05']),
   new DessertCake('抹茶慕斯蛋糕', undefined, undefined, ['Jerryc05']),
 ]

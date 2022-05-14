@@ -6,6 +6,8 @@ import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 
 const store = useStore()
+
+const navBarHeight = 'h-20'
 </script>
 
 
@@ -14,7 +16,8 @@ const store = useStore()
 
 
 <template>
-  <nav class="px-1 py-3 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300" :class="[darkBgBigOColor]">
+  <nav class="px-2 py-3 h-20 fixed top-0 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300 z-10"
+    :class="[darkBgBigOColor, navBarHeight]">
     <!-- Title and icon -->
     <span class="col-start-2 col-span-5 flex place-content-center">
       <a href="/" class="h-full w-min flex place-content-center">
@@ -144,4 +147,7 @@ const store = useStore()
       </ul>
     </div>
   </nav>
+
+  <!-- Offset -->
+  <div :class="navBarHeight"></div>
 </template>

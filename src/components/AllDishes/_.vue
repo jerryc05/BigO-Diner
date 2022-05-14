@@ -12,7 +12,7 @@ const store = useStore()
 
 
 <template>
-  <div class="p-3">
+  <div class="p-1">
     <div class="flex justify-between">
       <span>Chef's Special</span>
       <a href="#">See All >></a>

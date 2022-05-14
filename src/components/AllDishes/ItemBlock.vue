@@ -9,7 +9,7 @@ import PriceImg from './PriceImg.vue'
 
 const props = defineProps<{ item: Item }>()
 
-const getRandPrice = () => Math.floor(Math.random() * 200)
+const getRandPrice = () => Math.floor(Math.random() * 200) + 5
 
 let x = getRandPrice()
 const price: [number, number, number] = [Math.floor(x / 100), 0, 0]
@@ -25,28 +25,37 @@ price[2] = x
 
 
 <template>
-  <div class="h-24 p-2 m-2 rounded flex" :class="[darkBgBigOColor]">
-    <img :src='bingbing' class="h-full p-1 aspect-square">
-    <span class='ml-2 w-full flex flex-col justify-center'>
-      <!-- Title -->
-      <b>{{ props.item.cnName }} · {{ props.item.enName }}</b>
+  <div class="h-36 p-2 my-3 rounded-xl flex flex-col justify-center" :class="[darkBgBigOColor]">
+    <!-- Item & Image -->
+    <span class="flex">
+      <!-- Item -->
+      <span class='ml-2 w-full flex flex-col justify-center'>
+        <!-- Title 1 -->
+        <b class="mb-1">{{ props.item.cnName }}</b>
+        <!-- Title 2 -->
+        <span
+          class="whitespace-nowrap overflow-hidden overflow-ellipsis text-gray-300">{{ props.item.enName || '-' }}</span>
+        <!-- Category & Chefs -->
+        <span class="whitespace-nowrap text-gray-300">{{ props.item.category.cnName }} |
+          {{ props.item.chefs.join(' · ') }}</span>
+      </span>
 
-      <!-- Category & Chefs -->
-      <span>{{ props.item.category.cnName }} | {{ props.item.chefs.join(' · ') }}</span>
+      <!-- Image -->
+      <img :src='bingbing' class="max-w-[7vh] max-h-full p-1 aspect-square self-end">
+    </span>
 
-      <!-- Price -->
-      <span class="self-end">
-        <span class="inline-flex" v-if="price[0] > 0">
-          {{ price[0] }}
-          <PriceImg :src="catFood" />
-        </span>
-        <span class="inline-flex" v-if="price[0] > 0 || price[1] > 0">
-          {{ price[1] }}
-          <PriceImg :src="catFoodCan" />
-        </span>
-        <span class="inline-flex">{{ price[2] }}
-          <PriceImg :src="fish" />
-        </span>
+    <!-- Price -->
+    <span class="mt-2 self-end">
+      <span class="inline-flex" v-if="price[0] > 0">
+        {{ price[0] }}
+        <PriceImg :src="catFood" />
+      </span>
+      <span class="inline-flex" v-if="price[0] > 0 || price[1] > 0">
+        {{ price[1] }}
+        <PriceImg :src="catFoodCan" />
+      </span>
+      <span class="inline-flex">{{ price[2] }}
+        <PriceImg :src="fish" />
       </span>
     </span>
   </div>
