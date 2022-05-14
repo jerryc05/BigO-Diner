@@ -9,6 +9,8 @@ import PriceImg from './PriceImg.vue'
 
 const props = defineProps<{ item: Item }>()
 
+const secondaryTextColor = ['text-gray-500', 'dark:text-gray-300']
+
 const getRandPrice = () => Math.floor(Math.random() * 200) + 5
 
 let x = getRandPrice()
@@ -25,17 +27,19 @@ price[2] = x
 
 
 <template>
-  <div class="h-32 p-2 my-3 rounded-xl flex flex-col justify-center" :class="[darkBgBigOColor]">
+  <div class="h-32 p-2 my-3 rounded-xl flex flex-col justify-center bg-gray-300" :class="[darkBgBigOColor]">
     <!-- Item & Image -->
     <span class="flex">
       <!-- Item -->
       <span class='ml-2 w-full flex flex-col justify-center whitespace-nowrap overflow-hidden'>
         <!-- Title -->
-        <b class="mb-1 text-lg">{{ props.item.cnName }}</b>
+        <b class="my-1 text-lg">{{ props.item.cnName }}</b>
         <!-- Category -->
-        <span class="overflow-hidden overflow-ellipsis text-gray-300">{{ props.item.category.cnName }}</span>
+        <span class="overflow-hidden overflow-ellipsis"
+          :class="secondaryTextColor">{{ props.item.category.cnName }}</span>
         <!-- Chefs -->
-        <span class="overflow-hidden overflow-ellipsis text-gray-300">{{ props.item.chefs.join(' · ') }}</span>
+        <span class="overflow-hidden overflow-ellipsis"
+          :class="secondaryTextColor">{{ props.item.chefs.join(' · ') }}</span>
       </span>
 
       <!-- Image -->

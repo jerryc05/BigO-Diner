@@ -30,6 +30,8 @@ const navBarHeight = 'h-16'
     </span>
 
     <div class="justify-end flex pr-2 md:order-2">
+      <!-- Username -->
+      <span class="mx-2 hidden lg:inline whitespace-nowrap overflow-hidden self-center">Hi <b>jerryc05</b>!</span>
       <!-- User avatar -->
       <button type="button" class="flex text-sm rounded-full focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
@@ -39,7 +41,7 @@ const navBarHeight = 'h-16'
       </button>
 
       <!-- Dropdown menu -->
-      <div
+      <!-- <div
         class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
         id="dropdown">
         <div class="py-3 px-4">
@@ -65,7 +67,7 @@ const navBarHeight = 'h-16'
               out</a>
           </li>
         </ul>
-      </div>
+      </div> -->
       <!-- <button data-collapse-toggle="mobile-menu-2" type="button"
           class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="mobile-menu-2" aria-expanded="false">
@@ -126,7 +128,7 @@ const navBarHeight = 'h-16'
         </button>
       </div> -->
 
-    <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
+    <!-- <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
       <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
         <li>
           <a href="#" class="block py-2 pr-4 pl-3 rounded md:bg-transparent  md:p-0  " :class="[bgMtColor]"
@@ -145,7 +147,7 @@ const navBarHeight = 'h-16'
             class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-gray-200 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">猫条</a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </nav>
 
   <!-- Offset -->
