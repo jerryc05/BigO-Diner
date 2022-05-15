@@ -29,7 +29,7 @@ price[2] = x
 <template>
   <div class="h-32 p-2 my-3 rounded-xl flex flex-col justify-center bg-gray-300" :class="[darkBgBigOColor]">
     <!-- Item & Image -->
-    <span class="flex">
+    <span class="flex" style="height:inherit">
       <!-- Item -->
       <span class='ml-2 w-full flex flex-col justify-center whitespace-nowrap overflow-hidden'>
         <!-- Title -->
