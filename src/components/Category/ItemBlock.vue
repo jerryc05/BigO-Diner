@@ -10,6 +10,6 @@ const props = defineProps<{ text: string }>()
 
 
 <template>
-  <button class="w-32 h-10 rounded m-1 bg-gray-300" :class="[darkBgBigOColor]"
+  <button class="w-full h-10 rounded m-1 bg-gray-300" :class="[darkBgBigOColor]"
     @click="e => { (e.target as HTMLButtonElement).innerText = '吃嘛嘛香' }">{{ props.text }}</button>
 </template>

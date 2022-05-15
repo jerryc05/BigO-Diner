@@ -8,7 +8,7 @@ import { detectDarkMode } from './utils/dark_mode'
 
 createApp(App)
   .use(createPinia())
-  .mount('#app')
+  .mount(document.body.firstElementChild!)
 
 
 detectDarkMode()
