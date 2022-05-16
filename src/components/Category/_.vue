@@ -20,8 +20,9 @@ const categoryUniqueMenu = menu
       <span>Category</span>
       <a href="#">See All >></a>
     </div>
-    <div class="flex flex-wrap justify-around items-center">
-      <span class="w-1/3" v-for='x of categoryUniqueMenu' :key='x.category.cnName'>
+    <div class="flex flex-wrap">
+      <span class="h-9 w-1/3 flex justify-evenly items-stretch" v-for='x of categoryUniqueMenu'
+        :key='x.category.cnName'>
         <ItemBlock :item='x' />
       </span>
     </div>
