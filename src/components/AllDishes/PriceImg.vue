@@ -10,6 +10,6 @@ const props = defineProps<{ price: number, src: string }>()
  <template>
   <span class="h-inherit ml-2 inline-flex place-items-center">
     {{ props.price }}
-    <img :src="props.src" class="h-inherit mx-1 dark:invert" />
+    <img :src="props.src" class="h-inherit mx-1 aspect-square dark:invert" />
   </span>
 </template>
