@@ -35,3 +35,14 @@ const store = useStore()
     </div>
   </div>
 </template>
+
+
+
+
+
+
+<style>
+.h-inherit {
+  height: inherit;
+}
+</style>

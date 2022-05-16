@@ -8,12 +8,8 @@ const props = defineProps<{ price: number, src: string }>()
 
 
  <template>
-  <span class="ml-2 inline-flex place-items-center" style="height:inherit">
-    <span style="height:inherit">{{ props.price }} </span>
-    <img :src="props.src" class="mx-1 aspect-square inline-block dark:invert" style="height:inherit" />
+  <span class="h-inherit ml-2 inline-flex place-items-center">
+    {{ props.price }}
+    <img :src="props.src" class="h-inherit mx-1 dark:invert" />
   </span>
-
-
-
-
 </template>

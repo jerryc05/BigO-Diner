@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import bingbing from '@/assets/bingbing.png'
 import fish from '@/assets/fish.svg'
 import catFood from '@/assets/catFood.svg'
 import catFoodCan from '@/assets/catFoodCan.svg'
@@ -29,7 +28,7 @@ price[2] = x
 <template>
   <div class="h-32 p-2 my-3 rounded-xl flex flex-col justify-center bg-gray-300" :class="[darkBgBigOColor]">
     <!-- Item & Image -->
-    <span class="flex" style="height:inherit">
+    <span class="flex">
       <!-- Item -->
       <span class='ml-2 w-full flex flex-col justify-center whitespace-nowrap overflow-hidden'>
         <!-- Title -->
@@ -48,7 +47,7 @@ price[2] = x
     </span>
 
     <!-- Price -->
-    <span class="mt-2 self-end">
+    <span class="h-6 mt-2 self-end">
       <PriceImg :price="price[0]" :src="catFood" v-if="price[0] > 0" />
       <PriceImg :price="price[1]" :src="catFoodCan" v-if="price[0] > 0 || price[1] > 0" />
       <PriceImg :price="price[2]" :src="fish" />
