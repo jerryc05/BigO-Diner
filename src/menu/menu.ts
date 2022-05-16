@@ -280,4 +280,5 @@ export const menu: ReadonlyArray<Item> = [
   new Drink('芒果冰沙', undefined, undefined, ['Titi']),
   new DessertCake('草莓雪山蛋糕', undefined, undefined, ['Jerryc05']),
   new DessertCake('抹茶慕斯蛋糕', undefined, undefined, ['Jerryc05']),
+  new DessertCake('玫瑰荔枝蛋糕', undefined, undefined, ['Titi']),
 ]
