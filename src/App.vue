@@ -35,22 +35,3 @@ const store = useStore()
     </div>
   </div>
 </template>
-
-
-
-
-
-
-<style>
-.h-inherit {
-  height: inherit;
-}
-
-.w-full-1 {
-  width: calc(100% - .25rem);
-}
-
-.h-full-1 {
-  height: calc(100% - .25rem);
-}
-</style>

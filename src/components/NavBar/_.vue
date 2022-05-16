@@ -23,7 +23,7 @@ const navBarHeight = 'h-16'
       <a href="/" class="h-full w-min flex place-content-center">
         <TitleIcon moreClass='-scale-x-100' />
         <span
-          class="place-self-center text-2xl font-semibold whitespace-nowrap ">{{ store.isDark ? 'BigO' : 'MilkTea' }}
+          class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow-lg">{{ store.isDark ? 'BigO' : 'MilkTea' }}
           Diner</span>
         <TitleIcon />
       </a>

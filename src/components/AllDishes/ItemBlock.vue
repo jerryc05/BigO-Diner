@@ -26,13 +26,13 @@ price[2] = x
 
 
 <template>
-  <div class="h-32 p-2 my-3 rounded-xl flex flex-col justify-center bg-gray-300" :class="[darkBgBigOColor]">
+  <div class="h-32 p-2 my-3 rounded-xl flex flex-col justify-center bg-gray-300 shadow-md" :class="[darkBgBigOColor]">
     <!-- Item & Image -->
     <span class="flex">
       <!-- Item -->
       <span class='ml-2 w-full flex flex-col justify-center whitespace-nowrap overflow-hidden'>
         <!-- Title -->
-        <b class="my-1 text-lg">{{ props.item.cnName }}</b>
+        <b class="my-1 text-lg text-shadow">{{ props.item.cnName }}</b>
         <!-- Category -->
         <span class="overflow-hidden overflow-ellipsis"
           :class="secondaryTextColor">{{ props.item.category.cnName }}</span>
@@ -43,7 +43,7 @@ price[2] = x
 
       <!-- Image -->
       <img :src='Math.random() > 0.5 ? catFood : catFoodCan'
-        class="max-w-[7vh] max-h-full p-1 aspect-square self-center invert">
+        class="max-w-[7vh] max-h-full p-1 aspect-square self-center dark:invert">
     </span>
 
     <!-- Price -->
