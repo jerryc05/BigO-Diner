@@ -30,6 +30,7 @@ x_.x == 'example'
 export const useStore = defineStore('', {
   state: () => ({
     isDark: detectDarkMode(),
+    disabledCategories: new Set<string>()
   }),
   getters: {  // Same as computed
   },

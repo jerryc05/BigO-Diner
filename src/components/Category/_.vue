@@ -5,23 +5,9 @@ import { menu } from '@/menu/menu'
 
 const store = useStore()
 
-const allCategories = [...new Set(menu.map(x => x.category.cnName))]
-const groupedCategories: string[][] = []
-for (let i = 0; i < allCategories.length;) {
-  if (i < allCategories.length) {
-    const x = [allCategories[i]]
-    ++i
-    if (i < allCategories.length) {
-      x.push(allCategories[i])
-      ++i
-    }
-    if (i < allCategories.length) {
-      x.push(allCategories[i])
-      ++i
-    }
-    groupedCategories.push(x)
-  } else break
-}
+const categoryUniqueMenu = menu
+  .filter((x, i, self) =>
+    i === self.findIndex(v => v.category.cnName == x.category.cnName))
 </script>
 
 
@@ -34,8 +20,10 @@ for (let i = 0; i < allCategories.length;) {
       <span>Category</span>
       <a href="#">See All >></a>
     </div>
-    <div class="flex justify-around items-center" v-for='x of groupedCategories' :key='x.join()'>
-      <ItemBlock v-for='a of x' :text='a' />
+    <div class="flex flex-wrap justify-around items-center">
+      <span class="w-1/3" v-for='x of categoryUniqueMenu' :key='x.category.cnName'>
+        <ItemBlock :item='x' />
+      </span>
     </div>
   </div>
 </template>

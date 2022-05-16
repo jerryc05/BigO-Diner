@@ -1,7 +1,25 @@
 <script setup lang="ts">
-import { darkBgBigOColor } from '@/utils/colors'
+import { useStore } from '@/stores'
 
-const props = defineProps<{ text: string }>()
+import { darkBgBigOColor } from '@/utils/colors'
+import type { Item } from '@/menu/menu_types'
+
+const store = useStore()
+const props = defineProps<{ item: Item }>()
+
+const t = props.item.constructor.name
+const categoryName = props.item.category.cnName
+const dc = store.disabledCategories
+
+function toggleCategory() {
+  if (dc.has(t)) {
+    dc.delete(t)
+    console.log('rm', t)
+  } else {
+    dc.add(t)
+    console.log('add', t)
+  }
+}
 </script>
 
 
@@ -10,6 +28,6 @@ const props = defineProps<{ text: string }>()
 
 
 <template>
-  <button class="w-full h-10 rounded m-1 bg-gray-300" :class="[darkBgBigOColor]"
-    @click="e => { (e.target as HTMLButtonElement).innerText = '吃嘛嘛香' }">{{ props.text }}</button>
+  <button class="h-9 w-full rounded bg-gray-300" :class="[darkBgBigOColor]"
+    @click="toggleCategory">{{ (!dc.has(t)) ? categoryName : `无${categoryName}` }}</button>
 </template>

@@ -17,6 +17,7 @@ const store = useStore()
       <span>Chef's Special</span>
       <a href="#">See All >></a>
     </div>
-    <ItemBlock v-for='x of menu' :key='x.cnName' :item='x' />
+    <ItemBlock v-for='x of menu.filter(x => !store.disabledCategories.has(x.constructor.name))' :key='x.cnName'
+      :item='x' />
   </div>
 </template>
