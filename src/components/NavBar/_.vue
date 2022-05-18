@@ -16,10 +16,10 @@ const navBarHeight = 'h-16'
 
 
 <template>
-  <nav class="px-2 fixed top-0 grid grid-cols-7 place-content-center rounded-b-lg bg-gray-300 z-10"
+  <nav class="px-2 fixed top-0 rounded-b-lg bg-gray-300 z-10 sm:grid sm:grid-cols-7 sm:place-content-center"
     :class="[darkBgBigOColor, navBarHeight]">
-    <!-- Title and icon -->
-    <span class="col-start-2 col-span-5 flex place-content-center">
+    <!-- Title & icon -->
+    <span class="hidden sm:col-start-2 sm:col-span-5 sm:flex sm:place-content-center">
       <a href="/" class="h-full w-min flex place-content-center">
         <TitleIcon moreClass='-scale-x-100' />
         <span
@@ -29,9 +29,10 @@ const navBarHeight = 'h-16'
       </a>
     </span>
 
-    <div class="justify-end flex pr-2 md:order-2">
+    <!-- Username & avatar -->
+    <div class="justify-end flex pr-2">
       <!-- Username -->
-      <span class="mx-2 hidden lg:inline whitespace-nowrap overflow-hidden self-center">Hi <b>jerryc05</b>!</span>
+      <b class="hidden md:inline mx-2 whitespace-nowrap self-center">jerryc05</b>
       <!-- User avatar -->
       <button type="button" class="flex text-sm rounded-full focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
