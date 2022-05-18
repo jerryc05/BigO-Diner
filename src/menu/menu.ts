@@ -71,7 +71,7 @@ export const menu: ReadonlyArray<Item> = [
   new RiceDish('煲仔饭', undefined, undefined, ['Jaybase']),
   new RiceDish('小龙虾盖饭', undefined, undefined, ['Jaybase']),
   new RiceDish('日式牛丼饭', undefined, undefined, []),
-  new RiceDish('不放一滴油の日式滑蛋猪排饭', undefined, undefined, ['Jerryc05']),
+  new RiceDish('日式滑蛋猪排饭', undefined, undefined, ['Jerryc05']),
   new RiceDish('茄汁芝士焗饭', undefined, undefined, ['Jerryc05']),
   new RiceDish('海鲜糯米鸡', undefined, undefined, ['Jerryc05']),
   new RiceDish('三角烤饭团', undefined, undefined, ['Jerryc05']),
