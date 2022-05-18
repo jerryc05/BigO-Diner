@@ -16,7 +16,7 @@ const navBarHeight = 'h-16'
 
 
 <template>
-  <nav class="px-2 fixed top-0 rounded-b-lg bg-gray-300 z-10 sm:grid sm:grid-cols-7 sm:place-content-center"
+  <nav class="px-2 fixed top-0 rounded-b-lg shadow-md bg-gray-300 z-10 sm:grid sm:grid-cols-7 sm:place-content-center"
     :class="[darkBgBigOColor, navBarHeight]">
     <!-- Title & icon -->
     <span class="hidden sm:col-start-2 sm:col-span-5 sm:flex sm:place-content-center">

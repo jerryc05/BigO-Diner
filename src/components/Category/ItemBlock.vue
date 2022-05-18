@@ -28,6 +28,6 @@ function toggleCategory() {
 
 
 <template>
-  <button class="w-full-1 h-full-1 rounded bg-gray-300" :class="[darkBgBigOColor]"
+  <button class="w-full-1 h-full-1 rounded shadow bg-gray-300" :class="[darkBgBigOColor]"
     @click="toggleCategory">{{ (!dc.has(t)) ? categoryName : `无${categoryName}` }}</button>
 </template>
