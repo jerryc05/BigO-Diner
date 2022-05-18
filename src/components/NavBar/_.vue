@@ -16,11 +16,11 @@ const navBarHeight = 'h-16'
 
 
 <template>
-  <nav class="px-2 fixed top-0 rounded-b-lg shadow-md bg-gray-300 z-10 sm:grid sm:grid-cols-7 sm:place-content-center"
+  <nav class="px-2 fixed top-0 rounded-b-lg shadow-md bg-gray-300 z-10 grid grid-cols-7 place-content-center"
     :class="[darkBgBigOColor, navBarHeight]">
     <!-- Title & icon -->
-    <span class="hidden sm:col-start-2 sm:col-span-5 sm:flex sm:place-content-center">
-      <a href="/" class="h-full w-min flex place-content-center">
+    <span class="col-start-1 sm:col-start-2 sm:col-span-5 sm:flex sm:place-content-center">
+      <a href="/" class="h-full flex sm:place-content-center">
         <TitleIcon moreClass='-scale-x-100' />
         <span
           class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow-lg">{{ store.isDark ? 'BigO' : 'MilkTea' }}
@@ -30,9 +30,9 @@ const navBarHeight = 'h-16'
     </span>
 
     <!-- Username & avatar -->
-    <div class="justify-end flex pr-2">
+    <div class="justify-end col-start-7 flex pr-2">
       <!-- Username -->
-      <b class="hidden md:inline mx-2 whitespace-nowrap self-center">jerryc05</b>
+      <b class="hidden md:inline text-lg mx-2 whitespace-nowrap self-center">jerryc05</b>
       <!-- User avatar -->
       <button type="button" class="flex text-sm rounded-full focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
