@@ -42,8 +42,7 @@ price[2] = x
       </span>
 
       <!-- Image -->
-      <img :src='Math.random() > 0.5 ? catFood : catFoodCan'
-        class="max-w-[7vh] max-h-full p-1 aspect-square self-center dark:invert">
+      <img :src='Math.random() > 0.5 ? catFood : catFoodCan' class="h-full p-1 aspect-square self-center dark:invert">
     </span>
 
     <!-- Price -->
