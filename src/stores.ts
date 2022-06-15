@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 import { detectDarkMode, setDarkMode } from '@/utils/dark_mode'
-
+import { menu } from '@/menu/menu'
 
 // useX could be anything like useUser, useCart
 // the first argument is a unique id of the store across your application
@@ -33,6 +33,9 @@ export const useStore = defineStore('', {
     disabledCategories: new Set<string>()
   }),
   getters: {  // Same as computed
+    getEnabledMenuItems(state) {
+      return menu.filter(x => !state.disabledCategories.has(x.constructor.name))
+    }
   },
   actions: {  // Same as methods
     toggleLightDarkMode() {
