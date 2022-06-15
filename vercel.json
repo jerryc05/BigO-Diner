@@ -17,6 +17,15 @@
           "value": "br"
         }
       ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        }
+      ]
     }
   ]
 }

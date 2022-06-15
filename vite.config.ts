@@ -68,10 +68,18 @@ if (process.env.NODE_ENV === 'production') {
       attrs: {
         src: 'https://cdn.jsdelivr.net/npm/pinia',
       },
+    },
+    {
+      injectTo: 'head',
+      tag: 'script',
+      attrs: {
+        src: 'https://cdn.jsdelivr.net/npm/@vueuse/core',
+      },
     })
   extPlug = viteExternalsPlugin({
     vue: 'Vue',
-    pinia: 'Pinia'
+    pinia: 'Pinia',
+    '@vueuse/core': 'VueUse'
   })
 }
 export default defineConfig({
@@ -106,7 +114,7 @@ export default defineConfig({
     }),
     MyPostProcessorOnBuild(async p => {
       p = p.split(path.sep).join(path.posix.sep)
-      if (/\/assets\/.+\w?(js|css|html)$/.test(p)) {
+      if (/\.+\w?(js|css|html)$/.test(p)) {
         const orig = await readFile(p)
         const compressed: Buffer = await new Promise((acc, rej) =>
           brotliCompress(orig.buffer, (e, b) => e ? rej(e) : acc(b))
