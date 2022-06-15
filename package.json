@@ -10,7 +10,6 @@
     "serve": "npm run s"
   },
   "dependencies": {
-    "@vueuse/core": "latest",
     "pinia": "latest",
     "throttle-debounce-ts": "latest",
     "vue": "latest"

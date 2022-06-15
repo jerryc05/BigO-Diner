@@ -45,7 +45,7 @@ const tags: HtmlTagDescriptor[] = [{
   },
 },
 ]
-let extPlug = undefined
+let extPlug: Plugin | undefined = undefined
 if (process.env.NODE_ENV === 'production') {
   tags.push(
     {
@@ -69,17 +69,18 @@ if (process.env.NODE_ENV === 'production') {
         src: 'https://cdn.jsdelivr.net/npm/pinia',
       },
     },
-    {
-      injectTo: 'head',
-      tag: 'script',
-      attrs: {
-        src: 'https://cdn.jsdelivr.net/npm/@vueuse/core',
-      },
-    })
+    // {
+    //   injectTo: 'head',
+    //   tag: 'script',
+    //   attrs: {
+    //     src: 'https://cdn.jsdelivr.net/npm/@vueuse/core',
+    //   },
+    // }
+  )
   extPlug = viteExternalsPlugin({
     vue: 'Vue',
     pinia: 'Pinia',
-    '@vueuse/core': 'VueUse'
+    // '@vueuse/core': 'VueUse'
   })
 }
 export default defineConfig({
