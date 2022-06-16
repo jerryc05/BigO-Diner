@@ -52,6 +52,7 @@ if (process.env.NODE_ENV === 'production') {
       injectTo: 'head',
       tag: 'script',
       attrs: {
+        defer: true,
         src: 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.runtime.global.prod.js',
       },
     },
@@ -59,6 +60,7 @@ if (process.env.NODE_ENV === 'production') {
       injectTo: 'head',
       tag: 'script',
       attrs: {
+        defer: true,
         src: 'https://cdn.jsdelivr.net/npm/vue-demi',
       },
     },
@@ -66,6 +68,7 @@ if (process.env.NODE_ENV === 'production') {
       injectTo: 'head',
       tag: 'script',
       attrs: {
+        defer: true,
         src: 'https://cdn.jsdelivr.net/npm/pinia',
       },
     },
@@ -73,6 +76,7 @@ if (process.env.NODE_ENV === 'production') {
     //   injectTo: 'head',
     //   tag: 'script',
     //   attrs: {
+    //     defer: true,
     //     src: 'https://cdn.jsdelivr.net/npm/@vueuse/core',
     //   },
     // }
@@ -113,21 +117,21 @@ export default defineConfig({
         }
       }
     }),
-    MyPostProcessorOnBuild(async p => {
-      p = p.split(path.sep).join(path.posix.sep)
-      if (/\.+\w?(js|css|html)$/.test(p)) {
-        const orig = await readFile(p)
-        const compressed: Buffer = await new Promise((acc, rej) =>
-          brotliCompress(orig.buffer, (e, b) => e ? rej(e) : acc(b))
-        )
-        await writeFile(p, compressed)
-        const origSz = orig.length
-        const newSz = compressed.length
-        console.log(`${p}\n\t${origSz} \t-> ${newSz} bytes \t${(newSz / origSz).toFixed(4)}x`)
-      } else {
-        console.log(`${p} \tskipped ...`)
-      }
-    })
+    // MyPostProcessorOnBuild(async p => {
+    //   p = p.split(path.sep).join(path.posix.sep)
+    //   if (/\.+\w?(js|css|html)$/.test(p)) {
+    //     const orig = await readFile(p)
+    //     const compressed: Buffer = await new Promise((acc, rej) =>
+    //       brotliCompress(orig.buffer, (e, b) => e ? rej(e) : acc(b))
+    //     )
+    //     await writeFile(p, compressed)
+    //     const origSz = orig.length
+    //     const newSz = compressed.length
+    //     console.log(`${p}\n\t${origSz} \t-> ${newSz} bytes \t${(newSz / origSz).toFixed(4)}x`)
+    //   } else {
+    //     console.log(`${p} \tskipped ...`)
+    //   }
+    // })
   ],
   build: {
     reportCompressedSize: false,  // improve speed
