@@ -27,8 +27,8 @@ const store = useStore()
 
       <div>{{ store.isDark ? '大橘：老吴~~~啊~吴~吃~~麻麻香' : '大饼：嗷呜~~猫呜~~母猫~~猫粮呜' }}！</div>
 
-      <button class="text-white rounded relative left-1/2 -translate-x-1/2 p-2" :class="[darkBgBigOColor, bgMtColor]"
-        @click="store.toggleLightDarkMode">Change
+      <button type="button" class="text-white rounded relative left-1/2 -translate-x-1/2 p-2"
+        :class="[darkBgBigOColor, bgMtColor]" @click="store.toggleLightDarkMode">Change
         to
         {{ store.isDark ? 'Light' : 'Dark' }} mode</button>
 
