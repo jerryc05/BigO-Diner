@@ -4,6 +4,9 @@ import { darkBgBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
 import TitleIcon from './TitleIcon.vue'
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
+import cart from '@/assets/cart.svg'
+import { dev } from '@/utils/constants'
+import { reactive } from 'vue'
 
 const store = useStore()
 
@@ -16,28 +19,39 @@ const navBarHeight = 'h-16'
 
 
 <template>
-  <nav class="px-2 w-full fixed top-0 rounded-b-lg shadow-md bg-gray-300 z-10 grid grid-cols-7 place-content-center"
+  <nav class="w-full px-2 py-3 fixed top-0 flex justify-between items-center rounded-b-lg shadow-md bg-gray-300 z-10"
     :class="[darkBgBigOColor, navBarHeight]">
-    <!-- Title & icon -->
-    <span class="col-start-1 sm:col-start-2 sm:col-span-5 sm:flex sm:place-content-center">
-      <a href="/" class="h-full flex sm:place-content-center">
-        <TitleIcon moreClass='-scale-x-100' />
-        <span
-          class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow-lg">{{ store.isDark ? 'BigO' : 'MilkTea' }}
-          Diner</span>
-        <TitleIcon />
-      </a>
-    </span>
 
-    <!-- Username & avatar -->
-    <div class="justify-end col-start-7 flex pr-2">
+    <!-- Title & icon -->
+    <a href="/" class="h-full inline-flex">
+      <TitleIcon class='-scale-x-100' />
+      <span
+        class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow-lg">{{ store.isDark ? 'BigO' : 'MilkTea' }}
+        Diner</span>
+      <TitleIcon />
+      <span v-if="dev">
+        <span class="sm:hidden">default</span>
+        <span class="hidden sm:inline-block md:hidden">sm</span>
+        <span class="hidden md:inline-block lg:hidden">md</span>
+        <span class="hidden lg:inline-block xl:hidden">lg</span>
+        <span class="hidden xl:inline-block 2xl:hidden">xl</span>
+        <span class="hidden 2xl:inline-block">2xl</span>
+      </span>
+    </a>
+
+    <!-- Cart & username & avatar -->
+    <span class="pr-2 inline-flex justify-end">
+      <!-- Cart -->
+      <button type="button" class="rounded-lg w-12 whitespace-nowrap">
+        <img class="h-inherit inline-block dark:invert" :src="cart">
+        <span>4</span>
+      </button>
       <!-- Username -->
-      <b class="hidden md:inline text-lg mx-2 whitespace-nowrap self-center">jerryc05</b>
+      <b class="hidden md:inline text-lg mx-2 whitespace-nowrap">jerryc05</b>
       <!-- User avatar -->
-      <button type="button" class="flex text-sm rounded-full focus:ring-gray-300 dark:focus:ring-gray-600"
-        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
-        <span class="h-full aspect-square self-center rounded-full flex place-content-center bg-white">
-          <img class="h-4/5 aspect-square self-center" :src="store.isDark ? bigO : bingbing">
+      <button type="button" class="flex rounded-full focus:ring-gray-300 dark:focus:ring-gray-600 bg-white">
+        <span class="h-full">
+          <img class="h-4/5 aspect-square" :src="store.isDark ? bigO : bingbing">
         </span>
       </button>
 
@@ -84,7 +98,7 @@ const navBarHeight = 'h-16'
               clip-rule="evenodd"></path>
           </svg>
         </button> -->
-    </div>
+    </span>
 
 
 
