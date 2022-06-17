@@ -19,18 +19,19 @@
     "@types/ejs": "latest",
     "@types/html-minifier-terser": "latest",
     "@types/node": "latest",
-    "@types/tailwindcss": "latest",
     "@vitejs/plugin-vue": "latest",
     "autoprefixer": "latest",
     "cssnano": "latest",
     "cssnano-preset-advanced": "latest",
     "postcss": "latest",
-    "tailwindcss": "latest",
     "typescript": "next",
     "vite": "latest",
     "vite-plugin-externals": "latest",
     "vite-plugin-html": "3.1.0",
-    "vue-tsc": "latest"
+    "vite-plugin-remove-console": "latest",
+    "vite-plugin-windicss": "latest",
+    "vue-tsc": "latest",
+    "windicss": "latest"
   },
   "browserslist": [
     "last 2 versions",
