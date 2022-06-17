@@ -43,7 +43,7 @@ const navBarHeight = 'h-16'
     <span class="pr-2 inline-flex justify-end">
       <!-- Cart -->
       <button type="button" class="rounded-lg w-12 whitespace-nowrap">
-        <img class="h-inherit inline-block dark:invert" :src="cart">
+        <img class="h-inherit inline-block dark:(filter invert)" :src="cart">
         <span>4</span>
       </button>
       <!-- Username -->
