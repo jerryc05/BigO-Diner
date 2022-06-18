@@ -23,7 +23,7 @@ const navBarHeight = 'h-16'
     :class="[darkBgBigOColor, navBarHeight]">
 
     <!-- Title & icon -->
-    <a href="/" class="h-full inline-flex">
+    <a href="/" class="sm:ml-5 flex">
       <TitleIcon class='-scale-x-100' />
       <span
         class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow-md">{{ store.isDark ? 'BigO' : 'MilkTea' }}
@@ -33,14 +33,14 @@ const navBarHeight = 'h-16'
     </a>
 
     <!-- Cart & username & avatar -->
-    <span class="pr-2 inline-flex justify-end">
+    <span class="pr-2 flex justify-end">
       <!-- Cart -->
       <button type="button" class="px-3 mr-2 my-1 flex flex-center rounded-full whitespace-nowrap bg-red-400">
         <img class="h-6 pr-2 dark:(filter invert)" :src="cart">
         {{ Math.floor((Math.random()) * 50) }}
       </button>
       <!-- Username -->
-      <b class="hidden md:inline-flex flex-center text-lg mx-2 whitespace-nowrap">jerryc05</b>
+      <b class="hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap">jerryc05</b>
       <!-- User avatar -->
       <button type="button"
         class="h-12 flex flex-center rounded-full aspect-square focus:ring-gray-300 dark:focus:ring-gray-600 bg-white">
