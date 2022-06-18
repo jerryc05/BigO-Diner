@@ -14,11 +14,11 @@ const store = useStore()
 
 
 <template>
-  <div class="w-full min-h-screen dark:bg-black dark:text-white" :class='[textMtColor]'>
+  <div class="w-full min-w-80 min-h-screen dark:bg-black dark:text-white" :class='[textMtColor]'>
     <NavBar />
 
     <div class="px-4">
-      <BodyPart/>
+      <BodyPart />
 
       <img :src="store.isDark ? 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg' : bingbing"
         class="h-36 object-contain ml-auto mr-auto" />
