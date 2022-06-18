@@ -11,5 +11,6 @@ npm run b
 rm -r $ROOT_DIR/dist || true
 mv dist $ROOT_DIR
 cd $ROOT_DIR
+git --no-pager log --decorate=short --pretty=oneline
 git add .
 git c --amend
