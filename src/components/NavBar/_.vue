@@ -5,8 +5,7 @@ import TitleIcon from './TitleIcon.vue'
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 import cart from '@/assets/cart.svg'
-import { dev } from '@/utils/constants'
-import { reactive } from 'vue'
+import ScrSize from '@/utils/ScrSize.vue'
 
 const store = useStore()
 
@@ -26,33 +25,25 @@ const navBarHeight = 'h-16'
     <a href="/" class="h-full inline-flex">
       <TitleIcon class='-scale-x-100' />
       <span
-        class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow-lg">{{ store.isDark ? 'BigO' : 'MilkTea' }}
+        class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow-md">{{ store.isDark ? 'BigO' : 'MilkTea' }}
         Diner</span>
       <TitleIcon />
-      <span v-if="dev">
-        <span class="sm:hidden">default</span>
-        <span class="hidden sm:inline-block md:hidden">sm</span>
-        <span class="hidden md:inline-block lg:hidden">md</span>
-        <span class="hidden lg:inline-block xl:hidden">lg</span>
-        <span class="hidden xl:inline-block 2xl:hidden">xl</span>
-        <span class="hidden 2xl:inline-block">2xl</span>
-      </span>
+      <ScrSize v-if="dev" />
     </a>
 
     <!-- Cart & username & avatar -->
     <span class="pr-2 inline-flex justify-end">
       <!-- Cart -->
-      <button type="button" class="rounded-lg w-12 whitespace-nowrap">
-        <img class="h-inherit inline-block dark:(filter invert)" :src="cart">
-        <span>4</span>
+      <button type="button" class="pr-2 flex flex-center rounded-full whitespace-nowrap bg-red-400">
+        <img class="h-6 inline-block dark:(filter invert)" :src="cart">
+        {{ Math.floor((Math.random()) * 50) }}
       </button>
       <!-- Username -->
-      <b class="hidden md:inline text-lg mx-2 whitespace-nowrap">jerryc05</b>
+      <b class="hidden md:inline-flex flex-center text-lg mx-2 whitespace-nowrap">jerryc05</b>
       <!-- User avatar -->
-      <button type="button" class="flex rounded-full focus:ring-gray-300 dark:focus:ring-gray-600 bg-white">
-        <span class="h-full">
-          <img class="h-4/5 aspect-square" :src="store.isDark ? bigO : bingbing">
-        </span>
+      <button type="button"
+        class="h-12 flex flex-center rounded-full aspect-square focus:ring-gray-300 dark:focus:ring-gray-600 bg-white">
+        <img class="h-5/7 aspect-square" :src="store.isDark ? bigO : bingbing">
       </button>
 
       <!-- Dropdown menu -->
