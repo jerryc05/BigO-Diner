@@ -30,6 +30,8 @@ const store = useStore()
         to
         {{ store.isDark ? 'Light' : 'Dark' }} mode</button>
 
+      <div>{{store.cart}}</div>
+
     </div>
   </div>
 </template>

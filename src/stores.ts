@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 
 import { detectDarkMode, setDarkMode } from '@/utils/dark_mode'
 import { menu } from '@/menu/menu'
+import { Item } from '@/menu/menu_types'
 
 // useX could be anything like useUser, useCart
 // the first argument is a unique id of the store across your application
@@ -30,7 +31,8 @@ x_.x == 'example'
 export const useStore = defineStore('', {
   state: () => ({
     isDark: detectDarkMode(),
-    disabledCategories: new Set<string>()
+    disabledCategories: new Set<string>(),
+    cart: <Record<string, number>>{}
   }),
   getters: {  // Same as computed
     getEnabledMenuItems(state) {

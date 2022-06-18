@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import { useStore } from '@/stores'
+
 import fish from '@/assets/fish.svg'
 import catFood from '@/assets/catFood.svg'
 import catFoodCan from '@/assets/catFoodCan.svg'
 import { darkBgBigOColor } from '@/utils/colors'
 import type { Item } from '@/menu/menu_types'
 import PriceImg from './PriceImg.vue'
+
+const store = useStore()
 
 const props = defineProps<{ item: Item }>()
 
@@ -26,19 +30,20 @@ price[2] = x
 
 
 <template>
-  <div class="h-32 p-2 my-3 rounded-xl flex flex-col justify-center bg-gray-300 shadow-md" :class="[darkBgBigOColor]">
+  <button type="button" @click="store.cart[props.item.cnName]=(store.cart[props.item.cnName]||0)+1" class="h-32 w-full p-2 my-3 rounded-xl flex flex-col bg-gray-300 shadow-md"
+    :class="[darkBgBigOColor]">
     <!-- Item & Image -->
-    <span class="h-20 flex">
+    <span class="h-20 w-full flex justify-between">
       <!-- Item -->
-      <span class='ml-2 w-full flex flex-col justify-center whitespace-nowrap overflow-hidden'>
+      <span class='ml-2 flex flex-col items-start whitespace-nowrap overflow-hidden'>
         <!-- Title -->
         <b class="my-1 text-lg text-shadow">{{ props.item.cnName }}</b>
         <!-- Category -->
-        <span class="overflow-hidden overflow-ellipsis"
-          :class="secondaryTextColor">{{ props.item.category.cnName }}</span>
+        <span class="overflow-hidden overflow-ellipsis" :class="secondaryTextColor">{{ props.item.category.cnName
+        }}</span>
         <!-- Chefs -->
-        <span class="overflow-hidden overflow-ellipsis"
-          :class="secondaryTextColor">{{ props.item.chefs.join(' · ') }}</span>
+        <span class="overflow-hidden overflow-ellipsis" :class="secondaryTextColor">{{ props.item.chefs.join(' · ')
+        }}</span>
       </span>
 
       <!-- Image -->
@@ -52,5 +57,5 @@ price[2] = x
       <PriceImg :price="price[1]" :src="catFoodCan" v-if="price[0] > 0 || price[1] > 0" />
       <PriceImg :price="price[2]" :src="fish" />
     </span>
-  </div>
+  </button>
 </template>
