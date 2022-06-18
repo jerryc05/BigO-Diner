@@ -5,6 +5,7 @@ import TitleIcon from './TitleIcon.vue'
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 import cart from '@/assets/cart.svg'
+import { dev } from '@/utils/constants'
 import ScrSize from '@/utils/ScrSize.vue'
 
 const store = useStore()
