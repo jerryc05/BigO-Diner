@@ -35,8 +35,8 @@ const navBarHeight = 'h-16'
     <!-- Cart & username & avatar -->
     <span class="pr-2 inline-flex justify-end">
       <!-- Cart -->
-      <button type="button" class="pr-2 flex flex-center rounded-full whitespace-nowrap bg-red-400">
-        <img class="h-6 inline-block dark:(filter invert)" :src="cart">
+      <button type="button" class="px-3 my-1 flex flex-center rounded-full whitespace-nowrap bg-red-400">
+        <img class="h-6 pr-2 dark:(filter invert)" :src="cart">
         {{ Math.floor((Math.random()) * 50) }}
       </button>
       <!-- Username -->
