@@ -29,9 +29,6 @@ const store = useStore()
         :class="[darkBgBigOColor, bgMtColor]" @click="store.toggleLightDarkMode">Change
         to
         {{ store.isDark ? 'Light' : 'Dark' }} mode</button>
-
-      <div>{{store.cart}}</div>
-
     </div>
   </div>
 </template>

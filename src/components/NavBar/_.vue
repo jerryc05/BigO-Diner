@@ -11,6 +11,10 @@ import ScrSize from '@/utils/ScrSize.vue'
 const store = useStore()
 
 const navBarHeight = 'h-16'
+
+function popCartInfo(){
+  alert(JSON.stringify(store.cart))
+}
 </script>
 
 
@@ -35,7 +39,7 @@ const navBarHeight = 'h-16'
     <!-- Cart & username & avatar -->
     <span class="pr-2 flex justify-end">
       <!-- Cart -->
-      <button type="button" class="px-3 mr-2 my-1 flex flex-center rounded-full whitespace-nowrap bg-red-400">
+      <button type="button" @click="popCartInfo" class="px-3 mr-2 my-1 flex flex-center rounded-full whitespace-nowrap bg-red-400">
         <img class="h-6 pr-2 dark:(filter invert)" :src="cart">
         {{ Object.keys(store.cart).length }}
       </button>
