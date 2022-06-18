@@ -8,5 +8,5 @@ const props = defineProps<{ txt: string }>()
 
 
 <template>
-    <b class="text-2xl">{{ props.txt }}</b>
+  <b class="block text-2xl my-2">{{ props.txt }}</b>
 </template>

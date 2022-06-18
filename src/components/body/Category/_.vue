@@ -16,13 +16,11 @@ const categoryUniqueMenu = menu
 
 
 <template>
-  <div class="p-3">
-    <TitleBlock txt="Category" />
-    <div class="flex flex-wrap">
-      <span class="h-11 w-1/3 flex justify-evenly items-stretch" v-for='x of categoryUniqueMenu'
-        :key='x.category.cnName'>
-        <ItemBlock :item='x' />
-      </span>
-    </div>
+  <TitleBlock txt="Category" />
+  <div class="flex flex-wrap">
+    <span class="h-11 w-1/3 flex justify-evenly items-stretch" v-for='x of categoryUniqueMenu'
+      :key='x.category.cnName'>
+      <ItemBlock :item='x' />
+    </span>
   </div>
 </template>
