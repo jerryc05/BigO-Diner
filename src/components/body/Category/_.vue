@@ -2,6 +2,7 @@
 import ItemBlock from './ItemBlock.vue'
 import { useStore } from '@/stores'
 import { menu } from '@/menu/menu'
+import TitleBlock from '../TitleBlock.vue'
 
 const store = useStore()
 
@@ -16,10 +17,7 @@ const categoryUniqueMenu = menu
 
 <template>
   <div class="p-3">
-    <div class="flex justify-between">
-      <span>Category</span>
-      <a href="#">See All >></a>
-    </div>
+    <TitleBlock txt="Category" />
     <div class="flex flex-wrap">
       <span class="h-11 w-1/3 flex justify-evenly items-stretch" v-for='x of categoryUniqueMenu'
         :key='x.category.cnName'>

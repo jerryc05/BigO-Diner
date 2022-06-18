@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '@/stores'
+import TitleBlock from '../TitleBlock.vue'
 import ItemBlock from './ItemBlock.vue'
 
 const store = useStore()
@@ -12,10 +13,7 @@ const store = useStore()
 
 <template>
   <div class="p-1">
-    <div class="flex justify-between">
-      <span>Chef's Special</span>
-      <a href="#">See All >></a>
-    </div>
+    <TitleBlock txt="All Dishes" />
     <ItemBlock v-for='x of store.getEnabledMenuItems' :key='x.cnName' :item='x' />
   </div>
 </template>
