@@ -12,7 +12,7 @@ const store = useStore()
 
 const navBarHeight = 'h-16'
 
-function popCartInfo(){
+function popCartInfo() {
   alert(JSON.stringify(store.cart))
 }
 </script>
@@ -39,8 +39,9 @@ function popCartInfo(){
     <!-- Cart & username & avatar -->
     <span class="pr-2 flex justify-end">
       <!-- Cart -->
-      <button type="button" @click="popCartInfo" class="px-3 mr-2 my-1 flex flex-center rounded-full whitespace-nowrap bg-red-400">
-        <img class="h-6 pr-2 dark:(filter invert)" :src="cart">
+      <button type="button" @click="popCartInfo"
+        class="px-3 mr-2 my-1 flex flex-center rounded-full whitespace-nowrap bg-white text-black">
+        <img class="h-6 pr-2 filter" :src="cart">
         {{ Object.keys(store.cart).length }}
       </button>
       <!-- Username -->
