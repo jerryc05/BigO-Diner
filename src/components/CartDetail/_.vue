@@ -41,7 +41,8 @@ const store = useStore()
       </div>
       <!-- Bottom Bar -->
       <span class="h-23 p-5 -mb-5 flex-grow-0 flex-shrink-0 flex flex-center">
-        <button type="button" class="w-full h-full rounded-full bg-green-600 text-xl text-white">
+        <button type="button" @click="store.cart = {}"
+          class="w-full h-full rounded-full bg-green-600 text-xl text-white">
           Checkout
         </button>
       </span>
