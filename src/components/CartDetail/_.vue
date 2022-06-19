@@ -18,7 +18,8 @@ const store = useStore()
 <template>
   <div v-show="store.showCart">
     <!-- Background Shadow -->
-    <div class="hidden md:block h-screen w-screen fixed top-0 bg-gray-400 bg-opacity-80 z-19"></div>
+    <div @click="store.showCart = false"
+      class="hidden md:block h-screen w-screen fixed top-0 bg-gray-400 bg-opacity-80 z-19 cursor-pointer"></div>
     <!-- Real Cart -->
     <div class="w-screen md:(w-100 rounded-l-2xl) h-screen px-6 py-4 fixed top-0 right-0 flex flex-col z-20 bg-white">
       <!-- Close -->
@@ -44,7 +45,7 @@ const store = useStore()
         Subtotal: TODO
       </b>
       <!-- Checkout Btn -->
-      <span class="h-14 px-4 mt-4 flex-grow-0 flex-shrink-0 flex flex-center">
+      <span class="h-13 px-4 mt-4 mb-1 flex-grow-0 flex-shrink-0 flex flex-center">
         <button type="button" @click="store.cart = {}"
           class="w-full h-full rounded-full bg-green-600 text-xl text-white">
           Checkout
