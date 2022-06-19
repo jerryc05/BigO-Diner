@@ -28,6 +28,7 @@ function toggleCategory() {
 
 
 <template>
-  <button type="button" class="w-full m-1 rounded shadow bg-gray-300" :class="[darkBgBigOColor]"
+  <button type="button" class="w-full m-1 rounded shadow bg-gray-300"
+    :class="{ darkBgBigOColor: true, 'line-through': dc.has(t) }"
     @click="toggleCategory">{{ (!dc.has(t)) ? categoryName : `已过滤${categoryName}` }}</button>
 </template>
