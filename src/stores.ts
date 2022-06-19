@@ -32,7 +32,8 @@ export const useStore = defineStore('', {
   state: () => ({
     isDark: detectDarkMode(),
     disabledCategories: new Set<string>(),
-    cart: <Record<string, number>>{}
+    cart: <Record<string, number>>{},
+    showCart: false
   }),
   getters: {  // Same as computed
     getEnabledMenuItems(state) {

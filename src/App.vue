@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar/_.vue'
 import BodyPart from '@/components/body/_.vue'
+import CartDetail from './components/CartDetail/_.vue'
 import bingbing from '@/assets/bingbing.png'
 import { useStore } from '@/stores'
 import { bgMtColor, textMtColor, darkBgBigOColor } from '@/utils/colors'
@@ -28,6 +29,8 @@ const store = useStore()
       :class="[darkBgBigOColor, bgMtColor]" @click="store.toggleLightDarkMode">Change
       to
       {{ store.isDark ? 'Light' : 'Dark' }} mode</button>
+
+    <CartDetail />
   </div>
 </template>
 
