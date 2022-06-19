@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '@/stores'
+
 import { darkBgBigOColor, textMtColor, bgMtColor } from '@/utils/colors'
 import TitleIcon from './TitleIcon.vue'
 import bigO from '@/assets/bigO.png'

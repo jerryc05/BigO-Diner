@@ -2,7 +2,6 @@
 import NavBar from '@/components/NavBar/_.vue'
 import BodyPart from '@/components/body/_.vue'
 import CartDetail from './components/CartDetail/_.vue'
-import bingbing from '@/assets/bingbing.png'
 import { useStore } from '@/stores'
 import { bgMtColor, textMtColor, darkBgBigOColor } from '@/utils/colors'
 
@@ -15,20 +14,12 @@ const store = useStore()
 
 
 <template>
-  <div class="w-full min-w-80 min-h-screen dark:bg-black dark:text-white" :class='[textMtColor]'>
+  <div class="w-full min-w-80 min-h-screen flex flex-col dark:bg-black dark:text-white" :class='[textMtColor]'>
     <NavBar />
 
-    <BodyPart />
-
-    <img :src="store.isDark ? 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg' : bingbing"
-      class="h-36 object-contain ml-auto mr-auto" />
-
-    <div>{{ store.isDark ? '大橘：老吴~~~啊~吴~吃~~麻麻香' : '大饼：嗷呜~~猫呜~~母猫~~猫粮呜' }}！</div>
-
-    <button type="button" class="text-white rounded relative left-1/2 -translate-x-1/2 p-2"
-      :class="[darkBgBigOColor, bgMtColor]" @click="store.toggleLightDarkMode">Change
-      to
-      {{ store.isDark ? 'Light' : 'Dark' }} mode</button>
+    <div class="flex-grow basis-0 overflow-y-auto scroll-smooth">
+      <BodyPart />
+    </div>
 
     <CartDetail />
   </div>

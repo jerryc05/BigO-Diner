@@ -16,6 +16,7 @@ const store = useStore()
 
 
 <template>
+  <!-- Cart Details -->
   <div v-show="store.showCart">
     <!-- Background Shadow -->
     <div @click="store.showCart = false"
@@ -29,7 +30,7 @@ const store = useStore()
         </span>
       </span>
       <!-- Content -->
-      <div class="mt-2 flex-grow flex-shrink overflow-y-auto">
+      <div class="mt-2 flex-grow flex-shrink overflow-y-auto scroll-smooth">
         <div class="h-15 my-3 border-3 p-3 flex justify-between items-center rounded-lg border-gray-300"
           v-for="quantity, x of store.cart">
           <b>{{ x }}</b>
