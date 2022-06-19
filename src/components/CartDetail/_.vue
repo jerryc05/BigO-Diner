@@ -4,8 +4,6 @@ import { useStore } from '@/stores'
 import close from '@/assets/close.svg'
 
 const store = useStore()
-
-const bottomBarHeight = 'h-23'
 </script>
 
 
@@ -23,11 +21,11 @@ const bottomBarHeight = 'h-23'
       </button>
     </span>
     <!-- Content -->
-    <div class="mt-5 flex-grow flex-shrink overflow-scroll" :class="[bottomBarMarginOffset]">
+    <div class="mt-5 flex-grow flex-shrink overflow-scroll">
       <div v-for="quantity, x of store.cart">{{ x }}{{ quantity }}</div>
     </div>
     <!-- Bottom Bar -->
-    <span class="p-5 -mb-3 flex-grow-0 flex-shrink-0 flex flex-center" :class="bottomBarHeight">
+    <span class="h-23 p-5 -mb-3 flex-grow-0 flex-shrink-0 flex flex-center">
       <button class="w-full h-full rounded-full bg-green-600 text-xl text-white">
         Checkout
       </button>
