@@ -30,7 +30,7 @@ price[2] = x
 
 
 <template>
-  <button type="button" @click="store.cartAdd(props.item.cnName)"
+  <button type="button" @click="store.cartAddOne(props.item.cnName)"
     class="w-full p-3 m-2 rounded-xl flex flex-col bg-gray-300 shadow-md" :class="[darkBgBigOColor]">
     <!-- Item & Image -->
     <span class="h-20 w-full flex justify-between">

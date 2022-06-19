@@ -48,6 +48,9 @@ export const useStore = defineStore('', {
     cartAdd(cnName: string) {
       this.cart[cnName] = (this.cart[cnName] || 0) + 1
     },
+    cartAddOne(cnName: string) {
+      this.cart[cnName] = Math.max(this.cart[cnName] || 0, 1)
+    },
     cartDel(cnName: string) {
       this.cart[cnName]--
       if (this.cart[cnName] <= 0) {

@@ -34,7 +34,7 @@ const store = useStore()
           <b>{{ x }}</b>
           <span class="flex flex-center">
             <PlusMinusImg @click="store.cartDel(x)" :src="minus" />
-            <span class="mx-1">{{ quantity }}</span>
+            <span class="mx-2">{{ quantity }}</span>
             <PlusMinusImg @click="store.cartAdd(x)" :src="plus" />
           </span>
         </div>
