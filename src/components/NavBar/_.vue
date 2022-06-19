@@ -30,7 +30,7 @@ function popCartInfo() {
     <a href="/" class="sm:ml-5 flex">
       <TitleIcon class='-scale-x-100' />
       <span
-        class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow-md">{{ store.isDark ? 'BigO' : 'MilkTea' }}
+        class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow">{{ store.isDark ? 'BigO' : 'MilkTea' }}
         Diner</span>
       <TitleIcon />
       <ScrSize v-if="dev" />
@@ -40,7 +40,7 @@ function popCartInfo() {
     <span class="pr-2 flex justify-end">
       <!-- Cart -->
       <button type="button" @click="popCartInfo"
-        class="px-3 mr-2 my-1 flex flex-center rounded-full whitespace-nowrap bg-white text-black">
+        class="px-3 mr-2 my-1 flex flex-center rounded-full shadow-md whitespace-nowrap bg-white text-black">
         <img class="h-6 pr-2 filter" :src="cart">
         {{ Object.keys(store.cart).length }}
       </button>
@@ -48,7 +48,7 @@ function popCartInfo() {
       <b class="hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap">jerryc05</b>
       <!-- User avatar -->
       <button type="button"
-        class="h-12 flex flex-center rounded-full aspect-square focus:ring-gray-300 dark:focus:ring-gray-600 bg-white">
+        class="h-12 flex flex-center rounded-full shadow aspect-square focus:ring-gray-300 dark:focus:ring-gray-600 bg-white">
         <img class="h-5/7 aspect-square" :src="store.isDark ? bigO : bingbing">
       </button>
 
