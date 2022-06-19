@@ -37,7 +37,7 @@ const navBarHeight = 'h-16'
       <!-- Cart -->
       <button type="button" @click="store.showCart = true"
         class="px-3 mr-2 my-1 flex flex-center rounded-full shadow whitespace-nowrap bg-white text-xl text-black">
-        <img class="h-6 pr-2 filter" :src="cart">
+        <img class="h-6 pr-2" :src="cart">
         {{ Object.keys(store.cart).length }}
       </button>
       <!-- Username -->
