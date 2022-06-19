@@ -44,6 +44,15 @@ export const useStore = defineStore('', {
     toggleLightDarkMode() {
       this.isDark = !this.isDark
       setDarkMode(this.isDark)
+    },
+    cartAdd(cnName: string) {
+      this.cart[cnName] = (this.cart[cnName] || 0) + 1
+    },
+    cartDel(cnName: string) {
+      this.cart[cnName]--
+      if (this.cart[cnName] <= 0) {
+        delete this.cart[cnName]
+      }
     }
   }
 })
