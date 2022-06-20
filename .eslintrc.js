@@ -44,6 +44,7 @@ module.exports = {
 
     'array-element-newline': ['error', 'consistent'],
     'comma-dangle': ['error', 'only-multiline'],
+    'dot-location': ['error', 'property'],
 
     'capitalized-comments': 'off',
     'max-len': 'off',
