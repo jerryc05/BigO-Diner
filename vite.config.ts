@@ -21,7 +21,9 @@ const target = 'esnext',
       attrs: {
         'http-equiv': 'Content-Security-Policy',
         // [*-elem] doesn't work in Safari/iOS, fvck Safari
-        content: `default-src 'self';script-src 'self' ${jsdelivr};style-src 'self' 'unsafe-inline' ${jsdelivr};img-src 'self' data: https://*.ibb.co https://*.licdn.com`,
+        content: `default-src 'self';script-src 'self' ${jsdelivr};` +
+          `style-src 'self' 'unsafe-inline' ${jsdelivr};` +
+          'img-src \'self\' data: https://*.ibb.co https://*.licdn.com',
       },
     },
     {

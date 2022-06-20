@@ -49,6 +49,12 @@ module.exports = {
     'func-style': ['error', 'declaration'],
     'function-call-argument-newline': ['error', 'never'],
     'function-paren-newline': ['error', 'consistent'],
+    'max-len': [
+      'error', {
+        'code': 100,
+        'ignoreComments': true
+      }
+    ],
     'no-extra-parens': [
       'error', 'all', {'nestedBinaryExpressions': false,
         'enforceForArrowConditionals': false }
@@ -61,7 +67,6 @@ module.exports = {
     'lines-between-class-members': 'off',
     'line-comment-position': 'off',
     'max-classes-per-file': 'off',
-    'max-len': 'off',
     'max-lines': 'off',
     'max-params': 'off',
     'multiline-comment-style': 'off',
