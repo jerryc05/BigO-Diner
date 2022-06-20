@@ -3,7 +3,6 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    // TODO: check new version
     es2022: true,
     node: true
   },
@@ -49,10 +48,13 @@ module.exports = {
     'capitalized-comments': 'off',
     'max-len': 'off',
     'multiline-comment-style': 'off',
+    'multiline-ternary': 'off',
     'no-magic-numbers': 'off',
+    'no-ternary': 'off',
     'object-curly-spacing': 'off',
     'quote-props': 'off',
     'sort-keys': 'off',
     'sort-vars': 'off',
-  }
+  },
+  ignorePatterns: ['**/*.d.ts', 'node_modules/**', 'dist/**'],
 }
