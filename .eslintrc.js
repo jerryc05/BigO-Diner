@@ -13,8 +13,7 @@ module.exports = {
     'plugin:vue/base',
     'plugin:vue/vue3-recommended',
   ],
-  // must use for vue SFC
-  parser: 'vue-eslint-parser',
+  parser: 'vue-eslint-parser', // must use for vue SFC
   parserOptions: {
     ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
@@ -50,12 +49,14 @@ module.exports = {
 
     'capitalized-comments': 'off',
     'lines-between-class-members': 'off',
+    'line-comment-position': 'off',
     'max-classes-per-file': 'off',
     'max-len': 'off',
     'max-lines': 'off',
     'max-params': 'off',
     'multiline-comment-style': 'off',
     'multiline-ternary': 'off',
+    'no-inline-comments': 'off',
     'no-magic-numbers': 'off',
     'no-ternary': 'off',
     'object-curly-spacing': 'off',
