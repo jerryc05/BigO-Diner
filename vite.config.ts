@@ -152,7 +152,7 @@ export default defineConfig({
     }),
     buildPostProcessor(async p_ => {
       const p = p_.split(path.sep).join(path.posix.sep)
-      if ((/\.+\w?(?:js|css|html)$/u).test(p)) {
+      if ((/\.+(?:js|css|html|svg)$/u).test(p)) {
         const orig = await readFile(p),
           compressed: Buffer = await new Promise((acc, rej) => {
             brotliCompress(orig.buffer, (e, b) => (e ? rej(e) : acc(b)))
