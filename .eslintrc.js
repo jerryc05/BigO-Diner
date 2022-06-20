@@ -48,6 +48,7 @@ module.exports = {
     'padded-blocks': ['error', 'never'],
 
     'capitalized-comments': 'off',
+    'id-length': 'off',
     'lines-between-class-members': 'off',
     'line-comment-position': 'off',
     'max-classes-per-file': 'off',
