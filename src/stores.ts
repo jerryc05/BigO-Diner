@@ -13,7 +13,7 @@ export const useStore = defineStore('', {
   }),
   getters: { // Same as computed
     getEnabledMenuItems (state) {
-      return menu.filter((x) => !state.disabledCategories.has(x.constructor.name))
+      return menu.filter(x => !state.disabledCategories.has(x.constructor.name))
     }
   },
   actions: { // Same as methods

@@ -9,7 +9,10 @@ export abstract class Item {
   ingredients: Readonly<Ingredient>[] | null
   chefs: Readonly<Chef[]>
   abstract category: Category
-  constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  constructor (
+    cnName: Readonly<string>, enName: Readonly<string> | null,
+    ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>
+  ) {
     this.cnName = cnName
     this.enName = enName
     this.ingredients = ingredients
@@ -32,7 +35,10 @@ export class CongeeDish extends Item {
     cnName: '粥类',
     enName: 'Congee'
   }
-  constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  constructor (
+    cnName: Readonly<string>, enName: Readonly<string> | null,
+    ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>
+  ) {
     super(cnName, enName, [...ingredients || [], Rice], chefs)
   }
 }

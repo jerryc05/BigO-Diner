@@ -1,10 +1,20 @@
-import { BeefDish, ChickenDish, ColdDish, CongeeDish, Dessert, DessertCake, Drink, Item, LambDish, NoodleDish, PorkDish, RiceDish, SeafoodDish, SoupDish, StreetFoodDish, VegetableDish, WheatenDish } from './menu_types'
-import { BeefShank, Chicken, ChickenFeet, Corn, Cucumber, Egg, Goji, Jellyfish, Lemon, Millet, MungBean, Mushroom, Peanut, Pork, Potato, PotherbMustard, PreservedEgg, Sesame, Shrimp, WoodEar } from './ingredients'
+import {
+  BeefDish, ChickenDish, ColdDish, CongeeDish, Dessert, DessertCake, Drink, Item, LambDish,
+  NoodleDish, PorkDish, RiceDish, SeafoodDish, SoupDish, StreetFoodDish, VegetableDish, WheatenDish
+} from './menu_types'
+import {
+  BeefShank, Chicken, ChickenFeet, Corn, Cucumber, Egg, Goji, Jellyfish, Lemon, Millet,
+  MungBean, Mushroom, Peanut, Pork, Potato, PotherbMustard, PreservedEgg, Sesame, Shrimp, WoodEar
+} from './ingredients'
 
 export const menu: ReadonlyArray<Item> = [
   new CongeeDish('香菇鸡肉粥', 'Congee w/ Chicken & Mushrooms', [Chicken, Mushroom], ['Jaybase']),
-  new CongeeDish('皮蛋瘦肉粥', 'Congee w/ Pork & Preserved Eggs', [Pork, PreservedEgg], ['Jaybase', 'Jerryc05']),
-  new CongeeDish('雪菜肉丝粥', 'Congee w/ potherb mustard & shredded pork', [PotherbMustard, Pork], ['Jaybase']),
+  new CongeeDish(
+    '皮蛋瘦肉粥', 'Congee w/ Pork & Preserved Eggs', [Pork, PreservedEgg], ['Jaybase', 'Jerryc05']
+  ),
+  new CongeeDish(
+    '雪菜肉丝粥', 'Congee w/ potherb mustard & shredded pork', [PotherbMustard, Pork], ['Jaybase']
+  ),
   new CongeeDish('八宝粥', 'Mixed Congee', null, ['Jaybase']),
   new CongeeDish('玉米碴子粥', 'Congee w/ Crushed Corn', [Corn, Goji], ['Jaybase']),
   new CongeeDish('小米粥', 'Millet Congee', [Millet, Goji], ['Jaybase']),
@@ -18,7 +28,9 @@ export const menu: ReadonlyArray<Item> = [
   new ColdDish('卤蛋', 'Marinated Egg', [Egg], ['Jaybase']),
   new ColdDish('酸辣虾', 'Sour & Spicy Shrimp', [Shrimp], ['Jaybase', 'Titi']),
   new ColdDish('泰式柠檬虾', null, null, ['Titi']),
-  new ColdDish('酸辣无骨鸡爪', 'Sour & Spicy Chicken Feet', [ChickenFeet], ['Jaybase', 'Jerryc05', 'Titi', 'Wuge']),
+  new ColdDish(
+    '酸辣无骨鸡爪', 'Sour & Spicy Chicken Feet', [ChickenFeet], ['Jaybase', 'Jerryc05', 'Titi', 'Wuge']
+  ),
   new ColdDish('凉拌土豆丝', 'Shredded Potato Salad', [Potato], ['Jaybase']),
   new ColdDish('酸辣土豆丝', 'Sour & Spicy Shredded Potato', [Potato], ['Jaybase']),
   new ColdDish('白糖西红柿', 'Sour & Spicy Shredded Potato', [Potato], ['Jaybase']),

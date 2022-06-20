@@ -26,7 +26,7 @@ module.exports = {
     'vue',
     '@typescript-eslint'
   ],
-  ignorePatterns: ['**/*.d.ts', 'node_modules/**', 'dist/**'],
+  ignorePatterns: ['**/*.d.ts', 'node_modules/**', 'dist/**', '**/vite.config.*'],
   rules: {
     'indent': ['error', 2],
     'linebreak-style': ['error', 'unix'],
