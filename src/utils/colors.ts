@@ -1,4 +1,5 @@
-export const bgBigOColor = 'bg-[#ab641b]',
+export const
+  bgBigOColor = 'bg-[#ab641b]',
   darkBgBigOColor = 'dark:bg-[#ab641b]',
   textBigOColor = 'text-[#ab641b]',
   darkTextBigOColor = 'dark:text-[#ab641b]',

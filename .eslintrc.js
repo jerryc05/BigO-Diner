@@ -45,8 +45,12 @@ module.exports = {
     'array-element-newline': ['error', 'consistent'],
     'comma-dangle': ['error', 'only-multiline'],
     'dot-location': ['error', 'property'],
+    'function-call-argument-newline': ['error', 'never'],
+    'padded-blocks': ['error', 'never'],
 
     'capitalized-comments': 'off',
+    'lines-between-class-members': 'off',
+    'max-classes-per-file': 'off',
     'max-len': 'off',
     'multiline-comment-style': 'off',
     'multiline-ternary': 'off',
