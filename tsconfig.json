@@ -31,7 +31,13 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "./*.config.*",
+    "**/.eslintrc.js",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/vite.config.*",
   ],
   "references": [
     {
