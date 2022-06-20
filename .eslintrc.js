@@ -26,6 +26,7 @@ module.exports = {
     'vue',
     '@typescript-eslint'
   ],
+  ignorePatterns: ['**/*.d.ts', 'node_modules/**', 'dist/**'],
   rules: {
     'indent': ['error', 2],
     'linebreak-style': ['error', 'unix'],
@@ -42,12 +43,18 @@ module.exports = {
     'vue/v-on-function-call': ['error', 'never'],
 
     'array-element-newline': ['error', 'consistent'],
+    'arrow-parens': ['error', 'as-needed'],
     'comma-dangle': ['error', 'only-multiline'],
     'dot-location': ['error', 'property'],
     'func-style': ['error', 'declaration'],
     'function-call-argument-newline': ['error', 'never'],
-    'no-extra-parens': ['error', 'all', {'nestedBinaryExpressions': false}],
+    'function-paren-newline': ['error', 'consistent'],
+    'no-extra-parens': [
+      'error', 'all', {'nestedBinaryExpressions': false,
+        'enforceForArrowConditionals': false }
+    ],
     'padded-blocks': ['error', 'never'],
+    'sort-imports': ['error', { 'ignoreCase': true }],
 
     'capitalized-comments': 'off',
     'id-length': 'off',
@@ -59,6 +66,7 @@ module.exports = {
     'max-params': 'off',
     'multiline-comment-style': 'off',
     'multiline-ternary': 'off',
+    'no-console': 'off',
     'no-inline-comments': 'off',
     'no-magic-numbers': 'off',
     'no-ternary': 'off',
@@ -67,5 +75,4 @@ module.exports = {
     'sort-keys': 'off',
     'sort-vars': 'off',
   },
-  ignorePatterns: ['**/*.d.ts', 'node_modules/**', 'dist/**'],
 }
