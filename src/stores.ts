@@ -1,4 +1,4 @@
-import { detectDarkMode, setDarkMode } from '@/utils/dark_mode'
+import { detectAndSetDarkMode, setDarkMode } from '@/utils/dark_mode'
 
 import { defineStore } from 'pinia'
 import { menu } from '@/menu/menu'
@@ -6,7 +6,7 @@ import { menu } from '@/menu/menu'
 
 export const useStore = defineStore('', {
   state: () => ({
-    isDark: detectDarkMode(),
+    isDark: detectAndSetDarkMode(),
     disabledCategories: new Set<string>(),
     cart: <Record<string, number>>{},
     showCart: false

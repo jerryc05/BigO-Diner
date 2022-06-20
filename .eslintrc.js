@@ -44,7 +44,9 @@ module.exports = {
     'array-element-newline': ['error', 'consistent'],
     'comma-dangle': ['error', 'only-multiline'],
     'dot-location': ['error', 'property'],
+    'func-style': ['error', 'declaration'],
     'function-call-argument-newline': ['error', 'never'],
+    'no-extra-parens': ['error', 'all', {'nestedBinaryExpressions': false}],
     'padded-blocks': ['error', 'never'],
 
     'capitalized-comments': 'off',

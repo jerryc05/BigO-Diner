@@ -2,13 +2,13 @@ import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 
 
-const c = document.documentElement.classList
-let icon: HTMLLinkElement | undefined
+const bodyClasses = document.body.classList
+let icon: HTMLLinkElement | null = null
 
-function i() {
-  if (icon == null) {
-    const link = document.head.querySelector("link[rel~='icon']")
-    if (link == null) {
+function favicon () {
+  if (icon === null) {
+    const link = document.head.querySelector('link[rel~="icon"]')
+    if (link === null) {
       icon = document.createElement('link')
       icon.rel = 'icon'
       document.head.appendChild(icon)
@@ -19,42 +19,45 @@ function i() {
   return icon
 }
 
-function d() {
-  i().href = bigO
+function setDark () {
+  favicon().href = bigO
   document.title = 'BigO Diner'
-  c.add('dark')
+  bodyClasses.add('dark')
 }
 
-function l() {
-  i().href = bingbing
+function setLight () {
+  favicon().href = bingbing
   document.title = 'MilkTea Diner'
-  c.remove('dark')
+  bodyClasses.remove('dark')
 }
 
-function a() {
+function isSystemDark () {
   return window.matchMedia('(prefers-color-scheme:dark)').matches
 }
 
-export function detectDarkMode() {
-  const s: '1' | '0' | null = localStorage['dark']
-  if (s == '1' || (s == null && a())) {
-    d()
+export function detectAndSetDarkMode () {
+  const userSettingIsDark = localStorage.getItem('dark')
+  if (userSettingIsDark === '1' || (userSettingIsDark === null && isSystemDark())) {
+    setDark()
     return true
-  } else {
-    l()
-    return false
   }
+  setLight()
+  return false
 }
 
-export function setDarkMode(isDark?: boolean) {
-  if (isDark == null) {
-    a() ? d() : l()
+export function setDarkMode (isDark?: boolean) {
+  if (isDark === null) {
+    if (isSystemDark()) {
+      setDark()
+    } else {
+      setLight()
+    }
     localStorage.removeItem('dark')
   } else if (isDark) {
-    d()
-    localStorage['dark'] = 1
+    setDark()
+    localStorage.dark = 1
   } else {
-    l()
-    localStorage['dark'] = 0
+    setLight()
+    localStorage.dark = 0
   }
 }
