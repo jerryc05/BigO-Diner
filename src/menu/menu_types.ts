@@ -5,11 +5,11 @@ export type Category = Readonly<{ cnName: string, enName: string }>
 
 export abstract class Item {
   cnName: Readonly<string>
-  enName: Readonly<string> | undefined
-  ingredients: Readonly<Ingredient>[] | undefined
+  enName: Readonly<string> | null
+  ingredients: Readonly<Ingredient>[] | null
   chefs: Readonly<Chef[]>
   abstract category: Category
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
+  constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
     this.cnName = cnName
     this.enName = enName
     this.ingredients = ingredients
@@ -22,9 +22,9 @@ export class RiceDish extends Item {
     cnName: '饭类',
     enName: 'Rice'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class CongeeDish extends Item {
@@ -32,8 +32,8 @@ export class CongeeDish extends Item {
     cnName: '粥类',
     enName: 'Congee'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, [...(ingredients || []), Rice], chefs)
+  constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+    super(cnName, enName, [...ingredients || [], Rice], chefs)
   }
 }
 
@@ -42,9 +42,9 @@ export class ColdDish extends Item {
     cnName: '冷菜类',
     enName: 'Cold Dish'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class WheatenDish extends Item {
@@ -52,9 +52,9 @@ export class WheatenDish extends Item {
     cnName: '面食类',
     enName: 'Wheaten'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class NoodleDish extends Item {
@@ -62,9 +62,9 @@ export class NoodleDish extends Item {
     cnName: '面条类',
     enName: 'Noodle'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 abstract class MeatDish extends Item {
@@ -72,9 +72,9 @@ abstract class MeatDish extends Item {
     cnName: '肉类',
     enName: 'Meat'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class PorkDish extends MeatDish {
@@ -82,9 +82,9 @@ export class PorkDish extends MeatDish {
     cnName: '猪肉类',
     enName: 'Pork'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class BeefDish extends MeatDish {
@@ -92,9 +92,9 @@ export class BeefDish extends MeatDish {
     cnName: '牛肉类',
     enName: 'Beef'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class LambDish extends MeatDish {
@@ -102,9 +102,9 @@ export class LambDish extends MeatDish {
     cnName: '羊肉类',
     enName: 'Lamb'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class ChickenDish extends MeatDish {
@@ -112,9 +112,9 @@ export class ChickenDish extends MeatDish {
     cnName: '鸡肉类',
     enName: 'Chicken'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class SeafoodDish extends Item {
@@ -122,9 +122,9 @@ export class SeafoodDish extends Item {
     cnName: '海鲜类',
     enName: 'Seafood'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class VegetableDish extends Item {
@@ -132,9 +132,9 @@ export class VegetableDish extends Item {
     cnName: '素菜类',
     enName: 'Vegetable'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class SoupDish extends Item {
@@ -142,9 +142,9 @@ export class SoupDish extends Item {
     cnName: '汤类',
     enName: 'Soup'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class StreetFoodDish extends Item {
@@ -152,9 +152,9 @@ export class StreetFoodDish extends Item {
     cnName: '小吃类',
     enName: 'Street Food'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class Drink extends Item {
@@ -162,9 +162,9 @@ export class Drink extends Item {
     cnName: '饮品类',
     enName: 'Drink'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class Dessert extends Item {
@@ -172,9 +172,9 @@ export class Dessert extends Item {
     cnName: '甜点类',
     enName: 'Dessert'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
 
 export class DessertCake extends Dessert {
@@ -182,7 +182,7 @@ export class DessertCake extends Dessert {
     cnName: '蛋糕类',
     enName: 'Cake'
   }
-  constructor(cnName: Readonly<string>, enName: Readonly<string> | undefined, ingredients: Readonly<Ingredient>[] | undefined, chefs: Readonly<Chef[]>) {
-    super(cnName, enName, ingredients, chefs)
-  }
+  // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
+  //   super(cnName, enName, ingredients, chefs)
+  // }
 }
