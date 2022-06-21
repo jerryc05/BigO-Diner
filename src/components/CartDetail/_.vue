@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { useStore } from '@/stores'
-
-import PlusMinusImg from './PlusMinusImg.vue'
-
 import close from '@/assets/close.svg'
-import plus from '@/assets/plus.svg'
 import minus from '@/assets/remove.svg'
+import plus from '@/assets/plus.svg'
+import PlusMinusImg from './PlusMinusImg.vue'
+import { useStore } from '@/stores'
 
 const store = useStore()
 </script>
@@ -19,25 +17,46 @@ const store = useStore()
   <!-- Cart Details -->
   <div v-show="store.showCart">
     <!-- Background Shadow -->
-    <div @click="store.showCart = false"
-      class="hidden md:block h-screen w-screen fixed top-0 bg-gray-400 bg-opacity-80 z-19 cursor-pointer"></div>
+    <div
+      class="<md:hidden h-screen w-screen fixed top-0 bg-gray-400 bg-opacity-80 z-19 cursor-pointer"
+      @click="store.showCart = false"
+    />
     <!-- Real Cart -->
-    <div class="w-screen md:(w-100 rounded-l-2xl) h-screen px-6 py-4 fixed top-0 right-0 flex flex-col z-20 bg-white">
+    <div
+      class="w-screen md:(w-100 rounded-l-2xl) h-screen px-6 py-4
+     fixed top-0 right-0 flex flex-col z-20 bg-white"
+    >
       <!-- Close -->
       <span class="h-13 flex-grow-0 flex-shrink-0 flex">
-        <span @click="store.showCart = false" class="rounded-full shadow bg-gray-200 cursor-pointer">
-          <img class="h-full p-2 aspect-square" :src="close">
+        <span
+          class="rounded-full shadow bg-gray-200 cursor-pointer"
+          @click="store.showCart = false"
+        >
+          <img
+            class="h-full p-2 aspect-square"
+            :src="close"
+          >
         </span>
       </span>
       <!-- Content -->
       <div class="mt-2 flex-grow flex-shrink overflow-y-auto scroll-smooth">
-        <div class="h-15 my-3 border-3 p-3 flex justify-between items-center rounded-lg border-gray-300"
-          v-for="quantity, x of store.cart">
+        <div
+          v-for="quantity, x of store.cart"
+          :key="x"
+          class="h-15 my-3 border-3 p-3 flex justify-between items-center
+          rounded-lg border-gray-300"
+        >
           <b>{{ x }}</b>
           <span class="flex flex-center">
-            <PlusMinusImg @click="store.cartDel(x)" :src="minus" />
+            <PlusMinusImg
+              :src="minus"
+              @click="store.cartDel(x)"
+            />
             <span class="mx-2">{{ quantity }}</span>
-            <PlusMinusImg @click="store.cartAdd(x)" :src="plus" />
+            <PlusMinusImg
+              :src="plus"
+              @click="store.cartAdd(x)"
+            />
           </span>
         </div>
       </div>
@@ -47,8 +66,11 @@ const store = useStore()
       </b>
       <!-- Checkout Btn -->
       <span class="h-13 px-4 mt-4 mb-1 flex-grow-0 flex-shrink-0 flex flex-center">
-        <button type="button" @click="store.cart = {}"
-          class="w-full h-full rounded-full bg-green-600 text-xl text-white">
+        <button
+          type="button"
+          class="w-full h-full rounded-full bg-green-600 text-xl text-white"
+          @click="store.cart = {}"
+        >
           Checkout
         </button>
       </span>

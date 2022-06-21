@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import { useStore } from '@/stores'
-
 import { darkBgBigOColor } from '@/utils/colors'
 import type { Item } from '@/menu/menu_types'
+import { useStore } from '@/stores'
 
-const store = useStore()
-const props = defineProps<{ item: Item }>()
+const store = useStore(),
+  dc = store.disabledCategories,
+  props = defineProps<{ item: Item }>()
 
-const t = props.item.constructor.name
-const categoryName = props.item.category.cnName
-const dc = store.disabledCategories
-
-function toggleCategory() {
+function toggleCategory () {
+  const t = props.item.constructor.name
   if (dc.has(t)) {
     dc.delete(t)
     console.log('rm', t)
@@ -28,7 +25,12 @@ function toggleCategory() {
 
 
 <template>
-  <button type="button" class="w-full m-1 rounded shadow bg-gray-300"
-    :class="{ darkBgBigOColor: true, 'line-through': dc.has(t) }"
-    @click="toggleCategory">{{ (!dc.has(t)) ? categoryName : `已过滤${categoryName}` }}</button>
+  <button
+    type="button"
+    class="w-full m-1 rounded shadow bg-gray-300"
+    :class="[darkBgBigOColor,{ 'line-through': dc.has(t) }]"
+    @click="toggleCategory"
+  >
+    {{ (!dc.has(t)) ? props.item.category.cnName : `已过滤${props.item.category.cnName}` }}
+  </button>
 </template>

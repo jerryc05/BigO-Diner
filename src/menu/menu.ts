@@ -29,7 +29,8 @@ export const menu: ReadonlyArray<Item> = [
   new ColdDish('酸辣虾', 'Sour & Spicy Shrimp', [Shrimp], ['Jaybase', 'Titi']),
   new ColdDish('泰式柠檬虾', null, null, ['Titi']),
   new ColdDish(
-    '酸辣无骨鸡爪', 'Sour & Spicy Chicken Feet', [ChickenFeet], ['Jaybase', 'Jerryc05', 'Titi', 'Wuge']
+    '酸辣无骨鸡爪', 'Sour & Spicy Chicken Feet',
+    [ChickenFeet, Lemon], ['Jaybase', 'Jerryc05', 'Titi', 'Wuge']
   ),
   new ColdDish('凉拌土豆丝', 'Shredded Potato Salad', [Potato], ['Jaybase']),
   new ColdDish('酸辣土豆丝', 'Sour & Spicy Shredded Potato', [Potato], ['Jaybase']),

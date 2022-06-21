@@ -5,9 +5,11 @@
     "b": "vue-tsc --noEmit && npm run b!",
     "b!": "vite build",
     "s": "vite preview",
+    "l": "npm run lint",
     "dev": "npm run d",
     "build": "npm run b",
-    "serve": "npm run s"
+    "serve": "npm run s",
+    "lint": "npx eslint --ext .ts,.js,.vue ."
   },
   "dependencies": {
     "pinia": "latest",

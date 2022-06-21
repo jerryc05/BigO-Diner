@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import NavBar from '@/components/NavBar/_.vue'
 import BodyPart from '@/components/body/_.vue'
 import CartDetail from './components/CartDetail/_.vue'
-import { useStore } from '@/stores'
-import { bgMtColor, textMtColor, darkBgBigOColor } from '@/utils/colors'
+import NavBar from '@/components/NavBar/_.vue'
+import { textMtColor } from '@/utils/colors'
+// import { useStore } from '@/stores'
 
-const store = useStore()
+// const store = useStore()
 </script>
 
 
@@ -14,7 +14,10 @@ const store = useStore()
 
 
 <template>
-  <div class="w-full min-w-80 min-h-screen flex flex-col dark:bg-black dark:text-white" :class='[textMtColor]'>
+  <div
+    class="w-full min-w-80 min-h-screen flex flex-col dark:bg-black dark:text-white"
+    :class="[textMtColor]"
+  >
     <NavBar />
 
     <div class="flex-grow basis-0 overflow-y-auto scroll-smooth">

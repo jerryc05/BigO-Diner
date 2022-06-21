@@ -33,6 +33,7 @@ module.exports = {
     'quotes': ['error', 'single'],
     'semi': ['error', 'never'],
 
+
     'vue/component-api-style': 'error',
     'vue/html-button-has-type': 'error',
     'vue/next-tick-style': 'error',
@@ -42,12 +43,12 @@ module.exports = {
     'vue/prefer-prop-type-boolean-first': 'warn',
     'vue/v-on-function-call': ['error', 'never'],
 
+
     'array-element-newline': ['error', 'consistent'],
     'arrow-parens': ['error', 'as-needed'],
     'comma-dangle': ['error', 'only-multiline'],
     'dot-location': ['error', 'property'],
     'func-style': ['error', 'declaration'],
-    'function-call-argument-newline': ['error', 'never'],
     'function-paren-newline': ['error', 'consistent'],
     'max-len': [
       'error', {
@@ -59,10 +60,13 @@ module.exports = {
       'error', 'all', {'nestedBinaryExpressions': false,
         'enforceForArrowConditionals': false }
     ],
+    'no-multiple-empty-lines': ['error', {'max': 6}],
     'padded-blocks': ['error', 'never'],
     'sort-imports': ['error', { 'ignoreCase': true }],
 
+
     'capitalized-comments': 'off',
+    'function-call-argument-newline': 'off',
     'id-length': 'off',
     'lines-between-class-members': 'off',
     'line-comment-position': 'off',
