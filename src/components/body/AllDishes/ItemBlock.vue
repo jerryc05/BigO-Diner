@@ -34,7 +34,7 @@ price[2] = x
 <template>
   <button
     type="button"
-    class="w-full p-3 m-2 rounded-xl flex flex-col bg-gray-300 shadow-md"
+    class="w-full p-3 m-2 rounded-xl flex flex-col shadow-md"
     :class="[darkBgBigOColor]"
     @click="store.cartAddOne(props.item.cnName)"
   >

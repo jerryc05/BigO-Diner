@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ItemBlock from './ItemBlock.vue'
-import TitleBlock from '../TitleBlock.vue'
 import { useStore } from '@/stores'
 
 const store = useStore()
@@ -12,8 +11,7 @@ const store = useStore()
 
 
 <template>
-  <TitleBlock txt="All Dishes" />
-  <div class="flex flex-wrap -m-2">
+  <div class="my-3 flex flex-wrap -m-2">
     <span
       v-for="x of store.getEnabledMenuItems"
       :key="x.cnName"

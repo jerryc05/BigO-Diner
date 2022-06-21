@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import catFoodCan from '@/assets/catFoodCan.svg'
 import { darkBgBigOColor } from '@/utils/colors'
 import type { Item } from '@/menu/menu_types'
 import { useStore } from '@/stores'
@@ -12,14 +13,9 @@ const store = useStore(),
   cateName = props.item.category.cnName
   /* eslint-enable vue/no-setup-props-destructure */
 
-
 function toggleCategory () {
-  if (dc.has(t)) {
-    dc.delete(t)
-    console.log('rm', t)
-  } else {
+  if (!dc.delete(t)) {
     dc.add(t)
-    console.log('add', t)
   }
 }
 </script>
@@ -32,10 +28,19 @@ function toggleCategory () {
 <template>
   <button
     type="button"
-    class="w-full m-1 rounded shadow bg-gray-300"
+    class="p-2 flex-grow-0 flex-shrink-0 basis-20 m-1 flex flex-col flex-center
+     rounded-xl"
     :class="[darkBgBigOColor,{ 'line-through': dc.has(t) }]"
     @click="toggleCategory"
   >
-    {{ (!dc.has(t)) ?cateName : `已过滤${cateName}` }}
+    <!-- <span class=""> -->
+    <img
+      class="p-3 my-2 aspect-square rounded-full bg-white"
+      :src="catFoodCan"
+    >
+    <!-- </span> -->
+    <span class="mb-1 whitespace-nowrap">
+      {{ cateName }}
+    </span>
   </button>
 </template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-// import { useStore } from '@/stores'
+import { useStore } from '@/stores'
 
 
-// const store = useStore()
+const store = useStore()
 </script>
 
 
@@ -16,7 +16,7 @@
     Hi,
     <b>jerryc05!</b>
   </div>
-  <div class="mb-5 text-lg uppercase">
-    Welcome to BigO Diner!
+  <div class="mb-2 text-lg uppercase">
+    Welcome to {{ store.isDark?'BigO':'MilkTea' }} Diner!
   </div>
 </template>

@@ -10,6 +10,8 @@ import { useStore } from '@/stores'
 
 const store = useStore(),
   navBarHeight = 'h-26'
+
+// TODO: Dark bt
 </script>
 
 
@@ -19,7 +21,7 @@ const store = useStore(),
 
 <template>
   <nav
-    class="w-full px-7 pt-10 pb-3 fixed top-0 flex justify-between items-center rounded-b-lg z-10"
+    class="w-full px-7 pt-8 pb-5 fixed top-0 flex justify-between items-center rounded-b-lg z-10"
     :class="[navBarHeight]"
   >
     <!-- Back btn -->
@@ -30,8 +32,9 @@ const store = useStore(),
       Back
     </button>
 
-    <!-- Cart & username & avatar -->
+    <!-- Dark btn & cart & username & avatar -->
     <span class="flex justify-end">
+      <!-- Dark bt -->
       <!-- Cart -->
       <button
         type="button"
