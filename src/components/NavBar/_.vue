@@ -2,15 +2,14 @@
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 import cart from '@/assets/cart.svg'
-import { darkBgBigOColor} from '@/utils/colors'
+// import { darkBgBigOColor} from '@/utils/colors'
 import { dev } from '@/utils/constants'
 import ScrSize from '@/utils/ScrSize.vue'
-import TitleIcon from './TitleIcon.vue'
+// import TitleIcon from './TitleIcon.vue'
 import { useStore } from '@/stores'
 
 const store = useStore(),
-
-  navBarHeight = 'h-16'
+  navBarHeight = 'h-26'
 </script>
 
 
@@ -20,26 +19,19 @@ const store = useStore(),
 
 <template>
   <nav
-    class="w-full px-2 py-3 fixed top-0 flex justify-between items-center
-    rounded-b-lg shadow-md bg-gray-300 z-10"
-    :class="[darkBgBigOColor, navBarHeight]"
+    class="w-full px-7 pt-10 pb-3 fixed top-0 flex justify-between items-center rounded-b-lg z-10"
+    :class="[navBarHeight]"
   >
-    <!-- Title & icon -->
-    <a
-      href="/"
-      class="sm:ml-5 flex"
+    <!-- Back btn -->
+    <button
+      type="button"
+      class="invisible"
     >
-      <TitleIcon class="-scale-x-100" />
-      <span
-        class="place-self-center text-2xl font-semibold whitespace-nowrap text-shadow"
-      >{{ store.isDark ? 'BigO' : 'MilkTea' }}
-        Diner</span>
-      <TitleIcon />
-      <ScrSize v-if="dev" />
-    </a>
+      Back
+    </button>
 
     <!-- Cart & username & avatar -->
-    <span class="pr-2 flex justify-end">
+    <span class="flex justify-end">
       <!-- Cart -->
       <button
         type="button"
@@ -51,10 +43,12 @@ const store = useStore(),
           class="h-6 pr-2"
           :src="cart"
         >
+        <ScrSize v-if="dev" />
         {{ Object.keys(store.cart).length }}
       </button>
       <!-- Username -->
-      <b class="hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap">jerryc05</b>
+      <b class="hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap">jerryc05
+      </b>
       <!-- User avatar -->
       <button
         type="button"

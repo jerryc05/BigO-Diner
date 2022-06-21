@@ -4,6 +4,7 @@ import { bgMtColor, darkBgBigOColor } from '@/utils/colors'
 import AllDishes from './AllDishes/_.vue'
 import bingbing from '@/assets/bingbing.png'
 import Category from './Category/_.vue'
+import Greetings from './Greetings/_.vue'
 import { useStore } from '@/stores'
 
 
@@ -16,9 +17,9 @@ const store = useStore()
 
 
 <template>
-  <div class="mx-10 sm:mx-15 md:mx-20 lg:mx-25 xl:mx-30 2xl:mx-35">
+  <div class="px-10 sm:px-15 md:px-20 lg:px-25 xl:px-30 2xl:px-35">
+    <Greetings />
     <Category />
-
     <AllDishes />
 
     <img

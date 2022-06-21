@@ -20,9 +20,7 @@ import { textMtColor } from '@/utils/colors'
   >
     <NavBar />
 
-    <div class="flex-grow basis-0 overflow-y-auto scroll-smooth">
-      <BodyPart />
-    </div>
+    <BodyPart class="flex-grow basis-0 overflow-y-auto scroll-smooth" />
 
     <CartDetail />
   </div>
