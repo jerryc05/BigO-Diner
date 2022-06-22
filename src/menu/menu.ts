@@ -317,6 +317,7 @@ export const menu: ReadonlyArray<Item> = [
   new Drink('西柚多多', null, null, []),
   new Drink('满杯西柚', null, null, []),
   new Dessert('蛋挞', null, null, ['Wuge']),
+  new Dessert('芒果小丸子', null, null, ['Jaybase']),
   new DessertCake('草莓雪山蛋糕', null, null, ['Jerryc05']),
   new DessertCake('抹茶慕斯蛋糕', null, null, ['Jerryc05']),
   new DessertCake('玫瑰荔枝蛋糕', null, null, ['Titi']),
