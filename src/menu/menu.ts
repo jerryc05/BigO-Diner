@@ -167,6 +167,7 @@ export const menu: ReadonlyArray<Item> = [
   new ChickenDish('红烧鸡翅', null, null, ['Jaybase', 'Jerryc05', 'Tuge']),
   new ChickenDish('蒜香鸡翅', null, null, ['Jaybase']),
   new ChickenDish('橙香鸡翅', null, null, []),
+  new ChickenDish('奥尔良鸡翅', null, null, []),
   new ChickenDish('小鸡炖蘑菇', null, null, ['Jaybase']),
   new ChickenDish('地锅鸡', null, null, ['Jaybase']),
   new ChickenDish('烤鸡', null, null, ['Jaybase', 'Jerryc05', 'Titi', 'Wuge']),
