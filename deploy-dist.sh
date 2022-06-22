@@ -10,6 +10,7 @@ ROOT_DIR=${1:-../BigO-Diner-dist}
 npm run b
 rm -r $ROOT_DIR/dist || true
 mv dist $ROOT_DIR
+cp vercel.json $ROOT_DIR
 cd $ROOT_DIR
 git add .
 git c --amend --no-edit
