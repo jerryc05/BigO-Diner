@@ -17,7 +17,9 @@ let x = getRandPrice()
 const store = useStore(),
   props = defineProps<{ item: Item }>(),
   secondaryTextColor = ['text-gray-500', 'dark:text-gray-300'],
-  price: [number, number, number] = [Math.floor(x / 100), 0, 0]
+  price: [number, number, number] = [Math.floor(x / 100), 0, 0],
+  imgSrc = new TextEncoder().encode(props.item.cnName)
+    .reduce((a, b) => a + b, 0) % 2 ? catFood : catFoodCan
 
 
 x %= 100
@@ -34,24 +36,24 @@ price[2] = x
 <template>
   <button
     type="button"
-    class="h-34 w-full p-3 my-1 flex"
+    class="h-34 w-full p-3 my-1 flex shadow-y-lg"
     :class="[darkBgBigOColor]"
     @click="store.cartAddOne(props.item.cnName)"
   >
     <!-- Image -->
     <img
-      :src="Math.random() > 0.5 ? catFood : catFoodCan"
+      :src="imgSrc"
       class="h-full p-5 mr-5 aspect-square self-center
-      dark:(filter invert) rounded-xl shadow-md"
+      dark:(filter invert) rounded-3xl shadow-md"
     >
 
     <!-- Detail -->
-    <span class="w-full ml-2 flex flex-col items-start whitespace-nowrap overflow-hidden">
+    <span class="w-full h-full ml-2 flex flex-col items-start whitespace-nowrap overflow-hidden">
       <!-- Title -->
       <b class="my-1 text-lg text-shadow">{{ props.item.cnName }}</b>
       <!-- Category & chefs -->
       <span
-        class="overflow-hidden overflow-ellipsis"
+        class="flex-grow overflow-hidden overflow-ellipsis"
         :class="secondaryTextColor"
       >{{ props.item.category.cnName
       }} | {{ props.item.chefs.join(' · ')

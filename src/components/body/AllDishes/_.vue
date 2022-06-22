@@ -15,8 +15,9 @@ const store = useStore()
     <span
       v-for="x of store.getEnabledMenuItems"
       :key="x.cnName"
-      class="w-full md:w-1/2 xl:w-1/3 2xl:w-1/4 flex"
+      class="w-full md:w-1/2 xl:w-1/3 2xl:w-1/4"
     >
+      <!-- Must wrap item block inside another element, or item block's margin will overflow -->
       <ItemBlock :item="x" />
     </span>
   </div>
