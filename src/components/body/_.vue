@@ -17,7 +17,7 @@ const store = useStore()
 
 
 <template>
-  <div class="px-10 sm:px-15 md:px-20 lg:px-25 xl:px-30 2xl:px-35">
+  <div class="px-10 sm:px-12 md:px-14 lg:px-16 xl:px-18 2xl:px-20">
     <Greetings />
     <Category />
     <AllDishes />

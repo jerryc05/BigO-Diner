@@ -5,27 +5,16 @@ import { darkBgBigOColor } from '@/utils/colors'
 import fish from '@/assets/fish.svg'
 import type { Item } from '@/menu/menu_types'
 import PriceImg from './PriceImg.vue'
+import timer from '@/assets/timer.svg'
 import { useStore } from '@/stores'
 
-
-function getRandPrice () {
-  return Math.floor(Math.random() * 200) + 5
-}
-
-let x = getRandPrice()
 
 const store = useStore(),
   props = defineProps<{ item: Item }>(),
   secondaryTextColor = ['text-gray-500', 'dark:text-gray-300'],
-  price: [number, number, number] = [Math.floor(x / 100), 0, 0],
+  price = [1, 3, 34],
   imgSrc = new TextEncoder().encode(props.item.cnName)
     .reduce((a, b) => a + b, 0) % 2 ? catFood : catFoodCan
-
-
-x %= 100
-price[1] = Math.floor(x / 10)
-x %= 10
-price[2] = x
 </script>
 
 
@@ -43,12 +32,12 @@ price[2] = x
     <!-- Image -->
     <img
       :src="imgSrc"
-      class="h-full p-5 mr-5 aspect-square self-center
+      class="h-full p-5 aspect-square self-center
       dark:(filter invert) rounded-3xl shadow-md"
     >
 
     <!-- Detail -->
-    <span class="w-full h-full ml-2 flex flex-col items-start whitespace-nowrap overflow-hidden">
+    <span class="w-full h-full ml-5 flex flex-col items-start whitespace-nowrap overflow-hidden">
       <!-- Title -->
       <b class="my-1 text-lg text-shadow">{{ props.item.cnName }}</b>
       <!-- Category & chefs -->
@@ -58,22 +47,33 @@ price[2] = x
       >{{ props.item.category.cnName
       }} | {{ props.item.chefs.join(' · ')
       }}</span>
-      <!-- Price -->
-      <span class="h-6 mt-2 self-end">
-        <PriceImg
-          v-if="price[0] > 0"
-          :price="price[0]"
-          :src="catFood"
-        />
-        <PriceImg
-          v-if="price[0] > 0 || price[1] > 0"
-          :price="price[1]"
-          :src="catFoodCan"
-        />
-        <PriceImg
-          :price="price[2]"
-          :src="fish"
-        />
+      <!-- Time & Price -->
+      <span class="h-6 w-full flex justify-between">
+        <!-- Time -->
+        <span class="flex flex-center">
+          <img
+            class="h-5 pr-0.5"
+            :src="timer"
+          >
+          99:99
+        </span>
+        <!-- Price -->
+        <span class="max-h-full flex">
+          <PriceImg
+            v-if="price[0] > 0"
+            :price="price[0]"
+            :src="catFood"
+          />
+          <PriceImg
+            v-if="price[0] > 0 || price[1] > 0"
+            :price="price[1]"
+            :src="catFoodCan"
+          />
+          <PriceImg
+            :price="price[2]"
+            :src="fish"
+          />
+        </span>
       </span>
     </span>
   </button>

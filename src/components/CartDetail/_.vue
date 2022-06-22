@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import add from '@/assets/add.svg'
 import close from '@/assets/close.svg'
-import minus from '@/assets/remove.svg'
-import plus from '@/assets/plus.svg'
+import paw from '@/assets/pets_paw.svg'
 import PlusMinusImg from './PlusMinusImg.vue'
+import remove from '@/assets/remove.svg'
 import { useStore } from '@/stores'
 
 const store = useStore()
@@ -15,16 +16,20 @@ const store = useStore()
 
 <template>
   <!-- Cart Details -->
-  <div v-show="store.showCart">
-    <!-- Background Shadow -->
+  <div
+    class="absolute top-0 h-screen flex z-19 overflow-hidden
+   left-[100vw] transition-all duration-1000 ease-in-out"
+    :class="[store.showCart ? 'w-screen' : 'w-0', { 'left-0': store.showCart }]"
+  >
+    <!-- Background shadow -->
     <div
-      class="<md:hidden h-screen w-screen fixed top-0 bg-gray-400 bg-opacity-80 z-19 cursor-pointer"
+      class="<md:hidden w-full h-full flex-grow bg-gray-400 bg-opacity-80"
       @click="store.showCart = false"
     />
     <!-- Real Cart -->
     <div
-      class="w-screen md:(w-100 rounded-l-2xl) h-screen px-6 py-4
-     fixed top-0 right-0 flex flex-col z-20 bg-white"
+      class="w-screen md:(basis-100 rounded-l-2xl) h-screen px-6 py-4
+     flex-grow-0 flex-shrink-0 flex flex-col z-20 bg-white"
     >
       <!-- Close -->
       <span class="h-13 flex-grow-0 flex-shrink-0 flex">
@@ -49,12 +54,12 @@ const store = useStore()
           <b>{{ x }}</b>
           <span class="flex flex-center">
             <PlusMinusImg
-              :src="minus"
+              :src="remove"
               @click="store.cartDel(x)"
             />
             <span class="mx-2">{{ quantity }}</span>
             <PlusMinusImg
-              :src="plus"
+              :src="add"
               @click="store.cartAdd(x)"
             />
           </span>
@@ -68,9 +73,13 @@ const store = useStore()
       <span class="h-13 px-4 mt-4 mb-1 flex-grow-0 flex-shrink-0 flex flex-center">
         <button
           type="button"
-          class="w-full h-full rounded-full bg-green-600 text-xl text-white"
+          class="w-full h-full flex flex-center rounded-full bg-gray-500 text-xl text-white"
           @click="store.cart = {}"
         >
+          <img
+            class="h-6 -ml-2 mr-2 filter invert"
+            :src="paw"
+          >
           Checkout
         </button>
       </span>
