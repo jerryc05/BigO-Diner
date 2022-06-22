@@ -12,11 +12,11 @@ const store = useStore()
 
 <template>
   <!-- Greetings -->
-  <div class="mb-3 text-4xl">
+  <div class="mb-3 text-3xl">
     Hi,
     <b>jerryc05!</b>
   </div>
-  <div class="mb-2 text-lg uppercase">
+  <div class="mb-2 text-md uppercase">
     Welcome to {{ store.isDark?'BigO':'MilkTea' }} Diner!
   </div>
 </template>

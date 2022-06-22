@@ -9,7 +9,7 @@ import ScrSize from '@/utils/ScrSize.vue'
 import { useStore } from '@/stores'
 
 const store = useStore(),
-  navBarHeight = 'h-26'
+  navBarHeight = 'h-24'
 
 // TODO: Dark bt
 </script>
@@ -21,7 +21,7 @@ const store = useStore(),
 
 <template>
   <nav
-    class="w-full px-7 pt-8 pb-5 fixed top-0 flex justify-between items-center rounded-b-lg z-10"
+    class="w-full px-7 pt-5 pb-2 fixed top-0 flex justify-between items-center rounded-b-lg z-10"
     :class="[navBarHeight]"
   >
     <!-- Back btn -->

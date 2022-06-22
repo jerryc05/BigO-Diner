@@ -18,7 +18,7 @@ const categoryUniqueMenu = menu
 
 <template>
   <!-- Category -->
-  <div class="my-8 overflow-x-auto">
+  <div class="mt-8 mb-3 overflow-x-auto">
     <div class="pl-5 flex flex-grow basis-auto rounded-6xl bg-[#ffe2d7]">
       <ItemBlock
         v-for="x of categoryUniqueMenu"

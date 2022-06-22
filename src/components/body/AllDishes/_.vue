@@ -11,7 +11,7 @@ const store = useStore()
 
 
 <template>
-  <div class="my-3 flex flex-wrap -m-2">
+  <div class="my-3 flex flex-wrap">
     <span
       v-for="x of store.getEnabledMenuItems"
       :key="x.cnName"

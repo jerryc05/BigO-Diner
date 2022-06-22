@@ -34,53 +34,45 @@ price[2] = x
 <template>
   <button
     type="button"
-    class="w-full p-3 m-2 rounded-xl flex flex-col shadow-md"
+    class="h-34 w-full p-3 my-1 flex"
     :class="[darkBgBigOColor]"
     @click="store.cartAddOne(props.item.cnName)"
   >
-    <!-- Item & Image -->
-    <span class="h-20 w-full flex justify-between">
-      <!-- Item -->
-      <span class="ml-2 flex flex-col items-start whitespace-nowrap overflow-hidden">
-        <!-- Title -->
-        <b class="my-1 text-lg text-shadow">{{ props.item.cnName }}</b>
-        <!-- Category -->
-        <span
-          class="overflow-hidden overflow-ellipsis"
-          :class="secondaryTextColor"
-        >{{ props.item.category.cnName
-        }}</span>
-        <!-- Chefs -->
-        <span
-          class="overflow-hidden overflow-ellipsis"
-          :class="secondaryTextColor"
-        >{{ props.item.chefs.join(' · ')
-        }}</span>
+    <!-- Image -->
+    <img
+      :src="Math.random() > 0.5 ? catFood : catFoodCan"
+      class="h-full p-5 mr-5 aspect-square self-center
+      dark:(filter invert) rounded-xl shadow-md"
+    >
+
+    <!-- Detail -->
+    <span class="w-full ml-2 flex flex-col items-start whitespace-nowrap overflow-hidden">
+      <!-- Title -->
+      <b class="my-1 text-lg text-shadow">{{ props.item.cnName }}</b>
+      <!-- Category & chefs -->
+      <span
+        class="overflow-hidden overflow-ellipsis"
+        :class="secondaryTextColor"
+      >{{ props.item.category.cnName
+      }} | {{ props.item.chefs.join(' · ')
+      }}</span>
+      <!-- Price -->
+      <span class="h-6 mt-2 self-end">
+        <PriceImg
+          v-if="price[0] > 0"
+          :price="price[0]"
+          :src="catFood"
+        />
+        <PriceImg
+          v-if="price[0] > 0 || price[1] > 0"
+          :price="price[1]"
+          :src="catFoodCan"
+        />
+        <PriceImg
+          :price="price[2]"
+          :src="fish"
+        />
       </span>
-
-      <!-- Image -->
-      <img
-        :src="Math.random() > 0.5 ? catFood : catFoodCan"
-        class="h-full p-1 aspect-square self-center dark:(filter invert)"
-      >
-    </span>
-
-    <!-- Price -->
-    <span class="h-6 mt-2 self-end">
-      <PriceImg
-        v-if="price[0] > 0"
-        :price="price[0]"
-        :src="catFood"
-      />
-      <PriceImg
-        v-if="price[0] > 0 || price[1] > 0"
-        :price="price[1]"
-        :src="catFoodCan"
-      />
-      <PriceImg
-        :price="price[2]"
-        :src="fish"
-      />
     </span>
   </button>
 </template>
