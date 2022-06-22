@@ -25,7 +25,8 @@ const store = useStore(),
 <template>
   <button
     type="button"
-    class="h-34 w-full p-3 my-1 flex shadow-y-lg"
+    class="h-34 w-full p-3 my-1 flex shadow-y-lg rounded-xl
+    hover:bg-gray-200 transition-all duration-800 ease-out"
     :class="[darkBgBigOColor]"
     @click="store.cartAddOne(props.item.cnName)"
   >
