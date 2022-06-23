@@ -65,6 +65,7 @@ module.exports = {
     'sort-imports': ['error', { 'ignoreCase': true }],
 
 
+    '@typescript-eslint/no-non-null-assertion': 'off',
     'capitalized-comments': 'off',
     'function-call-argument-newline': 'off',
     'id-length': 'off',

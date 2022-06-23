@@ -14,8 +14,8 @@ const store = useStore(),
   secondaryTextColor = ['text-gray-500', 'dark:text-gray-300'],
   imgSrc = new TextEncoder().encode(props.item.cnName)
     .reduce((a, b) => a + b, 0) % 2 ? catFood : catFoodCan,
-  price = Object.freeze(props.item.price || [1, 3, 34]),
-  dur = Object.freeze(props.item.durMin || (59 * 60) + 59),
+  price = Object.freeze(props.item.price),
+  dur = Object.freeze(props.item.durMin),
   durHour = `00${Math.floor(dur / 60)}`.slice(-2),
   durMin = `00${Math.floor(dur % 60)}`.slice(-2)
 </script>
@@ -31,7 +31,7 @@ const store = useStore(),
     class="h-34 w-full p-3 my-1 flex shadow-y-lg rounded-xl
     hover:bg-gray-200 transition-all duration-800 ease-out"
     :class="[darkBgBigOColor]"
-    @click="store.cartAddOne(props.item.cnName)"
+    @click="store.cartAddOne(props.item)"
   >
     <!-- Image -->
     <img

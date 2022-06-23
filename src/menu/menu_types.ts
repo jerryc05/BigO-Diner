@@ -8,8 +8,8 @@ export abstract class Item {
   enName: Readonly<string> | null
   ingredients: Readonly<Ingredient>[] | null
   chefs: Readonly<Chef[]>
-  price: [number, number, number] | null = null
-  durMin: number | null = null
+  price: Readonly<[number, number, number]>
+  durMin: Readonly<number> | null = null
   abstract category: Category
   constructor (
     cnName: Readonly<string>, enName: Readonly<string> | null,
@@ -19,6 +19,8 @@ export abstract class Item {
     this.enName = enName
     this.ingredients = ingredients
     this.chefs = chefs
+    this.price = [1, 4, 34] // todo
+    this.durMin = (59 * 60) + 59 // todo
   }
 }
 

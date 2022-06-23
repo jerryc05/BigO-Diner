@@ -46,12 +46,12 @@ const store = useStore()
       <!-- Content -->
       <div class="mt-2 flex-grow flex-shrink overflow-y-auto scroll-smooth">
         <div
-          v-for="quantity, x of store.cart"
-          :key="x"
+          v-for="[x,quantity] of store.cart"
+          :key="x.cnName"
           class="h-15 my-3 border-3 p-3 flex justify-between items-center
           rounded-lg border-gray-300"
         >
-          <b>{{ x }}</b>
+          <b>{{ x.cnName }}</b>
           <span class="flex flex-center">
             <PlusMinusImg
               :src="remove"
@@ -65,9 +65,9 @@ const store = useStore()
           </span>
         </div>
       </div>
-      <!-- Subtotal -->
+      <!-- Total -->
       <b class="h-6 px-5 flex-grow-0 flex-shrink-0 flex">
-        Subtotal: TODO
+        Total: {{ store.cartTotal }}
       </b>
       <!-- Checkout Btn -->
       <span class="h-13 px-4 mt-4 mb-1 flex-grow-0 flex-shrink-0 flex flex-center">
