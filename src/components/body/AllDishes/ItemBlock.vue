@@ -33,7 +33,7 @@ const store = useStore(),
     <!-- Image -->
     <img
       :src="imgSrc"
-      class="h-full p-5 aspect-square self-center
+      class="h-full p-5 aspect-square self-center bg-white
       dark:(filter invert) rounded-3xl shadow-md"
     >
 
