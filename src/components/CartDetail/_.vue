@@ -18,8 +18,8 @@ const store = useStore()
   <!-- Cart Details -->
   <div
     class="absolute top-0 h-screen flex z-19 overflow-hidden
-   left-[100vw] transition-all duration-1000 ease-in-out"
-    :class="[store.showCart ? 'w-screen' : 'w-0', { 'left-0': store.showCart }]"
+    transition-all duration-1000 ease-in-out"
+    :class="[store.showCart ? 'w-screen' : 'w-0', store.showCart ? 'left-0' : 'left-[100vw]']"
   >
     <!-- Background shadow -->
     <div
