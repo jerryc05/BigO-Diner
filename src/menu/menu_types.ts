@@ -8,6 +8,8 @@ export abstract class Item {
   enName: Readonly<string> | null
   ingredients: Readonly<Ingredient>[] | null
   chefs: Readonly<Chef[]>
+  price: [number, number, number] | null = null
+  durMin: number | null = null
   abstract category: Category
   constructor (
     cnName: Readonly<string>, enName: Readonly<string> | null,

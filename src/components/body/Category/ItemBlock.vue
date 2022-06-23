@@ -8,10 +8,8 @@ import { useStore } from '@/stores'
 const store = useStore(),
   dc = store.disabledCategories,
   props = defineProps<{ item: Item }>(),
-  /* eslint-disable vue/no-setup-props-destructure */
-  t = props.item.constructor.name,
-  cateName = props.item.category.cnName
-  /* eslint-enable vue/no-setup-props-destructure */
+  t = Object.freeze(props.item.constructor.name),
+  cateName = Object.freeze(props.item.category.cnName)
 
 function toggleCategory () {
   if (!dc.delete(t)) {

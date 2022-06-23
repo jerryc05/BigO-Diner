@@ -12,9 +12,12 @@ import { useStore } from '@/stores'
 const store = useStore(),
   props = defineProps<{ item: Item }>(),
   secondaryTextColor = ['text-gray-500', 'dark:text-gray-300'],
-  price = [1, 3, 34],
   imgSrc = new TextEncoder().encode(props.item.cnName)
-    .reduce((a, b) => a + b, 0) % 2 ? catFood : catFoodCan
+    .reduce((a, b) => a + b, 0) % 2 ? catFood : catFoodCan,
+  price = Object.freeze(props.item.price || [1, 3, 34]),
+  dur = Object.freeze(props.item.durMin || (59 * 60) + 59),
+  durHour = `00${Math.floor(dur / 60)}`.slice(-2),
+  durMin = `00${Math.floor(dur % 60)}`.slice(-2)
 </script>
 
 
@@ -56,7 +59,7 @@ const store = useStore(),
             class="h-5 pr-0.5"
             :src="timer"
           >
-          99:99
+          {{ durHour }}:{{ durMin }}
         </span>
         <!-- Price -->
         <span class="max-h-full flex">
