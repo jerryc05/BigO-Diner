@@ -10,8 +10,6 @@ import { useStore } from '@/stores'
 
 const store = useStore(),
   navBarHeight = 'h-24'
-
-// TODO: Dark bt
 </script>
 
 
@@ -47,7 +45,7 @@ const store = useStore(),
           :src="cart"
         >
         <ScrSize v-if="dev" />
-        {{ Object.keys(store.cart).length }}
+        {{ store.cart.size }}
       </button>
       <!-- Username -->
       <b class="hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap">jerryc05

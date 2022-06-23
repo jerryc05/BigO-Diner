@@ -9,7 +9,7 @@ export abstract class Item {
   ingredients: Readonly<Ingredient>[] | null
   chefs: Readonly<Chef[]>
   price: Readonly<[number, number, number]>
-  durMin: Readonly<number> | null = null
+  durMin: Readonly<number>
   abstract category: Category
   constructor (
     cnName: Readonly<string>, enName: Readonly<string> | null,
