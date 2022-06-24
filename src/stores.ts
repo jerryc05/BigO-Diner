@@ -13,10 +13,10 @@ export const useStore = defineStore('', {
     showCart: false
   }),
   getters: { // Same as computed
-    getEnabledMenuItems (state) {
+    getEnabledMenuItems(state) {
       return menu.filter(x => !state.disabledCategories.has(x.constructor.name))
     },
-    cartTotal (state) {
+    cartTotal(state) {
       const total = [0, 0, 0]
       state.cart.forEach((v, k) => {
         total[0] += v * k.price[0]
@@ -34,17 +34,17 @@ export const useStore = defineStore('', {
     }
   },
   actions: { // Same as methods
-    toggleLightDarkMode () {
+    toggleLightDarkMode() {
       this.isDark = !this.isDark
       setDarkMode(this.isDark)
     },
-    cartAdd (x:Item) {
+    cartAdd(x:Item) {
       this.cart.set(x, (this.cart.get(x) || 0) + 1)
     },
-    cartAddOne (x:Item) {
+    cartAddOne(x:Item) {
       this.cart.set(x, Math.max(this.cart.get(x) || 0, 1))
     },
-    cartDel (x:Item) {
+    cartDel(x:Item) {
       this.cart.set(x, this.cart.get(x)! - 1)
       if (this.cart.get(x)! <= 0) {
         this.cart.delete(x)

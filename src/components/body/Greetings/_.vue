@@ -17,6 +17,6 @@ const store = useStore()
     <b>jerryc05!</b>
   </div>
   <div class="mb-2 text-md uppercase">
-    Welcome to {{ store.isDark?'BigO':'MilkTea' }} Diner!
+    Welcome to {{ store.isDark ? 'BigO' : 'MilkTea' }} Diner!
   </div>
 </template>

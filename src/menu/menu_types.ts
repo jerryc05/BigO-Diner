@@ -11,7 +11,7 @@ export abstract class Item {
   price: Readonly<[number, number, number]>
   durMin: Readonly<number>
   abstract category: Category
-  constructor (
+  constructor(
     cnName: Readonly<string>, enName: Readonly<string> | null,
     ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>
   ) {
@@ -39,7 +39,7 @@ export class CongeeDish extends Item {
     cnName: '粥类',
     enName: 'Congee'
   }
-  constructor (
+  constructor(
     cnName: Readonly<string>, enName: Readonly<string> | null,
     ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>
   ) {

@@ -5,7 +5,7 @@ import bingbing from '@/assets/bingbing.png'
 const bodyClasses = document.body.classList
 let icon: HTMLLinkElement | null = null
 
-function favicon () {
+function favicon() {
   if (icon === null) {
     const link = document.head.querySelector('link[rel~="icon"]')
     if (link === null) {
@@ -19,23 +19,23 @@ function favicon () {
   return icon
 }
 
-function setDark () {
+function setDark() {
   favicon().href = bigO
   document.title = 'BigO Diner'
   bodyClasses.add('dark')
 }
 
-function setLight () {
+function setLight() {
   favicon().href = bingbing
   document.title = 'MilkTea Diner'
   bodyClasses.remove('dark')
 }
 
-function isSystemDark () {
+function isSystemDark() {
   return window.matchMedia('(prefers-color-scheme:dark)').matches
 }
 
-export function detectAndSetDarkMode () {
+export function detectAndSetDarkMode() {
   const userSettingIsDark = localStorage.getItem('dark')
   if (userSettingIsDark === '1' || (userSettingIsDark === null && isSystemDark())) {
     setDark()
@@ -45,7 +45,7 @@ export function detectAndSetDarkMode () {
   return false
 }
 
-export function setDarkMode (isDark?: boolean) {
+export function setDarkMode(isDark?: boolean) {
   if (isDark === null) {
     if (isSystemDark()) {
       setDark()

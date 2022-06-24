@@ -11,8 +11,5 @@ const store = useStore()
 
 
 <template>
-  <img
-    :src="store.isDark ? bigO : bingbing"
-    class="mx-1 h-6 w-6 place-self-center"
-  >
+  <img :src="store.isDark ? bigO : bingbing" class="mx-1 h-6 w-6 place-self-center">
 </template>

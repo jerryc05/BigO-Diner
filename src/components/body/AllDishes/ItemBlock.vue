@@ -26,57 +26,33 @@ const store = useStore(),
 
 
 <template>
-  <button
-    type="button"
-    class="h-34 w-full p-3 my-1 flex shadow-y-lg rounded-xl
-    hover:bg-gray-200 transition-all duration-800 ease-out"
-    :class="[darkBgBigOColor]"
-    @click="store.cartAddOne(props.item)"
-  >
+  <button type="button" class="h-34 w-full p-3 my-1 flex shadow-y-lg rounded-xl
+    hover:bg-gray-200 transition-all duration-800 ease-out" :class="[darkBgBigOColor]"
+    @click="store.cartAddOne(props.item)">
     <!-- Image -->
-    <img
-      :src="imgSrc"
-      class="h-full p-5 aspect-square self-center bg-white
-      dark:(filter invert) rounded-3xl shadow-md"
-    >
+    <img :src="imgSrc" class="h-full p-5 aspect-square self-center bg-white
+      dark:(filter invert) rounded-3xl shadow-md">
 
     <!-- Detail -->
     <span class="w-full h-full ml-5 flex flex-col items-start whitespace-nowrap overflow-hidden">
       <!-- Title -->
       <b class="my-1 text-lg text-shadow">{{ props.item.cnName }}</b>
       <!-- Category & chefs -->
-      <span
-        class="flex-grow overflow-hidden overflow-ellipsis"
-        :class="secondaryTextColor"
-      >{{ props.item.category.cnName
-      }} | {{ props.item.chefs.join(' · ')
-      }}</span>
+      <span class="flex-grow overflow-hidden overflow-ellipsis"
+        :class="secondaryTextColor">{{ props.item.category.cnName }} | {{ props.item.chefs.join(' · ') }}
+      </span>
       <!-- Time & Price -->
       <span class="h-6 w-full flex justify-between">
         <!-- Time -->
         <span class="flex flex-center">
-          <img
-            class="h-5 pr-0.5"
-            :src="timer"
-          >
+          <img class="h-5 pr-0.5" :src="timer">
           {{ durHour }}:{{ durMin }}
         </span>
         <!-- Price -->
         <span class="max-h-full flex">
-          <PriceImg
-            v-if="price[0] > 0"
-            :price="price[0]"
-            :src="catFood"
-          />
-          <PriceImg
-            v-if="price[0] > 0 || price[1] > 0"
-            :price="price[1]"
-            :src="catFoodCan"
-          />
-          <PriceImg
-            :price="price[2]"
-            :src="fish"
-          />
+          <PriceImg v-if="price[0] > 0" :price="price[0]" :src="catFood" />
+          <PriceImg v-if="price[0] > 0 || price[1] > 0" :price="price[1]" :src="catFoodCan" />
+          <PriceImg :price="price[2]" :src="fish" />
         </span>
       </span>
     </span>

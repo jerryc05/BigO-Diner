@@ -1,7 +1,7 @@
 export class Ingredient {
   cnName: Readonly<string>
   enName: Readonly<string>
-  constructor (cnName: Readonly<string>, enName: Readonly<string>) {
+  constructor(cnName: Readonly<string>, enName: Readonly<string>) {
     this.cnName = cnName
     this.enName = enName
   }

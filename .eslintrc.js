@@ -1,3 +1,6 @@
+const maxLen = 115
+
+
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
@@ -35,7 +38,32 @@ module.exports = {
 
 
     'vue/component-api-style': 'error',
+    'vue/first-attribute-linebreak': [
+      'error', {
+        'singleline': 'beside',
+        'multiline': 'beside'
+      }
+    ],
     'vue/html-button-has-type': 'error',
+    'vue/html-closing-bracket-newline': [
+      'error', {
+        'singleline': 'never',
+        'multiline': 'never'
+      }
+    ],
+    'vue/html-indent': [
+      'error', 2, {
+        'attribute': 1,
+        'alignAttributesVertically': false
+      }
+    ],
+    'vue/max-len': [
+      'error', {
+        'code': maxLen,
+        'ignoreStrings': true,
+        'ignoreComments': true,
+      }
+    ],
     'vue/next-tick-style': 'error',
     'vue/no-this-in-before-route-enter': 'error',
     'vue/no-useless-mustaches': 'error',
@@ -52,7 +80,7 @@ module.exports = {
     'function-paren-newline': ['error', 'consistent'],
     'max-len': [
       'error', {
-        'code': 120,
+        'code': maxLen,
         'ignoreComments': true
       }
     ],
@@ -63,24 +91,7 @@ module.exports = {
     'no-multiple-empty-lines': ['error', {'max': 6}],
     'padded-blocks': ['error', 'never'],
     'sort-imports': ['error', { 'ignoreCase': true }],
-    'vue/first-attribute-linebreak': [
-      'error', {
-        'singleline': 'beside',
-        'multiline': 'beside'
-      }
-    ],
-    'vue/html-closing-bracket-newline': [
-      'error', {
-        'singleline': 'never',
-        'multiline': 'never'
-      }
-    ],
-    'vue/html-indent': [
-      'error', 2, {
-        'attribute': 1,
-        'alignAttributesVertically': false
-      }
-    ],
+    'space-before-function-paren': ['error', 'never'],
 
 
     '@typescript-eslint/no-non-null-assertion': 'off',
