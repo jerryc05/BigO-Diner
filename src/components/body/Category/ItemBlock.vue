@@ -12,9 +12,7 @@ const store = useStore(),
   cateName = Object.freeze(props.item.category.cnName)
 
 function toggleCategory() {
-  if (!dc.delete(t)) {
-    dc.add(t)
-  }
+  if (!dc.delete(t)) dc.add(t)
 }
 </script>
 

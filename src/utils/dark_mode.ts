@@ -12,9 +12,7 @@ function favicon() {
       icon = document.createElement('link')
       icon.rel = 'icon'
       document.head.appendChild(icon)
-    } else {
-      icon = link as HTMLLinkElement
-    }
+    } else icon = link as HTMLLinkElement
   }
   return icon
 }
@@ -47,11 +45,9 @@ export function detectAndSetDarkMode() {
 
 export function setDarkMode(isDark?: boolean) {
   if (isDark === null) {
-    if (isSystemDark()) {
-      setDark()
-    } else {
-      setLight()
-    }
+    if (isSystemDark()) setDark()
+    else setLight()
+
     localStorage.removeItem('dark')
   } else if (isDark) {
     setDark()

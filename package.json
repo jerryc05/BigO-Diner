@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "d": "vite",
-    "b": "vue-tsc --noEmit && npm run b!",
+    "b": "npm run l && vue-tsc --noEmit && npm run b!",
     "b!": "vite build",
     "s": "vite preview",
     "l": "npm run lint",

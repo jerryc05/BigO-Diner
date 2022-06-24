@@ -46,9 +46,7 @@ export const useStore = defineStore('', {
     },
     cartDel(x:Item) {
       this.cart.set(x, this.cart.get(x)! - 1)
-      if (this.cart.get(x)! <= 0) {
-        this.cart.delete(x)
-      }
+      if (this.cart.get(x)! <= 0) this.cart.delete(x)
     }
   }
 })
