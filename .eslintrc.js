@@ -52,7 +52,7 @@ module.exports = {
     'function-paren-newline': ['error', 'consistent'],
     'max-len': [
       'error', {
-        'code': 100,
+        'code': 120,
         'ignoreComments': true
       }
     ],
@@ -63,6 +63,24 @@ module.exports = {
     'no-multiple-empty-lines': ['error', {'max': 6}],
     'padded-blocks': ['error', 'never'],
     'sort-imports': ['error', { 'ignoreCase': true }],
+    'vue/first-attribute-linebreak': [
+      'error', {
+        'singleline': 'beside',
+        'multiline': 'beside'
+      }
+    ],
+    'vue/html-closing-bracket-newline': [
+      'error', {
+        'singleline': 'never',
+        'multiline': 'never'
+      }
+    ],
+    'vue/html-indent': [
+      'error', 2, {
+        'attribute': 1,
+        'alignAttributesVertically': false
+      }
+    ],
 
 
     '@typescript-eslint/no-non-null-assertion': 'off',
@@ -84,5 +102,6 @@ module.exports = {
     'quote-props': 'off',
     'sort-keys': 'off',
     'sort-vars': 'off',
+    'vue/max-attributes-per-line': 'off',
   },
 }

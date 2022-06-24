@@ -18,15 +18,10 @@ const store = useStore(),
 
 
 <template>
-  <nav
-    class="w-full px-7 pt-5 pb-2 fixed top-0 flex justify-between items-center rounded-b-lg z-10"
-    :class="[navBarHeight]"
-  >
+  <nav class="w-full px-7 pt-5 pb-2 fixed top-0 flex justify-between items-center rounded-b-lg z-10"
+    :class="[navBarHeight]">
     <!-- Back btn -->
-    <button
-      type="button"
-      class="invisible"
-    >
+    <button type="button" class="invisible">
       Back
     </button>
 
@@ -34,16 +29,9 @@ const store = useStore(),
     <span class="flex justify-end">
       <!-- Dark bt -->
       <!-- Cart -->
-      <button
-        type="button"
-        class="px-3 mr-2 my-1 flex flex-center
-        rounded-full shadow whitespace-nowrap bg-white text-xl text-black"
-        @click="store.showCart = true"
-      >
-        <img
-          class="h-6 pr-2"
-          :src="cart"
-        >
+      <button type="button" class="px-3 mr-2 my-1 flex flex-center
+        rounded-full shadow whitespace-nowrap bg-white text-xl text-black" @click="store.showCart = true">
+        <img class="h-6 pr-2" :src="cart">
         <ScrSize v-if="dev" />
         {{ store.cart.size }}
       </button>
@@ -51,15 +39,9 @@ const store = useStore(),
       <b class="hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap">jerryc05
       </b>
       <!-- User avatar -->
-      <button
-        type="button"
-        class="h-12 flex flex-center rounded-full shadow aspect-square
-        focus:ring-gray-300 dark:focus:ring-gray-600 bg-white"
-      >
-        <img
-          class="h-5/7 aspect-square"
-          :src="store.isDark ? bigO : bingbing"
-        >
+      <button type="button" class="h-12 flex flex-center rounded-full shadow aspect-square
+        focus:ring-gray-300 dark:focus:ring-gray-600 bg-white">
+        <img class="h-5/7 aspect-square" :src="store.isDark ? bigO : bingbing">
       </button>
     </span>
   </nav>
