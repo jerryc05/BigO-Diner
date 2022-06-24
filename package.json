@@ -17,9 +17,6 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@babel/types": "latest",
-    "@types/ejs": "latest",
-    "@types/html-minifier-terser": "latest",
     "@types/node": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
