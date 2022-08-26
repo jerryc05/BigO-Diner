@@ -1,7 +1,7 @@
 import {
   BeefDish, ChickenDish, ColdDish, CongeeDish, Dessert, DessertCake, Drink, Item, LambDish,
   NoodleDish, PorkDish, RiceDish, SeafoodDish, SoupDish, StreetFoodDish, VegetableDish, WheatenDish
-} from './menu_types'
+} from './menu-types'
 import {
   BeefShank, Chicken, ChickenFeet, Corn, Cucumber, Egg, Goji, Jellyfish, Lemon, Millet,
   MungBean, Mushroom, Peanut, Pork, Potato, PotherbMustard, PreservedEgg, Sesame, Shrimp, WoodEar

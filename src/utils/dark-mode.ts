@@ -11,7 +11,7 @@ function favicon() {
     if (link === null) {
       icon = document.createElement('link')
       icon.rel = 'icon'
-      document.head.appendChild(icon)
+      document.head.append(icon)
     } else icon = link as HTMLLinkElement
   }
   return icon

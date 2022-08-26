@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import catFoodCan from '@/assets/catFoodCan.svg'
 import { darkBgBigOColor } from '@/utils/colors'
-import type { Item } from '@/menu/menu_types'
+import type { Item } from '@/menu/menu-types'
 import { useStore } from '@/stores'
 
 
-const store = useStore(),
-  dc = store.disabledCategories,
-  props = defineProps<{ item: Item }>(),
-  t = Object.freeze(props.item.constructor.name),
-  cateName = Object.freeze(props.item.category.cnName)
+const store = useStore()
+const dc = store.disabledCategories
+const props = defineProps<{ item: Item }>()
+const t = Object.freeze(props.item.constructor.name)
+const cateName = Object.freeze(props.item.category.cnName)
 
 function toggleCategory() {
   if (!dc.delete(t)) dc.add(t)

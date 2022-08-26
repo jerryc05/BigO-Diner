@@ -1,3 +1,4 @@
+/* eslint-disable n/no-unpublished-require, unicorn/prefer-module */
 import { defineConfig } from 'windicss/helpers'
 // import colors from 'windicss/colors'
 // import plugin from 'windicss/plugin'

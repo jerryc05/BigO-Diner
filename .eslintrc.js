@@ -1,4 +1,6 @@
-const maxLen = 115
+/* eslint-disable unicorn/prefer-module, unicorn/prefer-module */
+const MAX_LEN = 115
+const INDENT = 2
 
 
 /** @type {import('eslint').Linter.Config} */
@@ -15,6 +17,19 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:vue/base',
     'plugin:vue/vue3-recommended',
+
+    'plugin:optimize-regex/all',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
+    'plugin:json/recommended',
+    'plugin:markdown/recommended',
+    'plugin:n/recommended',
+    'plugin:no-unsanitized/DOM',
+    'plugin:promise/recommended',
+    'plugin:security/recommended',
+    'plugin:sonarjs/recommended',
+    'plugin:unicorn/all',
+    'standard',
   ],
   parser: 'vue-eslint-parser', // must use for vue SFC
   parserOptions: {
@@ -27,11 +42,23 @@ module.exports = {
   },
   plugins: [
     'vue',
-    '@typescript-eslint'
+    '@typescript-eslint',
+
+    'html',
+    'import',
+    'json',
+    'markdown',
+    'n',
+    'no-secrets',
+    'promise',
+    'sonarjs',
   ],
   ignorePatterns: ['**/*.d.ts', 'node_modules/**', 'dist/**', '**/vite.config.*'],
+  settings: {
+    'html/indent': INDENT,
+  },
   rules: {
-    'indent': ['error', 2],
+    'indent': ['error', INDENT],
     'linebreak-style': ['error', 'unix'],
     'quotes': ['error', 'single'],
     'semi': ['error', 'never'],
@@ -59,7 +86,7 @@ module.exports = {
     ],
     'vue/max-len': [
       'error', {
-        'code': maxLen,
+        'code': MAX_LEN,
         'ignoreStrings': true,
         'ignoreComments': true,
       }
@@ -81,15 +108,19 @@ module.exports = {
     'function-paren-newline': ['error', 'consistent'],
     'max-len': [
       'error', {
-        'code': maxLen,
+        'code': MAX_LEN,
         'ignoreComments': true
       }
     ],
     'no-extra-parens': [
-      'error', 'all', {'nestedBinaryExpressions': false,
-        'enforceForArrowConditionals': false }
+      'error', 'all', {
+        'nestedBinaryExpressions': false,
+        'enforceForArrowConditionals': false
+      }
     ],
+    'no-multi-spaces': ['error', { ignoreEOLComments: true }],
     'no-multiple-empty-lines': ['error', { 'max': 6 }],
+    'no-secrets/no-secrets': 'error',
     'no-warning-comments': 'warn',
     'padded-blocks': ['error', 'never'],
     'sort-imports': ['error', { 'ignoreCase': true }],
@@ -100,6 +131,7 @@ module.exports = {
     'capitalized-comments': 'off',
     'function-call-argument-newline': 'off',
     'id-length': 'off',
+    'import/no-unresolved': 'off',  // Only vite
     'lines-between-class-members': 'off',
     'line-comment-position': 'off',
     'max-classes-per-file': 'off',
@@ -107,6 +139,9 @@ module.exports = {
     'max-params': 'off',
     'multiline-comment-style': 'off',
     'multiline-ternary': 'off',
+    'n/no-missing-import': 'off',  // Only vite
+    'n/no-unpublished-import': 'off',  // Only vite
+    'n/no-unsupported-features/es-syntax': 'off',
     'no-console': 'off',
     'no-inline-comments': 'off',
     'no-magic-numbers': 'off',
@@ -115,6 +150,16 @@ module.exports = {
     'quote-props': 'off',
     'sort-keys': 'off',
     'sort-vars': 'off',
+    'unicorn/filename-case': [
+      'error', {
+        cases: {
+          kebabCase: true,
+          pascalCase: true,
+        }
+      }
+    ],
+    'unicorn/no-null': 'off',
+    'unicorn/prevent-abbreviations': 'off',
     'vue/max-attributes-per-line': 'off',
   },
 }

@@ -1,9 +1,8 @@
-export const
-  bgBigOColor = 'bg-[#ab641b]',
-  darkBgBigOColor = 'dark:bg-[#ab641b]',
-  textBigOColor = 'text-[#ab641b]',
-  darkTextBigOColor = 'dark:text-[#ab641b]',
-  bgMtColor = 'bg-[#3e2d14]',
-  darkBgMtColor = 'dark:bg-[#3e2d14]',
-  textMtColor = 'text-[#3e2d14]',
-  darkTextMtColor = 'dark:text-[#3e2d14]'
+export const bgBigOColor = 'bg-[#ab641b]'
+export const darkBgBigOColor = 'dark:bg-[#ab641b]'
+export const textBigOColor = 'text-[#ab641b]'
+export const darkTextBigOColor = 'dark:text-[#ab641b]'
+export const bgMtColor = 'bg-[#3e2d14]'
+export const darkBgMtColor = 'dark:bg-[#3e2d14]'
+export const textMtColor = 'text-[#3e2d14]'
+export const darkTextMtColor = 'dark:text-[#3e2d14]'

@@ -3,21 +3,21 @@ import catFood from '@/assets/catFood.svg'
 import catFoodCan from '@/assets/catFoodCan.svg'
 import { darkBgBigOColor } from '@/utils/colors'
 import fish from '@/assets/fish.svg'
-import type { Item } from '@/menu/menu_types'
+import type { Item } from '@/menu/menu-types'
 import PriceImg from './PriceImg.vue'
 import timer from '@/assets/timer.svg'
 import { useStore } from '@/stores'
 
 
-const store = useStore(),
-  props = defineProps<{ item: Item }>(),
-  secondaryTextColor = ['text-gray-500', 'dark:text-gray-300'],
-  imgSrc = new TextEncoder().encode(props.item.cnName)
-    .reduce((a, b) => a + b, 0) % 2 ? catFood : catFoodCan,
-  price = Object.freeze(props.item.price),
-  dur = Object.freeze(props.item.durMin),
-  durHour = `00${Math.floor(dur / 60)}`.slice(-2),
-  durMin = `00${Math.floor(dur % 60)}`.slice(-2)
+const store = useStore()
+const props = defineProps<{ item: Item }>()
+const secondaryTextColor = ['text-gray-500', 'dark:text-gray-300']
+const imgSrc = new TextEncoder().encode(props.item.cnName)
+  .reduce((a, b) => a + b, 0) % 2 ? catFood : catFoodCan
+const price = Object.freeze(props.item.price)
+const dur = Object.freeze(props.item.durMin)
+const durHour = `00${Math.floor(dur / 60)}`.slice(-2)
+const durMin = `00${Math.floor(dur % 60)}`.slice(-2)
 </script>
 
 

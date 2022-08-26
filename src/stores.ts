@@ -1,7 +1,7 @@
-import { detectAndSetDarkMode, setDarkMode } from '@/utils/dark_mode'
+import { detectAndSetDarkMode, setDarkMode } from '@/utils/dark-mode'
 
 import { defineStore } from 'pinia'
-import { Item } from '@/menu/menu_types'
+import { Item } from '@/menu/menu-types'
 import { menu } from '@/menu/menu'
 
 
@@ -18,11 +18,11 @@ export const useStore = defineStore('', {
     },
     cartTotal(state) {
       const total = [0, 0, 0]
-      state.cart.forEach((v, k) => {
+      for (const [k, v] of state.cart.entries()) {
         total[0] += v * k.price[0]
         total[1] += v * k.price[1]
         total[2] += v * k.price[2]
-      })
+      }
 
       total[1] += Math.floor(total[2] / 100)
       total[2] %= 100

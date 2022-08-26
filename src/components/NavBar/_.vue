@@ -3,13 +3,13 @@ import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 import cart from '@/assets/cart.svg'
 // import { darkBgBigOColor} from '@/utils/colors'
-import { dev } from '@/utils/constants'
+import { isDev } from '@/utils/constants'
 import ScrSize from '@/utils/ScrSize.vue'
 // import TitleIcon from './TitleIcon.vue'
 import { useStore } from '@/stores'
 
-const store = useStore(),
-  navBarHeight = 'h-24'
+const store = useStore()
+const NAVBAR_HEIGHT = 'h-24'
 </script>
 
 
@@ -19,7 +19,7 @@ const store = useStore(),
 
 <template>
   <nav class="w-full px-7 pt-5 pb-2 fixed top-0 flex justify-between items-center rounded-b-lg z-10"
-    :class="[navBarHeight]">
+    :class="[NAVBAR_HEIGHT]">
     <!-- Back btn -->
     <button type="button" class="invisible">
       Back
@@ -32,7 +32,7 @@ const store = useStore(),
       <button type="button" class="px-3 mr-2 my-1 flex flex-center
         rounded-full shadow whitespace-nowrap bg-white text-xl text-black" @click="store.showCart = true">
         <img class="h-6 pr-2" :src="cart">
-        <ScrSize v-if="dev" />
+        <ScrSize v-if="isDev" />
         {{ store.cart.size }}
       </button>
       <!-- Username -->
@@ -47,5 +47,5 @@ const store = useStore(),
   </nav>
 
   <!-- Offset -->
-  <div :class="navBarHeight" />
+  <div :class="NAVBAR_HEIGHT" />
 </template>
