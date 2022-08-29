@@ -19,6 +19,14 @@ const target = 'esnext',
       injectTo: 'head-prepend',
       tag: 'meta',
       attrs: {
+        'http-equiv': 'Strict-Transport-Security',
+        content: 'max-age=9999999;includeSubDomains'
+      },
+    },
+    {
+      injectTo: 'head-prepend',
+      tag: 'meta',
+      attrs: {
         'http-equiv': 'Content-Security-Policy',
         // [*-elem] doesn't work in Safari/iOS, fvck Safari
         content: `upgrade-insecure-requests;default-src 'self';script-src 'self' ${jsdelivr};` +
