@@ -1,11 +1,12 @@
-import * as path from 'path'
+/* eslint-disable no-console */
+import { HtmlTagDescriptor, Plugin, defineConfig, normalizePath } from 'vite'
+import { access, open, readFile, readdir, stat, writeFile } from 'node:fs/promises'
 
-import { access, open, readdir, readFile, stat, writeFile } from 'fs/promises'
-import { defineConfig, HtmlTagDescriptor, normalizePath, Plugin } from 'vite'
-
-import { brotliCompress } from 'zlib'
-import { constants } from 'fs'
+import * as path from 'node:path'
+import { brotliCompress } from 'node:zlib'
+import { constants } from 'node:fs'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import { fileURLToPath } from 'node:url'
 import removeConsole from 'vite-plugin-remove-console'
 import { viteExternalsPlugin } from 'vite-plugin-externals'
 import vue from '@vitejs/plugin-vue'
@@ -63,71 +64,87 @@ const target = 'esnext',
 if (process.env.NODE_ENV === 'production') {
   tags.push(
     {
-      injectTo: 'head',
-      tag: 'script',
       attrs: {
         defer: true,
         src: 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.runtime.global.prod.js',
       },
-    }, {
       injectTo: 'head',
       tag: 'script',
+    }, {
       attrs: {
         defer: true,
         src: 'https://cdn.jsdelivr.net/npm/vue-demi',
       },
-    }, {
       injectTo: 'head',
       tag: 'script',
+    }, {
       attrs: {
         defer: true,
         src: 'https://cdn.jsdelivr.net/npm/pinia',
       },
+      injectTo: 'head',
+      tag: 'script',
     },
     // {
-    //   injectTo: 'head',
-    //   tag: 'script',
     //   attrs: {
     //     defer: true,
     //     src: 'https://cdn.jsdelivr.net/npm/@vueuse/core',
     //   },
+    //   injectTo: 'head',
+    //   tag: 'script',
     // }
   )
   extPlugs.push(viteExternalsPlugin({
-    vue: 'Vue',
     pinia: 'Pinia',
+    vue: 'Vue',
     // '@vueuse/core': 'VueUse'
-  }))
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-argument
-  extPlugs.push(removeConsole())
+  }),
+  removeConsole())
 }
 
-function buildPostProcessor (fn: (p: string) => Promise<void> | void): Plugin {
+function buildPostProcessor(fn: (p: string) => Promise<void> | void): Plugin {
   let outRoot = ''
-  async function iterDir (dir: string) {
+  async function iterDir(dir: string) {
     await readdir(dir).then(xs => Promise.all(xs.map(
       async x_ => {
         const x = path.resolve(dir, x_)
-        await stat(x).then(async s => (s.isDirectory() ? iterDir(x) : fn(x)))
+        const statRes = await stat(x)
+        await (statRes.isDirectory() ? iterDir(x) : fn(x))
       }
     )))
   }
   return {
-    name: buildPostProcessor.name,
-    enforce: 'post',
     apply: 'build',
-    configResolved (conf) {
+    async closeBundle() {
+      await access(outRoot, constants.F_OK).then(() => iterDir(outRoot))
+    },
+    configResolved(conf) {
       outRoot = normalizePath(path.resolve(conf.root, conf.build.outDir))
     },
-    async closeBundle () {
-      await access(outRoot, constants.F_OK).then(() => iterDir(outRoot))
-    }
+    enforce: 'post',
+    name: buildPostProcessor.name,
   }
 }
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // base: ''  # Default: '/'
+  //       └-> Removes leading slash from the path
+  build: {
+    reportCompressedSize: false, // improve speed
+    target
+  },
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
+    },
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      target
+    }
+  },
   plugins: [
     vue(),
     createHtmlPlugin({
@@ -136,13 +153,13 @@ export default defineConfig({
         {
           entry: 'src/main.ts',
           filename: 'index.html',
-          template: 'index.html',
           injectOptions: {
             data: {
               htmlLang: '"en-US"', // '"zh-cmn-Hans"',
             },
             tags,
           },
+          template: 'index.html',
         }
       ]
     }),
@@ -150,8 +167,9 @@ export default defineConfig({
     ...extPlugs,
     buildPostProcessor(async p => {
       if ((/\.(?:\w?js|css)$/u).test(p)) {
-        let content = (await readFile(p)).toString()
-        const commentRegex = /\/\*[\s\S]*?\*\//ug
+        const buf = await readFile(p)
+        let content = buf.toString()
+        const commentRegex = /\/\*[\S\s]*?\*\//gu
         if (commentRegex.test(content)) {
           content = content.replace(commentRegex, '')
           await open(p, 'w').then(async f => f.write(content))
@@ -169,36 +187,18 @@ export default defineConfig({
           newSz = compressed.length
         await writeFile(p, compressed)
         console.log(`${p}\n\t${origSz} \t-> ${newSz} bytes \t${(newSz / origSz).toFixed(4)}x`)
-      } else {
+      } else
         console.log(`${p} \tskipped ...`)
-      }
+
     })
   ],
-  build: {
-    reportCompressedSize: false, // improve speed
-    target
-  },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // check tsconfig.json => paths
+      '@': path.resolve(path.dirname(fileURLToPath(import.meta.url)), './src'), // check tsconfig.json => paths
     },
-  },
-  // base: ''  # Default: '/'
-  //       └-> Removes leading slash from the path
-  css: {
-    modules: {
-      localsConvention: 'camelCase',
-    },
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      target
-    }
   },
   server: {
     host: true,
-    port: 5000,
-    strictPort: false,
     // https: {
     //   minVersion: 'TLSv1.3',
     //   cert: 'server.crt',
