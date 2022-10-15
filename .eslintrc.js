@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/prefer-module */
+/* eslint-disable camelcase, unicorn/prefer-module */
 const MAX_LEN = [
   'error', {
     code: 100,
@@ -11,6 +11,7 @@ const INDENT = 2
 const QUOTE = 'single'
 
 
+// eslint-disable-next-line no-unused-vars
 const vue = {
   extends: [
     'plugin:vue/base',
@@ -23,21 +24,21 @@ const vue = {
     'vue/component-api-style': 'error',
     'vue/first-attribute-linebreak': [
       'error', {
-        'singleline': 'beside',
-        'multiline': 'beside'
+        multiline: 'beside',
+        singleline: 'beside'
       }
     ],
     'vue/html-button-has-type': 'error',
     'vue/html-closing-bracket-newline': [
       'error', {
-        'singleline': 'never',
-        'multiline': 'never'
+        multiline: 'never',
+        singleline: 'never'
       }
     ],
     'vue/html-indent': [
       'error', 2, {
-        'attribute': 1,
-        'alignAttributesVertically': false
+        alignAttributesVertically: false,
+        attribute: 1
       }
     ],
     'vue/max-len': MAX_LEN,
@@ -54,16 +55,17 @@ const vue = {
 
 }
 
+// eslint-disable-next-line no-unused-vars
 const react = {
   extends: [
-    "plugin:react/all",
-    "plugin:react/jsx-runtime"
+    'plugin:react/all',
+    'plugin:react/jsx-runtime'
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   plugins: ['react'],
   settings: {
     react: {
-      version: "detect",
+      version: 'detect',
     },
   },
 
@@ -83,7 +85,7 @@ module.exports = {
 
   env: {
     browser: true,
-    es2022: true, 
+    es2022: true,
     node: true
   },
   extends: [
@@ -107,9 +109,9 @@ module.exports = {
       jsx: true
     },
     ecmaVersion: 'latest',
+    extraFileExtensions: [...vue.parserOptions_extraFileExtensions],
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    extraFileExtensions: [...vue.parserOptions_extraFileExtensions],
   },
   plugins: [
     ...vue.plugins,
@@ -180,8 +182,8 @@ module.exports = {
     'capitalized-comments': 'off',
     'function-call-argument-newline': 'off',
     'id-length': 'off',
-    'lines-between-class-members': 'off',
     'line-comment-position': 'off',
+    'lines-between-class-members': 'off',
     'max-classes-per-file': 'off',
     'max-lines': 'off',
     'max-lines-per-function': 'off',
@@ -201,11 +203,11 @@ module.exports = {
     'padded-blocks': 'off',
     'sonarjs/cognitive-complexity': 'off',
     'sort-vars': 'off',
-    'unicorn/switch-case-braces': 'off',
     'unicorn/no-keyword-prefix': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prefer-query-selector': 'off',
     'unicorn/prevent-abbreviations': 'off',
+    'unicorn/switch-case-braces': 'off',
     'wrap-regex': 'off',
   },
 

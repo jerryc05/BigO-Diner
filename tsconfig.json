@@ -40,7 +40,7 @@
   ],
   "exclude": [
     "node_modules",
-    "**/vite.config.*",
+    "**/*.spec.ts"
   ],
   "references": [
     {

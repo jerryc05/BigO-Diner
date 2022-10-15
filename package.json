@@ -43,7 +43,7 @@
     "eslint-plugin-unicorn": "latest",
     "eslint-plugin-vue": "latest",
     "postcss": "latest",
-    "typescript": "next",
+    "typescript": "latest",
     "vite": "latest",
     "vite-plugin-externals": "latest",
     "vite-plugin-html": "3.1.0",
