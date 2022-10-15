@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/eslint": "latest",
-    "@types/node": "latest",
+    "@types/node": "18.8.0",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "@vitejs/plugin-vue": "latest",
