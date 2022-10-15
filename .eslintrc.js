@@ -8,7 +8,7 @@ const MAX_LEN = [
   }
 ]
 const INDENT = 2
-const QUOTE = 'single'
+const QUOTE = ['warn', 'single', { avoidEscape: true }]
 
 
 // eslint-disable-next-line no-unused-vars
@@ -41,6 +41,7 @@ const vue = {
         attribute: 1
       }
     ],
+    'vue/html-quotes': QUOTE,
     'vue/max-len': MAX_LEN,
     'vue/next-tick-style': 'error',
     'vue/no-this-in-before-route-enter': 'error',
@@ -140,7 +141,7 @@ module.exports = {
     'func-style': ['error', 'declaration'],
     'function-paren-newline': ['error', 'consistent'],
     indent: ['warn', INDENT, { SwitchCase: 1 }],
-    'jsx-quotes': ['warn', `prefer-${QUOTE}`],
+    'jsx-quotes': ['warn', `prefer-${QUOTE[1]}`],
     'linebreak-style': ['error', 'unix'],
     'max-len': MAX_LEN,
     'no-console': ['warn', { allow: ['error'] }],
@@ -156,7 +157,7 @@ module.exports = {
     'no-warning-comments': 'warn',
     'nonblock-statement-body-position': ['warn', 'below'],
     'quote-props': ['warn', 'as-needed'],
-    quotes: ['warn', QUOTE, { avoidEscape: true }],
+    quotes: QUOTE,
     semi: ['warn', 'never'],
     'sort-imports': [
       'warn', {
