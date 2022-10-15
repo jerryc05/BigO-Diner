@@ -10,7 +10,7 @@
     "dev": "npm run d",
     "build": "npm run b",
     "serve": "npm run s",
-    "lint": "npx eslint --ext .ts,.js,.vue ."
+    "lint": "DEBUG=eslint:cli-engine npx eslint --ext .ts,.js,.vue ."
   },
   "dependencies": {
     "pinia": "latest",

@@ -12,7 +12,8 @@
     "esModuleInterop": false,
     "lib": [
       "ESNext",
-      "DOM"
+      "DOM",
+      "DOM.Iterable"
     ],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -29,11 +30,13 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.d.ts",
     "src/**/*.tsx",
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.jsx",
     "src/**/*.vue",
-    "./*.config.*",
-    "**/.eslintrc.js",
+    "*.js",
+    "*.ts"
   ],
   "exclude": [
     "node_modules",
