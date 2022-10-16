@@ -12,15 +12,11 @@ const categoryUniqueMenu = menu
 </script>
 
 
-
-
-
-
 <template>
   <!-- Category -->
-  <div class="mt-8 mb-3 overflow-x-auto">
-    <div class="pl-5 flex flex-grow basis-auto rounded-6xl bg-[#ffe2d7]">
-      <ItemBlock v-for="x of categoryUniqueMenu" :key="x.category.cnName" :item="x" />
+  <div class='mt-8 mb-3 overflow-x-auto'>
+    <div class='pl-5 w-[fit-content] flex rounded-6xl bg-[#ffe2d7]'>
+      <ItemBlock v-for='x of categoryUniqueMenu' :key='x.category.cnName' :item='x' />
     </div>
   </div>
 </template>

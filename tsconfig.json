@@ -17,6 +17,7 @@
     ],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
     "noImplicitAny": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -35,6 +36,7 @@
     "src/**/*.js",
     "src/**/*.jsx",
     "src/**/*.vue",
+    ".*.js",  // for .eslintrc.js
     "*.js",
     "*.ts"
   ],
