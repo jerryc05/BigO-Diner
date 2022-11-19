@@ -1,7 +1,9 @@
 /* @refresh reload */
-import { render } from 'solid-js/web';
+import { render } from 'solid-js/web'
 
-import './index.css';
-import App from './App';
+import './index.css'
+import App from './App'
 
-render(() => <App />, document.getElementById('root') as HTMLElement);
+const mount = document.createElement('div')
+document.body.insertBefore(mount, document.body.firstChild)
+render(() => <App />, mount)
