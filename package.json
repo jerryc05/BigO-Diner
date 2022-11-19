@@ -8,7 +8,11 @@
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-babel": "^6.0.2",
+    "@types/node": "^18.11.9",
     "babel-preset-solid": "^1.6.2",
+    "eslint": "^8.28.0",
+    "eslint-plugin-solid": "^0.8.0",
     "typescript": "latest",
     "vite": "latest",
     "vite-plugin-solid": "latest"
