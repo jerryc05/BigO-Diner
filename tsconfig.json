@@ -27,7 +27,16 @@
       ]
     },
     "baseUrl": "./",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "asIs",
+          "jumpToDefinition": true
+        }
+      }
+    ]
   },
   "exclude": [
     "node_modules",

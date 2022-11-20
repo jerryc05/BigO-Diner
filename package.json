@@ -29,6 +29,7 @@
     "eslint-plugin-typescript-sort-keys": "^2.1.0",
     "eslint-plugin-unicorn": "^44.0.2",
     "typescript": "latest",
+    "typescript-plugin-css-modules": "^3.4.0",
     "vite": "latest",
     "vite-plugin-solid": "latest"
   },
