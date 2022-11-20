@@ -23,7 +23,7 @@ specifiers:
   eslint-plugin-simple-import-sort: ^8.0.0
   eslint-plugin-solid: ^0.8.0
   eslint-plugin-sonarjs: ^0.16.0
-  eslint-plugin-typescript-sort-keys: ^2.1.0
+  eslint-plugin-sort-keys: ^2.3.5
   eslint-plugin-unicorn: ^44.0.2
   solid-js: latest
   typescript: latest
@@ -57,7 +57,7 @@ devDependencies:
   eslint-plugin-simple-import-sort: 8.0.0_eslint@8.28.0
   eslint-plugin-solid: 0.8.0_hsf322ms6xhhd4b5ne6lb74y4a
   eslint-plugin-sonarjs: 0.16.0_eslint@8.28.0
-  eslint-plugin-typescript-sort-keys: 2.1.0_nqj4bdx4ekws7aecttskpih4py
+  eslint-plugin-sort-keys: 2.3.5
   eslint-plugin-unicorn: 44.0.2_eslint@8.28.0
   typescript: 4.9.3
   typescript-plugin-css-modules: 3.4.0_typescript@4.9.3
@@ -1515,19 +1515,6 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/experimental-utils/5.43.0_hsf322ms6xhhd4b5ne6lb74y4a:
-    resolution: {integrity: sha512-WkT637CumTJbm/hRbFfnHBMgfUYTKr08LitVsD7gQId7bi6rnkx3pu3jac67lmp5ObW4MpJ9SNFZAIOUB/Qbsw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      '@typescript-eslint/utils': 5.43.0_hsf322ms6xhhd4b5ne6lb74y4a
-      eslint: 8.28.0
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-    dev: true
-
   /@typescript-eslint/parser/5.43.0_hsf322ms6xhhd4b5ne6lb74y4a:
     resolution: {integrity: sha512-2iHUK2Lh7PwNUlhFxxLI2haSDNyXvebBO9izhjhMoDC+S3XI9qt2DGFUsiJ89m2k7gGYch2aEpYqV5F/+nwZug==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -2446,22 +2433,10 @@ packages:
       eslint: 8.28.0
     dev: true
 
-  /eslint-plugin-typescript-sort-keys/2.1.0_nqj4bdx4ekws7aecttskpih4py:
-    resolution: {integrity: sha512-ET7ABypdz19m47QnKynzNfWPi4CTNQ5jQQC1X5d0gojIwblkbGiCa5IilsqzBTmqxZ0yXDqKBO/GBkBFQCOFsg==}
-    engines: {node: 10 - 12 || >= 13.9}
-    peerDependencies:
-      '@typescript-eslint/parser': ^1 || ^2 || ^3 || ^4 || ^5
-      eslint: ^5 || ^6 || ^7 || ^8
-      typescript: ^3 || ^4
+  /eslint-plugin-sort-keys/2.3.5:
+    resolution: {integrity: sha512-2j/XKQ9sNJwK8kIp/U0EvuF6stS6/8aIc53/NskE4C5NRNh4dt3xzbZyOdrVC11cTH6Zo59/pdzA0Kb+2fQGWg==}
     dependencies:
-      '@typescript-eslint/experimental-utils': 5.43.0_hsf322ms6xhhd4b5ne6lb74y4a
-      '@typescript-eslint/parser': 5.43.0_hsf322ms6xhhd4b5ne6lb74y4a
-      eslint: 8.28.0
-      json-schema: 0.4.0
-      natural-compare-lite: 1.4.0
-      typescript: 4.9.3
-    transitivePeerDependencies:
-      - supports-color
+      natural-compare: 1.4.0
     dev: true
 
   /eslint-plugin-unicorn/44.0.2_eslint@8.28.0:
@@ -3139,10 +3114,6 @@ packages:
 
   /json-schema-traverse/0.4.1:
     resolution: {integrity: sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==}
-    dev: true
-
-  /json-schema/0.4.0:
-    resolution: {integrity: sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA==}
     dev: true
 
   /json-stable-stringify-without-jsonify/1.0.1:
