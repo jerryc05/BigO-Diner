@@ -34,6 +34,8 @@
     "vite-plugin-solid": "latest"
   },
   "dependencies": {
+    "@solid-primitives/map": "^0.3.0",
+    "@solid-primitives/set": "^0.3.0",
     "solid-js": "latest"
   }
 }

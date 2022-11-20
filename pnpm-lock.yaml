@@ -4,6 +4,8 @@ specifiers:
   '@babel/core': ^7.20.2
   '@babel/preset-env': ^7.20.2
   '@rollup/plugin-babel': ^6.0.2
+  '@solid-primitives/map': ^0.3.0
+  '@solid-primitives/set': ^0.3.0
   '@types/eslint': ^8.4.10
   '@types/node': ^18.11.9
   '@typescript-eslint/eslint-plugin': ^5.43.0
@@ -30,6 +32,8 @@ specifiers:
   vite-plugin-solid: latest
 
 dependencies:
+  '@solid-primitives/map': 0.3.0_solid-js@1.6.2
+  '@solid-primitives/set': 0.3.0_solid-js@1.6.2
   solid-js: 1.6.2
 
 devDependencies:
@@ -1407,6 +1411,41 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
     dev: true
+
+  /@solid-primitives/map/0.3.0_solid-js@1.6.2:
+    resolution: {integrity: sha512-xWBi0mw8NnPFPFzmicStM2murSjaTNTuEmP40n1Py1MYk2sfPD97hYCH1i9JDHDYGg+4/PiXDDzDSezsADYQgg==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@solid-primitives/trigger': 0.0.2_solid-js@1.6.2
+      solid-js: 1.6.2
+    dev: false
+
+  /@solid-primitives/set/0.3.0_solid-js@1.6.2:
+    resolution: {integrity: sha512-QB7kIQSPWVqqVJN/6vdLWPXVI4siiL5d4O1G9YFTROURRsq2Di8io85IDCG0SiO0OAChnu9iZaWm0+n8v03/pg==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@solid-primitives/trigger': 0.0.2_solid-js@1.6.2
+      solid-js: 1.6.2
+    dev: false
+
+  /@solid-primitives/trigger/0.0.2_solid-js@1.6.2:
+    resolution: {integrity: sha512-OW1j4DqHrLgerw8tLSMXtm9Y6PSbzA7VCg0sEgLImL/2OMGTVlLI6FdwgEW1zvtYYfAaxcb3hwMLE6cC1bcygw==}
+    peerDependencies:
+      solid-js: ^1.4.0
+    dependencies:
+      '@solid-primitives/utils': 4.0.0_solid-js@1.6.2
+      solid-js: 1.6.2
+    dev: false
+
+  /@solid-primitives/utils/4.0.0_solid-js@1.6.2:
+    resolution: {integrity: sha512-fGsJy8Z8YiwogpiezD7TWjI62UCb0JAHJWdoXWGrggrn4bfToZotKkabiB0IVFMkWVE1ZcrkvZT3bkmqGnK0ng==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      solid-js: 1.6.2
+    dev: false
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}

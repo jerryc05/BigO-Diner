@@ -5,7 +5,7 @@ import cartIcon from '@/assets/cart.svg'
 import { cart, isDark, setShowCart } from '@/states'
 // import { darkBgBigOColor} from '@/utils/colors'
 import { isDev } from '@/utils/constants'
-import scrSize from '@/utils/scrSize'
+import ScrSize from '@/utils/ScrSize'
 // import TitleIcon from './TitleIcon'
 
 
@@ -23,7 +23,7 @@ export default () => <nav class='w-full px-7 pt-5 pb-2 fixed top-0 flex justify-
     <button type='button' class='px-3 mr-2 my-1 flex flex-center
       rounded-full shadow whitespace-nowrap bg-white text-xl text-black' onClick={() => setShowCart(true)}>
       <img class='h-6 pr-2' src={cartIcon} />
-      { isDev ? scrSize : null }
+      { isDev ? <ScrSize/> : null }
       { cart.size }
     </button>
     {/* Username */}
