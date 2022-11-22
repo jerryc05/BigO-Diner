@@ -169,7 +169,8 @@ module.exports = {
     'array-element-newline': ['error', 'consistent'],
     'arrow-parens': ['error', 'as-needed'],
     'capitalized-comments': 'off',
-    'comma-dangle': ['error', 'only-multiline'],
+    'comma-dangle': ['warn', 'only-multiline'],
+    'comma-spacing': 'warn',
     curly: ['error', 'multi'],
     'default-case': 'off',  // only typescript
     'dot-location': ['error', 'property'],
@@ -180,6 +181,7 @@ module.exports = {
     indent: ['warn', INDENT, { SwitchCase: 1 }],
     // eslint-disable-next-line @typescript-eslint/no-base-to-string, @typescript-eslint/restrict-template-expressions
     'jsx-quotes': ['warn', `prefer-${QUOTE[1]}`],
+    'key-spacing': 'warn',
     'line-comment-position': 'off',
     'linebreak-style': ['error', 'unix'],
     'lines-between-class-members': 'off',
@@ -229,6 +231,7 @@ module.exports = {
     'sort-vars': 'off',
     'space-before-function-paren': ['warn', 'never'],
     'space-in-parens': ['warn', 'never'],
+    'space-infix-ops': 'warn',
     'unicorn/catch-error-name': 'off',
     'unicorn/filename-case': [
       'warn', {
