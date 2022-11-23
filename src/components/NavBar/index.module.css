@@ -1,0 +1,32 @@
+:root {
+  --navbar-height: 6rem;
+}
+
+
+nav {
+  width: 100%;
+  height: var(--navbar-height);
+
+  --px: 2rem;
+  padding-left: var(--px);
+  padding-right: var(--px);
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  --round-radius: .5rem;
+  border-bottom-left-radius: var(--round-radius);
+  border-bottom-right-radius: var(--round-radius);
+
+  z-index: 10;
+}
+
+nav + .offset {
+  height: var(--navbar-height);
+}

@@ -195,7 +195,7 @@ module.exports = {
     'multiline-ternary': ['warn', 'always-multiline'],
     'n/no-missing-import': 'off',  // only vite
     'n/no-unpublished-import': 'off',  // only vite
-    'n/no-unsupported-features/es-syntax': 'off',
+    'n/no-unpublished-require': 'off',
     'no-console': ['warn', { allow: ['error'] }],
     'no-extra-parens': [
       'warn', 'all', {

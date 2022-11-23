@@ -28,6 +28,11 @@
     "eslint-plugin-sonarjs": "^0.16.0",
     "eslint-plugin-sort-keys": "^2.3.5",
     "eslint-plugin-unicorn": "^45.0.0",
+    "incstr": "^1.2.3",
+    "postcss": "^8.4.19",
+    "postcss-at-rules-variables": "^0.3.0",
+    "postcss-csso": "^6.0.1",
+    "postcss-preset-env": "^7.8.3",
     "typescript": "latest",
     "typescript-plugin-css-modules": "^3.4.0",
     "vite": "latest",
@@ -37,5 +42,8 @@
     "@solid-primitives/map": "^0.3.0",
     "@solid-primitives/set": "^0.3.0",
     "solid-js": "latest"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
