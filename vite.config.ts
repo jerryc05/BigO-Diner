@@ -2,6 +2,7 @@ import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { babel } from '@rollup/plugin-babel'
+// @ts-expect-error: no type declaration file
 import incstr from 'incstr'
 import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
