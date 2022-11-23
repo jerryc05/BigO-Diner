@@ -12,7 +12,10 @@ const nextId = incstr.idGenerator({ alphabet: `${incstr.alphabet}-_` }) as ()=>s
 const cssClassMap = new Map<string, string>()
 
 export default defineConfig({
-  build: { target: 'esnext' },
+  build: {
+    reportCompressedSize: false, // improve speed,
+    target: 'esnext'
+  },
   css: {
     modules: {
       generateScopedName: process.env.NODE_ENV === 'production'
