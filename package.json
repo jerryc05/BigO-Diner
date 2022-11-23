@@ -29,6 +29,7 @@
     "eslint-plugin-sort-keys": "^2.3.5",
     "eslint-plugin-unicorn": "^45.0.0",
     "incstr": "^1.2.3",
+    "modern-normalize": "^1.1.0",
     "postcss": "^8.4.19",
     "postcss-at-rules-variables": "^0.3.0",
     "postcss-csso": "^6.0.1",

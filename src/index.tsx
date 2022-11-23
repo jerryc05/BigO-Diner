@@ -1,5 +1,6 @@
 /* @refresh reload */
 import './index.css'
+import 'modern-normalize/modern-normalize.css'
 
 import { ErrorBoundary } from 'solid-js'
 import { render } from 'solid-js/web'

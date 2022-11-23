@@ -26,6 +26,7 @@ specifiers:
   eslint-plugin-sort-keys: ^2.3.5
   eslint-plugin-unicorn: ^45.0.0
   incstr: ^1.2.3
+  modern-normalize: ^1.1.0
   postcss: ^8.4.19
   postcss-at-rules-variables: ^0.3.0
   postcss-csso: ^6.0.1
@@ -66,6 +67,7 @@ devDependencies:
   eslint-plugin-sort-keys: 2.3.5
   eslint-plugin-unicorn: 45.0.0_eslint@8.28.0
   incstr: 1.2.3
+  modern-normalize: 1.1.0
   postcss: 8.4.19
   postcss-at-rules-variables: 0.3.0_postcss@8.4.19
   postcss-csso: 6.0.1_postcss@8.4.19
@@ -3577,6 +3579,11 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: true
+
+  /modern-normalize/1.1.0:
+    resolution: {integrity: sha512-2lMlY1Yc1+CUy0gw4H95uNN7vjbpoED7NNRSBHE25nWfLBdmMzFCsPshlzbxHz+gYMcBEUN8V4pU16prcdPSgA==}
+    engines: {node: '>=6'}
     dev: true
 
   /ms/2.0.0:
