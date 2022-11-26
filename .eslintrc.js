@@ -71,13 +71,13 @@ const react = {
   rules: {
     'react/display-name': 'off',
     'react/jsx-closing-bracket-location': ['warn', { nonEmpty: 'after-props', selfClosing: 'after-props' }],
+    'react/jsx-closing-tag-location': 'warn',
     'react/jsx-curly-newline': ['warn', { multiline: 'consistent', singleline: 'forbid' }],
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
     'react/jsx-indent': ['warn', INDENT],
     'react/jsx-indent-props': ['warn', INDENT],
-    // disabled
     'react/jsx-max-depth': 'off',
-    'react/jsx-newline': 'off',
+    'react/jsx-newline': ['warn', { allowMultilines: true, prevent: true }],
     'react/jsx-no-literals': 'off',
     'react/jsx-sort-props': 'off',
     'react/no-multi-comp': 'off',
@@ -209,6 +209,7 @@ module.exports = {
     'no-inline-comments': 'off',
     'no-magic-numbers': 'off',
     'no-multi-spaces': ['warn', { ignoreEOLComments: true }],
+    'no-multiple-empty-lines': 'warn',
     'no-secrets/no-secrets': 'warn',
     'no-shadow': 'off',  // only typescript
     'no-ternary': 'off',
