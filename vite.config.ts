@@ -94,5 +94,5 @@ export default defineConfig({
     })
   ],
   resolve: { alias: { '@': path.resolve(path.dirname(fileURLToPath(import.meta.url)), './src') /* check tsconfig.json => paths */ } },
-  server: { port: 3000 }
+  server: { host: true }
 })
