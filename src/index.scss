@@ -1,5 +1,6 @@
 button {
   cursor: pointer; /* But do NOT make buttons look like links */
+  background-color: unset;
 }
 
 ::-webkit-scrollbar {
@@ -11,4 +12,10 @@ button {
   border-radius: 1rem;
   background-clip: content-box;
   background-color: #282c34;
+}
+
+@mixin flex-and-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

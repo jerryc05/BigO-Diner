@@ -176,6 +176,7 @@ module.exports = {
       }
     ],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
+    'array-bracket-newline': 'warn',
     'array-element-newline': ['error', 'consistent'],
     'arrow-parens': ['error', 'as-needed'],
     'arrow-spacing': 'warn',
@@ -192,7 +193,7 @@ module.exports = {
     'function-paren-newline': ['error', 'consistent'],
     'id-length': 'off',
     'implicit-arrow-linebreak': 'warn',
-    indent: ['warn', INDENT, { SwitchCase: 1 }],
+    indent: ['warn', INDENT, { SwitchCase: 1, ignoredNodes: ['JSXElement *', 'JSXElement'] }],
     // eslint-disable-next-line @typescript-eslint/no-base-to-string, @typescript-eslint/restrict-template-expressions
     'jsx-quotes': ['warn', `prefer-${QUOTE[1]}`],
     'key-spacing': 'warn',

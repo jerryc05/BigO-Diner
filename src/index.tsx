@@ -1,5 +1,5 @@
 /* @refresh reload */
-import './index.css'
+import './index.scss'
 import 'modern-normalize/modern-normalize.css'
 
 import { ErrorBoundary } from 'solid-js'
@@ -11,6 +11,7 @@ const mount = document.createElement('div')
 document.body.insertBefore(mount, document.body.firstChild)
 render(() => <ErrorBoundary fallback={(err, reset) => <div style={{ 'text-align': 'center' }}>
   <div>{err}</div>
+  <div>{JSON.stringify(err)}</div>
   <button onClick={reset}>Reset</button>
 </div>}>
   <App />

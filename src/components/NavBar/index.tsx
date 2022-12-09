@@ -7,33 +7,36 @@ import { cart, isDark, setShowCart, showCart } from '@/states'
 import { isDev } from '@/utils/constants'
 import ScrSize from '@/utils/ScrSize'
 
-import css from './index.module.pcss'
+import css from './index.module.scss'
 
-export default () => <>
-  <nav>
-    {/* Dark btn */}
+export default () => (
+  <>
+    <nav>
+      {/* Dark btn */}
 
-    {/* Cart */}
-    <button class={css.cartBtn} type='button'
-      disabled={showCart()}
-      onClick={() => setShowCart(true)}>
-      <img src={cartIcon} />
-      { isDev ? <ScrSize/> : null }
-      { isDev ? ' - ' : null }
-      { cart.size }
-    </button>
+      {/* Cart */}
+      <button class={css.cartBtn} type='button'
+              disabled={showCart()}
+              onClick={() => setShowCart(true)}
+      >
+        <img src={cartIcon} />
+        { isDev ? <ScrSize/> : null }
+        { isDev ? ' - ' : null }
+        { cart.size }
+      </button>
 
-    {/* Username */}
-    <b class='hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap'>jerryc05</b>
+      {/* Username */}
+      <b class='hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap'>jerryc05</b>
 
-    {/* Avatar */}
-    <button type='button'
-      class={css.avatarBtn}>
-      <img src={isDark() ? bigO : bingbing}/>
-    </button>
+      {/* Avatar */}
+      <button type='button'
+              class={css.avatarBtn}
+      >
+        <img src={isDark() ? bigO : bingbing} />
+      </button>
 
-  </nav>
+    </nav>
 
-  {/* Offset */}
-  <div class={css.offset} />
-</>
+    {/* Offset */}
+    <div class={css.offset} />
+  </>)

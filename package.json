@@ -39,6 +39,7 @@
     "typescript": "latest",
     "typescript-plugin-css-modules": "^3.4.0",
     "vite": "latest",
+    "vite-plugin-html": "^3.2.0",
     "vite-plugin-solid": "latest"
   },
   "dependencies": {

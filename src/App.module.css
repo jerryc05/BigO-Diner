@@ -2,8 +2,9 @@
   width: 100%;
   min-width: 20rem;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column
+
+  /* display: flex;
+  flex-direction: column */
 }
 
 @media (prefers-color-scheme: dark) {
