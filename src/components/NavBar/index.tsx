@@ -38,5 +38,5 @@ export default () => (
     </nav>
 
     {/* Offset */}
-    <div class={css.offset} />
+    <div class={css.navBarOffsetAboveBody} />
   </>)

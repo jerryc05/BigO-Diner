@@ -1,4 +1,4 @@
-button {
+@mixin button {
   cursor: pointer; /* But do NOT make buttons look like links */
   background-color: unset;
 

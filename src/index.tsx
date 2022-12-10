@@ -9,10 +9,13 @@ import App from './App'
 
 const mount = document.createElement('div')
 document.body.insertBefore(mount, document.body.firstChild)
-render(() => <ErrorBoundary fallback={(err, reset) => <div style={{ 'text-align': 'center' }}>
-  <div>{err}</div>
-  <div>{JSON.stringify(err)}</div>
-  <button onClick={reset}>Reset</button>
-</div>}>
-  <App />
-</ErrorBoundary>, mount)
+render(() => (
+  <ErrorBoundary fallback={(err, reset) => (
+    <div style={{ 'text-align': 'center' }}>
+      <div>{err}</div>
+      <div>{JSON.stringify(err)}</div>
+      <button type='button' onClick={reset}>Reset</button>
+    </div>)}
+  >
+    <App />
+  </ErrorBoundary>), mount)

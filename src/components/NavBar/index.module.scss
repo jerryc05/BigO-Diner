@@ -36,6 +36,7 @@ nav {
   }
 
   &>.cartBtn {
+    @include index.button;
     @include index.flex-and-center;
 
     padding: .1rem .5rem;
@@ -61,6 +62,7 @@ nav {
   }
 
   &>.avatarBtn {
+    @include index.button;
     @include index.flex-and-center;
 
     height: 100%;
@@ -77,6 +79,6 @@ nav {
   }
 }
 
-nav+.offset {
+nav+.navBarOffsetAboveBody {
   height: var(--navbar-height);
 }

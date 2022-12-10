@@ -1,0 +1,14 @@
+.cartDetail {
+  height: 100%;
+
+  position: fixed;
+  right: 0;
+
+  display: flex;
+
+  z-index: 50;
+
+  transition-property: width;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}

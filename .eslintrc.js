@@ -69,6 +69,7 @@ function includeJsx(cfg) {
     extends: [...cfg.extends ?? [], 'plugin:react/jsx-runtime'],
     rules: {
       ...cfg.rules ?? [],
+      'react/button-has-type': 'warn',
       'react/jsx-closing-bracket-location': ['warn', { nonEmpty: 'tag-aligned', selfClosing: 'after-props' }],
       'react/jsx-closing-tag-location': 'warn',
       'react/jsx-curly-newline': ['warn', { multiline: 'consistent', singleline: 'forbid' }],
@@ -190,7 +191,7 @@ module.exports = {
     'dot-location': ['error', 'property'],
     'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
     'function-call-argument-newline': 'off',
-    'function-paren-newline': ['error', 'consistent'],
+    'function-paren-newline': ['warn', 'consistent'],
     'id-length': 'off',
     'implicit-arrow-linebreak': 'warn',
     indent: ['warn', INDENT, { SwitchCase: 1, ignoredNodes: ['JSXElement *', 'JSXElement'] }],
