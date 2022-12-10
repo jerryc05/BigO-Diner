@@ -1,6 +1,8 @@
 button {
   cursor: pointer; /* But do NOT make buttons look like links */
   background-color: unset;
+
+  border-style: none;
 }
 
 ::-webkit-scrollbar {

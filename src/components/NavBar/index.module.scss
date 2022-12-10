@@ -5,7 +5,7 @@
 }
 
 .shadow {
-  box-shadow: .05rem .05rem .2rem 0 #ccc;
+  box-shadow: 0.05rem 0.05rem .5rem 0 #ccc;
 }
 
 
@@ -20,77 +20,63 @@ nav {
   position: fixed;
   top: 0;
 
-  --px: 2rem;
-  padding-left: var(--px);
-  padding-right: var(--px);
-  padding-top: 1.3rem;
-  padding-bottom: 1rem;
+  /* top | left and right | bottom */
+  padding: 1.5rem 1rem .8rem;
 
   --round-radius: .75rem;
-  border-bottom-left-radius: var(--round-radius);
-  border-bottom-right-radius: var(--round-radius);
+  /* top-left | top-right | bottom-right | bottom-left */
+  border-radius: 0 0 var(--round-radius) var(--round-radius);
 
   box-shadow: 0 0 1rem 0 #ccc;
 
   z-index: 10;
 
-  & > .cartBtn {
+  &>* {
+    margin: 0 .5rem;
+  }
+
+  &>.cartBtn {
     @include index.flex-and-center;
 
-    --px: .5rem;
-    padding-left: var(--px);
-    padding-right: var(--px);
-
-    margin-right: .5rem;
-
-    border-style: none;
-    border-radius: 1.5rem;
+    padding: .1rem .5rem;
 
     @extend .shadow;
+    border-style: none;
+    border-radius: 1.5rem;
 
     font-size: large;
     white-space: nowrap;
 
-    & > img {
+    &>img {
       height: 2rem;
 
       --py: .2rem;
-      padding-top: var(--py);
-      padding-bottom: var(--py);
-      padding-right: .5rem;
+      /* top | right | bottom | left */
+      padding: var(--py) .5rem var(--py) 0;
     }
   }
 
-  & > b {
+  &>b {
     font-size: 1.1rem;
-    ;
   }
 
-  & > .avatarBtn {
+  &>.avatarBtn {
+    @include index.flex-and-center;
+
     height: 100%;
     aspect-ratio: 1/1;
 
-    padding: 0;
+    &>img {
+      height: 100%;
 
-    border-style: none;
-    border-radius: 50%;
+      @extend .shadow;
+      border-radius: 50%;
 
-    @extend .shadow;
-
-    background-color: red;
-
-    /* class='h-12 flex flex-center rounded-full shadow aspect-square    // focus:ring-gray-300 dark:focus:ring-gray-600 bg-white' */
-
-    & > img {
-      max-height: 70.710678118%;
-      object-fit: cover;
-
-
-      background-color: black;
+      object-fit: contain;
     }
   }
 }
 
-nav + .offset {
+nav+.offset {
   height: var(--navbar-height);
 }
