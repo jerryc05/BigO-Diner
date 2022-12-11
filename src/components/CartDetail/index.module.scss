@@ -1,3 +1,5 @@
+@use "/src/index.scss";
+
 .cartDetail {
   height: 100%;
 
@@ -6,15 +8,33 @@
 
   display: flex;
 
+  background-color: rgba(156, 163, 175, 0.7);
+
   z-index: 50;
 
   transition-property: width;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
 
-  &>.bgShadow{
-    width: 100%;
-    // class='<md:hidden w-full h-full flex-grow bg-gray-400 bg-opacity-800'
+  & > .leftSideEmptyPart {
+    flex-grow: 1;
+  }
 
+  & > .realCart {
+    // class='w-screen md:(basis-100 rounded-l-2xl) h-screen px-6 py-4 flex-grow-0 flex-shrink-0 flex flex-col z-20 bg-white'
+    width: 32rem;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    & > .closeBtn{
+      @include index.button;
+//class='h-13 flex-grow-0 flex-shrink-0 flex'
+// class='rounded-full shadow bg-gray-200 cursor-pointer'
+
+width: 5rem;
+    }
   }
 }

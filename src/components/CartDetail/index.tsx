@@ -27,21 +27,19 @@ const cartDetail = createMemo(() => {
 export default () => (
   // Cart Details
   <div class={css.cartDetail} style={{ width: showCart() ? '100%' : 0 }}>
-    {/* Background shadow */}
-    <div class={css.bgShadow} onClick={() => setShowCart(false)} />
+    {/* Left Side Empty Part */}
+    <div class={css.leftSideEmptyPart} onClick={() => setShowCart(false)} />
 
     {/* Real Cart */}
-    <div class='w-screen md:(basis-100 rounded-l-2xl) h-screen px-6 py-4 flex-grow-0 flex-shrink-0 flex flex-col z-20 bg-white'>
+    <div class={css.realCart}>
       {/* Close */}
-      <span class='h-13 flex-grow-0 flex-shrink-0 flex'>
-        <button
-          type='button'
-          class='rounded-full shadow bg-gray-200 cursor-pointer'
-          onClick={() => setShowCart(false)}
-        >
-          <img class='h-full p-2 aspect-square' src={close} />
-        </button>
-      </span>
+      <button
+        type='button'
+        class={css.closeBtn}
+        onClick={() => setShowCart(false)}
+      >
+        <img class='h-full p-2 aspect-square' src={close} />
+      </button>
 
       {/* Content */}
       <div class='mt-2 flex-grow flex-shrink overflow-y-auto scroll-smooth'>
