@@ -27,12 +27,12 @@ const cartDetail = createMemo(() => {
 export default () => (
   // Cart Details
   <div
-    class={ css.cartDetail}// 'absolute top-0 h-screen flex z-19 overflow-hidden transition-all duration-1000 ease-in-out'
+    class={ css.cartDetail}
     style={{ width: showCart() ? '100%' : 0 }}
   >
     {/* Background shadow */}
     <div
-      class='<md:hidden w-full h-full flex-grow bg-gray-400 bg-opacity-800'
+      class={css.bgShadow }
       onClick={() => setShowCart(false)} />
 
     {/* Real Cart */}

@@ -11,4 +11,10 @@
   transition-property: width;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
+
+  &>.bgShadow{
+    width: 100%;
+    // class='<md:hidden w-full h-full flex-grow bg-gray-400 bg-opacity-800'
+
+  }
 }
