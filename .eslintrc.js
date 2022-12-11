@@ -1,29 +1,26 @@
 /*
-pnpm i -D eslint @types/eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-json eslint-plugin-markdown eslint-plugin-n eslint-plugin-no-unsanitized eslint-plugin-optimize-regex eslint-plugin-promise eslint-plugin-security eslint-plugin-simple-import-sort eslint-plugin-sonarjs  eslint-plugin-sort-keys eslint-plugin-unicorn eslint-plugin-no-secrets
+pnpm i -D eslint @types/eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-prettier eslint-plugin-json eslint-plugin-markdown eslint-plugin-n eslint-plugin-no-unsanitized eslint-plugin-optimize-regex eslint-plugin-promise eslint-plugin-security eslint-plugin-sonarjs  eslint-plugin-sort-keys eslint-plugin-unicorn eslint-plugin-no-secrets
 */
 
 /* eslint-disable unicorn/prefer-module */
 const MAX_LEN = [
-  'warn', {
+  'warn',
+  {
     code: 100,
     ignoreComments: true,
     ignoreRegExpLiterals: true,
     ignoreStrings: true,
     ignoreTemplateLiterals: true,
-  }
+  },
 ]
 const INDENT = 2
 const QUOTE = ['warn', 'single', { avoidEscape: true }]
 const ESLINT_PARSER = '@typescript-eslint/parser'
 
-
 /** @type {import('eslint').Linter.Config} */
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
 const vue = {
-  extends: [
-    'plugin:vue/base',
-    'plugin:vue/vue3-recommended',
-  ],
+  extends: ['plugin:vue/base', 'plugin:vue/vue3-recommended'],
   parser: 'vue-eslint-parser', // must use for vue SFC
   parserOptions: {
     extraFileExtensions: ['.vue'],
@@ -35,28 +32,34 @@ const vue = {
     'vue/component-api-style': 'error',
     'vue/html-button-has-type': 'error',
     'vue/html-closing-bracket-newline': [
-      'error', {
+      'error',
+      {
         multiline: 'never',
-        singleline: 'never'
-      }
+        singleline: 'never',
+      },
     ],
     'vue/html-indent': [
-      'error', 2, {
+      'error',
+      2,
+      {
         alignAttributesVertically: false,
-        attribute: 1
-      }
+        attribute: 1,
+      },
     ],
     'vue/html-quotes': QUOTE,
     'vue/html-self-closing': ['error', { html: { normal: 'never' } }],
     'vue/max-attributes-per-line': 'off',
-    'vue/max-len': [MAX_LEN[0], { ...MAX_LEN[1], ignoreHTMLAttributeValues: true }],
+    'vue/max-len': [
+      MAX_LEN[0],
+      { ...MAX_LEN[1], ignoreHTMLAttributeValues: true },
+    ],
     'vue/next-tick-style': 'error',
     'vue/no-this-in-before-route-enter': 'error',
     'vue/no-useless-mustaches': 'error',
     'vue/no-useless-v-bind': 'error',
     'vue/prefer-prop-type-boolean-first': 'warn',
     'vue/v-on-function-call': ['error', 'never'],
-  }
+  },
 }
 
 /**
@@ -66,30 +69,36 @@ const vue = {
 function includeJsx(cfg) {
   return {
     ...cfg,
-    extends: [...cfg.extends ?? [], 'plugin:react/jsx-runtime'],
+    extends: [...(cfg.extends ?? []), 'plugin:react/jsx-runtime'],
     rules: {
-      ...cfg.rules ?? [],
+      ...(cfg.rules ?? []),
       'react/button-has-type': 'warn',
-      'react/jsx-closing-bracket-location': ['warn', { nonEmpty: 'tag-aligned', selfClosing: 'after-props' }],
+      'react/jsx-closing-bracket-location': [
+        'warn',
+        { nonEmpty: 'tag-aligned', selfClosing: 'after-props' },
+      ],
       'react/jsx-closing-tag-location': 'warn',
-      'react/jsx-curly-newline': ['warn', { multiline: 'consistent', singleline: 'forbid' }],
-      'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+      'react/jsx-curly-newline': [
+        'warn',
+        { multiline: 'consistent', singleline: 'forbid' },
+      ],
+      'react/jsx-filename-extension': [
+        'error',
+        { extensions: ['.jsx', '.tsx'] },
+      ],
       'react/jsx-indent': ['warn', INDENT],
       'react/jsx-indent-props': ['warn', 'first'],
       'react/jsx-max-depth': 'off',
       'react/jsx-newline': 'off',
       'react/jsx-no-literals': 'off',
       'react/jsx-sort-props': 'off',
-    }
+    },
   }
 }
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
 const react = includeJsx({
-  extends: [
-    'plugin:react/all',
-    'plugin:react-hooks/recommended'
-  ],
+  extends: ['plugin:react/all', 'plugin:react-hooks/recommended'],
   rules: {
     'react/display-name': 'off',
     'react/no-multi-comp': 'off',
@@ -101,14 +110,14 @@ const react = includeJsx({
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
 const solidjs = includeJsx({
   extends: ['plugin:solid/typescript'],
-  plugins: ['solid']
+  plugins: ['solid'],
 })
 
 /** @type {import('eslint').Linter.Config} */
 const framework = solidjs
 
 const plugins = [
-  ...framework.plugins ?? [],
+  ...(framework.plugins ?? []),
 
   '@typescript-eslint',
 
@@ -117,21 +126,19 @@ const plugins = [
   'n',
   'no-secrets',
   'promise',
-  'simple-import-sort',
   'sonarjs',
-  'sort-keys'
+  'sort-keys',
 ]
-
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   env: {
     browser: true,
     es2022: true,
-    node: true
+    node: true,
   },
   extends: [
-    ...framework.extends ?? [],
+    ...(framework.extends ?? []),
 
     'eslint:all',
 
@@ -148,6 +155,8 @@ module.exports = {
     'plugin:security/recommended',
     'plugin:sonarjs/recommended',
     'plugin:unicorn/all',
+
+    'prettier',
   ],
   parser: framework.parser ?? ESLINT_PARSER,
   parserOptions: {
@@ -170,11 +179,12 @@ module.exports = {
     '@typescript-eslint/no-redundant-type-constituents': 'error',
     '@typescript-eslint/prefer-readonly': 'warn',
     '@typescript-eslint/restrict-template-expressions': [
-      'warn', {
+      'warn',
+      {
         allowBoolean: true,
         allowNullish: true,
         allowNumber: true,
-      }
+      },
     ],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     'array-bracket-newline': 'warn',
@@ -187,14 +197,18 @@ module.exports = {
     'comma-dangle': ['warn', 'only-multiline'],
     'comma-spacing': 'warn',
     curly: ['error', 'multi'],
-    'default-case': 'off',  // only typescript
+    'default-case': 'off', // only typescript
     'dot-location': ['error', 'property'],
     'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
     'function-call-argument-newline': 'off',
     'function-paren-newline': ['warn', 'consistent'],
     'id-length': 'off',
     'implicit-arrow-linebreak': 'warn',
-    indent: ['warn', INDENT, { SwitchCase: 1, ignoredNodes: ['JSXElement *', 'JSXElement'] }],
+    indent: [
+      'warn',
+      INDENT,
+      { SwitchCase: 1, ignoredNodes: ['JSXElement *', 'JSXElement'] },
+    ],
     // eslint-disable-next-line @typescript-eslint/no-base-to-string, @typescript-eslint/restrict-template-expressions
     'jsx-quotes': ['warn', `prefer-${QUOTE[1]}`],
     'key-spacing': 'warn',
@@ -209,24 +223,25 @@ module.exports = {
     'max-statements': 'off',
     'multiline-comment-style': 'off',
     'multiline-ternary': ['warn', 'always-multiline'],
-    'n/no-missing-import': 'off',  // only vite
-    'n/no-unpublished-import': 'off',  // only vite
+    'n/no-missing-import': 'off', // only vite
+    'n/no-unpublished-import': 'off', // only vite
     'n/no-unpublished-require': 'off',
     'no-console': ['warn', { allow: ['error'] }],
+    /*
     'no-extra-parens': [
       'warn', 'all', {
         enforceForArrowConditionals: false,
         ignoreJSX: 'all',
         nestedBinaryExpressions: false,
       }
-    ],
+    ], */
     'no-inline-comments': 'off',
     'no-magic-numbers': 'off',
     'no-mixed-operators': 'warn',
     'no-multi-spaces': ['warn', { ignoreEOLComments: true }],
     'no-multiple-empty-lines': 'warn',
     'no-secrets/no-secrets': 'warn',
-    'no-shadow': 'off',  // only typescript
+    'no-shadow': 'off', // only typescript
     'no-ternary': 'off',
     'no-trailing-spaces': 'warn',
     'no-undefined': 'off',
@@ -241,11 +256,13 @@ module.exports = {
     'quote-props': ['warn', 'as-needed'],
     quotes: QUOTE,
     semi: ['warn', 'never'],
-    'simple-import-sort/exports': 'warn',
-    'simple-import-sort/imports': 'warn',
     'sonarjs/cognitive-complexity': 'off',
-    'sort-imports': 'off',  // use eslint-plugin-simple-import-sort
-    'sort-keys': ['warn', 'asc', { allowLineSeparatedGroups: true, natural: true }],
+    'sort-imports': 'off', // use prettier plugin
+    'sort-keys': [
+      'warn',
+      'asc',
+      { allowLineSeparatedGroups: true, natural: true },
+    ],
     'sort-keys/sort-keys-fix': 'warn',
     'sort-vars': 'off',
     'space-before-function-paren': ['warn', 'never'],
@@ -253,12 +270,13 @@ module.exports = {
     'space-infix-ops': 'warn',
     'unicorn/catch-error-name': 'off',
     'unicorn/filename-case': [
-      'warn', {
+      'warn',
+      {
         cases: {
           camelCase: true,
           pascalCase: true,
-        }
-      }
+        },
+      },
     ],
     'unicorn/no-keyword-prefix': 'off',
     'unicorn/no-null': 'off',
@@ -267,6 +285,6 @@ module.exports = {
     'unicorn/switch-case-braces': 'off',
     'wrap-regex': 'off',
 
-    ...framework.rules ?? [],
-  }
+    ...(framework.rules ?? []),
+  },
 }
