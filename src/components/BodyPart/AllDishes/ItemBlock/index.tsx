@@ -4,7 +4,7 @@ import catFood from '@/assets/catFood.svg'
 import catFoodCan from '@/assets/catFoodCan.svg'
 import timer from '@/assets/timer.svg'
 import type { Item } from '@/menu/menuTypes'
-import { cartAddOne } from '@/states'
+import { cartAddAtMostOne } from '@/states'
 
 import { CatFood, CatFoodCan, Fish } from './PriceImg'
 import css from './index.module.scss'
@@ -40,7 +40,7 @@ export default (props: { item: Item }) => {
       // class="h-34 w-full p-3 my-1 flex shadow-y-lg rounded-xl
       // hover:bg-gray-200 transition-all duration-800 ease-out" :class="[darkBgBigOColor]"
       onClick={() => {
-        cartAddOne(props.item)
+        cartAddAtMostOne(props.item)
       }}
     >
       <div class={css.itemBlockBtnContent}>

@@ -1,0 +1,24 @@
+@use '/src/mixins.scss';
+
+.cartItem {
+  height: 3.5rem;
+
+  padding: .5rem;
+  border: 0.2rem solid #ccc;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & > .quantityCtl {
+    @include mixins.flex-and-center;
+
+    height: 100%;
+
+    & > .quatity {
+      margin: 0 0.3rem;
+    }
+  }
+}

@@ -22,7 +22,7 @@
 
   & > .realCart {
     // class='w-screen md:(basis-100 rounded-l-2xl) h-screen px-6 py-4 flex-grow-0 flex-shrink-0 flex flex-col z-20 bg-white'
-    width: 28rem;
+    width: 24rem;
 
     display: flex;
     flex-direction: column;
@@ -40,6 +40,7 @@
       aspect-ratio: 1/1;
 
       padding: 0;
+      margin-bottom: .3rem;
 
       & > .closeBtnImg {
         padding: 0.3rem;
@@ -65,7 +66,7 @@
       @include mixins.button;
       @include mixins.flex-and-center;
 
-      padding: 1rem;
+      padding: .7rem;
 
       border-radius: 999rem;
 
