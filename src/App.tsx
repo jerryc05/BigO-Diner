@@ -4,7 +4,7 @@ import CartDetail from './components/CartDetail'
 import NavBar from './components/NavBar'
 
 const App = () => (
-  <div id={css.app}>
+  <div class={css.app}>
     <CartDetail />
     <NavBar />
     <BodyPart />
