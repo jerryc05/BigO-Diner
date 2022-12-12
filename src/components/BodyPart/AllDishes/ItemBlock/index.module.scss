@@ -1,0 +1,18 @@
+@use '/src/index.scss';
+
+.itemBlockBtn {
+  @include index.button;
+
+  height: 8rem;
+  width: calc(100% / 2);
+
+  display: flex;
+
+  & > .itemImg {
+    height: 100%;
+    aspect-ratio: 1/1;
+
+    padding: 1rem;
+    // margin: 0.5rem;
+  }
+}

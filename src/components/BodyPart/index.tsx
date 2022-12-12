@@ -2,11 +2,13 @@ import css from './index.module.scss'
 
 import Greetings from './Greetings'
 
+import AllDishes from './AllDishes'
+
 export default ()=> (
   <div class={css.bodyPart}>
     <Greetings />
-    {/* <Category />
-    <AllDishes /> */}
+    {/* <Category /> */}
+    <AllDishes />
 
     {/* <img :src="store.isDark ? 'https://i.ibb.co/rs7THLg/We-Chat-Image-20220423044752.jpg' : bingbing"
       class="h-36 object-contain ml-auto mr-auto">
