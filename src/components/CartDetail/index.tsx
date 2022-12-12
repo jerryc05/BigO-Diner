@@ -38,33 +38,26 @@ export default () => (
         class={css.closeBtn}
         onClick={() => setShowCart(false)}
       >
-        <img class='h-full p-2 aspect-square' src={close} />
+        <img class={css.closeBtnImg} src={close} />
       </button>
 
-      {/* Content */}
-      <div class='mt-2 flex-grow flex-shrink overflow-y-auto scroll-smooth'>
-        {cartDetail()}
-      </div>
+      {/* Cart Content */}
+      <div class={css.cartContent}>{cartDetail()}</div>
 
       {/* Total */}
-      <b class='h-6 px-5 flex-grow-0 flex-shrink-0 flex'>
-        Total: {cartTotal()}
-      </b>
+      <b class={css.total}>Total: {cartTotal()}</b>
 
       {/* Checkout Btn */}
-      <span class='h-13 px-4 mt-4 mb-1 flex-grow-0 flex-shrink-0 flex flex-center'>
-        <button
-          type='button'
-          class='w-full h-full flex flex-center rounded-full
-        bg-gray-500 text-xl text-white'
-          onClick={() => {
-            cart.clear()
-          }}
-        >
-          <img class='h-6 -ml-2 mr-2 filter invert' src={paw} />
-          Checkout
-        </button>
-      </span>
+      <button
+        type='button'
+        class={css.chechoutBtn}
+        onClick={() => {
+          cart.clear()
+        }}
+      >
+        <img class={css.checkoutBtnImg} src={paw} />
+        <b class={css.checkoutBtnText}>Checkout</b>
+      </button>
     </div>
   </div>
 )
