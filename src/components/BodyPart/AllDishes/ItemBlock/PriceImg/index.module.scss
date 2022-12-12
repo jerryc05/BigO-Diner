@@ -1,0 +1,10 @@
+.priceImg {
+  height: 100%;
+
+  display: flex;
+
+  & > img {
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
+}

@@ -8,6 +8,8 @@
 
   border-radius: 1rem;
 
+  text-align: unset;
+
   transition-duration: 0.8s;
   transition-timing-function: ease-out;
 
@@ -28,9 +30,51 @@
 
       padding: 0.8rem;
       border-radius: 20%;
-      // margin: 0.5rem;
+
+      background-color: white;
 
       box-shadow: 0 0 1rem 0 #ccc;
+    }
+
+    & > .detail {
+      height: 100%;
+      width: 100%;
+
+      margin-left: 1.5rem;
+
+      display: flex;
+      flex-direction: column;
+
+      text-overflow: ellipsis;
+
+      & > .title {
+        margin-bottom: 0.5rem;
+
+        font-size: large;
+      }
+
+      & > .categoryAndChef {
+        flex-grow: 1;
+
+        text-overflow: ellipsis;
+      }
+
+      & > .timeAndPrice {
+        height: 1.3rem;
+
+        display: flex;
+        justify-content: space-between;
+
+        & > .time {
+          & > img {
+            height: 100%;
+          }
+        }
+
+        & > .price {
+          display: flex;
+        }
+      }
     }
   }
 }

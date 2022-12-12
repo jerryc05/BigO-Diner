@@ -2,17 +2,16 @@ import catFood from '@/assets/catFood.svg'
 import catFoodCan from '@/assets/catFoodCan.svg'
 import fish from '@/assets/fish.svg'
 
+import css from './index.module.scss'
+
 type PriceImgProps = { price: number; src: string }
 
 function PriceImg(props: PriceImgProps) {
   return (
-    <span class='ml-1 flex flex-center'>
+    <div class={css.priceImg}>
       {props.price}
-      <img
-        src={props.src}
-        class='h-5 ml-0.5 aspect-square dark:(filter invert)'
-      />
-    </span>
+      <img src={props.src} />
+    </div>
   )
 }
 

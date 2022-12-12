@@ -1,4 +1,3 @@
-import { CatFood, CatFoodCan, Fish } from '../PriceImg'
 import { createMemo } from 'solid-js'
 
 import catFood from '@/assets/catFood.svg'
@@ -7,6 +6,7 @@ import timer from '@/assets/timer.svg'
 import type { Item } from '@/menu/menuTypes'
 import { cartAddOne } from '@/states'
 
+import { CatFood, CatFoodCan, Fish } from './PriceImg'
 import css from './index.module.scss'
 
 export default (props: { item: Item }) => {
@@ -53,47 +53,45 @@ export default (props: { item: Item }) => {
         />
 
         {/* Detail */}
-        <span
-        // class="w-full h-full ml-5 flex flex-col items-start whitespace-nowrap overflow-hidden"
+        <div
+          class={css.detail}
+          // class="w-full h-full ml-5 flex flex-col items-start whitespace-nowrap overflow-hidden"
         >
           {/* Title */}
-          <b
+          <b class={css.title}
           // class="my-1 text-lg text-shadow"
           >
             {props.item.cnName}
           </b>
 
           {/* Category & chefs */}
-          <span
-          // class="flex-grow overflow-hidden overflow-ellipsis"
-          // :class="secondaryTextColor"
-          >
+          <div class={css.categoryAndChef}>
             {props.item.category.cnName} | {props.item.chefs.join(' · ')}
-          </span>
+          </div>
 
           {/* Time & Price */}
-          <span
-          // class="h-6 w-full flex justify-between"
+          <div
+            class={css.timeAndPrice}
+            // class="h-6 w-full flex justify-between"
           >
             {/* Time */}
-            <span
-            // class="flex flex-center"
+            <div
+              class={css.time}
+              // class="flex flex-center"
             >
-              <img
-                // class="h-5 pr-0.5" :
-                src={timer}
-              />
+              <img src={timer} />
               {durText()}
-            </span>
+            </div>
 
             {/* Price */}
-            <span
-            //  class="max-h-full flex"
+            <div
+              class={css.price}
+              //  class="max-h-full flex"
             >
               {priceJsx()}
-            </span>
-          </span>
-        </span>
+            </div>
+          </div>
+        </div>
       </div>
     </button>
   )
