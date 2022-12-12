@@ -48,6 +48,6 @@ export function cartDel(x: Item) {
   const val = cart.get(x)
   if (val === undefined)
     throw new Error(`${cartDel.name}: item [${x.constructor.name}] not in cart`)
-  cart.set(x, val - 1)
-  if (val <= 0) cart.delete(x)
+  if (val - 1 <= 0) cart.delete(x)
+  else cart.set(x, val - 1)
 }
