@@ -4,12 +4,22 @@
   @include mixins.button;
 
   height: 8rem;
-  width: calc(100% / 2);
+  width: 100%;
+  @include mixins.tablet {
+    width: calc(100% / 2);
+  }
+  @include mixins.pc {
+    width: calc(100% / 3);
+  }
+  @include mixins.pc-wide {
+    width: calc(100% / 4);
+  }
 
   border-radius: 1rem;
 
   text-align: unset;
 
+  transition-property: background-color;
   transition-duration: 0.8s;
   transition-timing-function: ease-out;
 
@@ -20,7 +30,7 @@
   & > .itemBlockBtnContent {
     height: 100%;
 
-    padding: 1rem .5rem;
+    padding: 1rem 0.5rem;
 
     display: flex;
 
@@ -57,6 +67,7 @@
         flex-grow: 1;
 
         text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       & > .timeAndPrice {

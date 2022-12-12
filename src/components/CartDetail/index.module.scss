@@ -13,6 +13,7 @@
 
   z-index: 50;
 
+  transition-property: width;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
 
@@ -22,7 +23,7 @@
 
   & > .realCart {
     // class='w-screen md:(basis-100 rounded-l-2xl) h-screen px-6 py-4 flex-grow-0 flex-shrink-0 flex flex-col z-20 bg-white'
-    width: 24rem;
+    width: clamp(24rem, calc(100% / 3), 32rem);
 
     flex-shrink: 0;
     display: flex;
@@ -41,7 +42,7 @@
       aspect-ratio: 1/1;
 
       padding: 0;
-      margin-bottom: .3rem;
+      margin-bottom: 0.3rem;
 
       & > .closeBtnImg {
         padding: 0.3rem;
@@ -67,7 +68,7 @@
       @include mixins.button;
       @include mixins.flex-and-center;
 
-      padding: .7rem;
+      padding: 0.7rem;
 
       border-radius: 999rem;
 

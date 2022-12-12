@@ -1,0 +1,14 @@
+@use '/src/mixins.scss';
+
+.scrsize::after {
+  content: 'phone';
+  @include mixins.tablet {
+    content: 'tablet';
+  }
+  @include mixins.pc {
+    content: 'pc';
+  }
+  @include mixins.pc-wide {
+    content: 'pc-wide';
+  }
+}
