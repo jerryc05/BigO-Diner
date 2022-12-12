@@ -39,7 +39,7 @@ nav {
     @include index.button;
     @include index.flex-and-center;
 
-    padding: .1rem .5rem;
+    padding: .1rem .75rem;
 
     @extend .shadow;
     border-style: none;
