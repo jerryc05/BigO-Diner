@@ -1,0 +1,10 @@
+#app {
+  height: 100vh;;
+
+  display: flex;
+  flex-direction: column;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* todo: background and text color */
+}

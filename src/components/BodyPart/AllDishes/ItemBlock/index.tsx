@@ -43,56 +43,58 @@ export default (props: { item: Item }) => {
         cartAddOne(props.item)
       }}
     >
-      {/* Image */}
-      <img
-        class={css.itemImg}
-        src={imgSrc()}
-        // class="h-full p-5 aspect-square self-center bg-white
-        // dark:(filter invert) rounded-3xl shadow-md"
-      />
+      <div class={css.itemBlockBtnContent}>
+        {/* Image */}
+        <img
+          class={css.itemImg}
+          src={imgSrc()}
+          // class="h-full p-5 aspect-square self-center bg-white
+          // dark:(filter invert) rounded-3xl shadow-md"
+        />
 
-      {/* Detail */}
-      <span
-      // class="w-full h-full ml-5 flex flex-col items-start whitespace-nowrap overflow-hidden"
-      >
-        {/* Title */}
-        <b
-        // class="my-1 text-lg text-shadow"
-        >
-          {props.item.cnName}
-        </b>
-
-        {/* Category & chefs */}
+        {/* Detail */}
         <span
-        // class="flex-grow overflow-hidden overflow-ellipsis"
-        // :class="secondaryTextColor"
+        // class="w-full h-full ml-5 flex flex-col items-start whitespace-nowrap overflow-hidden"
         >
-          {props.item.category.cnName} | {props.item.chefs.join(' · ')}
-        </span>
-
-        {/* Time & Price */}
-        <span
-        // class="h-6 w-full flex justify-between"
-        >
-          {/* Time */}
-          <span
-          // class="flex flex-center"
+          {/* Title */}
+          <b
+          // class="my-1 text-lg text-shadow"
           >
-            <img
-              // class="h-5 pr-0.5" :
-              src={timer}
-            />
-            {durText()}
+            {props.item.cnName}
+          </b>
+
+          {/* Category & chefs */}
+          <span
+          // class="flex-grow overflow-hidden overflow-ellipsis"
+          // :class="secondaryTextColor"
+          >
+            {props.item.category.cnName} | {props.item.chefs.join(' · ')}
           </span>
 
-          {/* Price */}
+          {/* Time & Price */}
           <span
-          //  class="max-h-full flex"
+          // class="h-6 w-full flex justify-between"
           >
-            {priceJsx()}
+            {/* Time */}
+            <span
+            // class="flex flex-center"
+            >
+              <img
+                // class="h-5 pr-0.5" :
+                src={timer}
+              />
+              {durText()}
+            </span>
+
+            {/* Price */}
+            <span
+            //  class="max-h-full flex"
+            >
+              {priceJsx()}
+            </span>
           </span>
         </span>
-      </span>
+      </div>
     </button>
   )
 }

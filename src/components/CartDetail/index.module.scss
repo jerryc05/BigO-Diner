@@ -1,4 +1,4 @@
-@use '/src/index.scss';
+@use '/src/mixins.scss';
 
 .cartDetail {
   height: 100%;
@@ -13,7 +13,6 @@
 
   z-index: 50;
 
-  transition-property: width;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
 
@@ -33,7 +32,7 @@
     background-color: white;
 
     & > .closeBtn {
-      @include index.button;
+      @include mixins.button;
       //class='h-13 flex-grow-0 flex-shrink-0 flex'
       // class='rounded-full shadow bg-gray-200 cursor-pointer'
 
@@ -56,15 +55,15 @@
       flex-grow: 1;
     }
 
-    &>.total{
+    & > .total {
       margin: 1rem 0;
 
       text-align: center;
     }
 
-    &>.chechoutBtn{
-      @include index.button;
-      @include index.flex-and-center;
+    & > .chechoutBtn {
+      @include mixins.button;
+      @include mixins.flex-and-center;
 
       padding: 1rem;
 
@@ -72,13 +71,13 @@
 
       background-color: gray;
 
-      &>.checkoutBtnImg{
+      & > .checkoutBtnImg {
         width: 2rem;
-        margin: auto .5rem;
+        margin: auto 0.5rem;
       }
 
-      &>.checkoutBtnText{
-font-size: x-large;
+      & > .checkoutBtnText {
+        font-size: x-large;
       }
     }
   }

@@ -1,5 +1,5 @@
 /* @refresh reload */
-import './index.scss'
+import './index.css'
 import 'modern-normalize/modern-normalize.css'
 
 import { render } from 'solid-js/web'

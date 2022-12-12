@@ -1,8 +1,6 @@
-@use "/src/index.scss";
+@use '/src/mixins.scss';
 
-:root {
-  --navbar-height: 5rem;
-}
+$navbar-height: 5rem;
 
 .shadow {
   box-shadow: 0.05rem 0.05rem .5rem 0 #ccc;
@@ -11,7 +9,7 @@
 
 nav {
   width: 100%;
-  height: var(--navbar-height);
+  height: $navbar-height;
 
   display: flex;
   justify-content: flex-end;
@@ -23,9 +21,9 @@ nav {
   /* top | left and right | bottom */
   padding: 1.5rem 1rem .8rem;
 
-  --round-radius: .75rem;
+  $round-radius: .75rem;
   /* top-left | top-right | bottom-right | bottom-left */
-  border-radius: 0 0 var(--round-radius) var(--round-radius);
+  border-radius: 0 0 $round-radius $round-radius;
 
   box-shadow: 0 0 1rem 0 #ccc;
 
@@ -36,8 +34,8 @@ nav {
   }
 
   &>.cartBtn {
-    @include index.button;
-    @include index.flex-and-center;
+    @include mixins.button;
+    @include mixins.flex-and-center;
 
     padding: .1rem .75rem;
 
@@ -51,9 +49,9 @@ nav {
     &>img {
       height: 2rem;
 
-      --py: .2rem;
+      $py: .2rem;
       /* top | right | bottom | left */
-      padding: var(--py) .5rem var(--py) 0;
+      padding: $py .5rem $py 0;
     }
   }
 
@@ -62,8 +60,8 @@ nav {
   }
 
   &>.avatarBtn {
-    @include index.button;
-    @include index.flex-and-center;
+    @include mixins.button;
+    @include mixins.flex-and-center;
 
     height: 100%;
     aspect-ratio: 1/1;
@@ -80,5 +78,7 @@ nav {
 }
 
 nav+.navBarOffsetAboveBody {
-  height: var(--navbar-height);
+  height: $navbar-height;
+
+  flex-shrink: 0;
 }

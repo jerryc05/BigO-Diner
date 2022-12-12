@@ -1,4 +1,4 @@
-import css from './App.module.css'
+import css from './App.module.scss'
 import BodyPart from './components/BodyPart'
 import CartDetail from './components/CartDetail'
 import NavBar from './components/NavBar'

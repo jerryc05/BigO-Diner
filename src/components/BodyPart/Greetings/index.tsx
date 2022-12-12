@@ -4,7 +4,7 @@ import css from './index.module.scss'
 
 export default () => (
   <>
-    <div class={css.hi}>
+    <div class={css.greetings}>
       Hi, <b>jerryc05!</b>
     </div>
     <div class={css.welcome}>

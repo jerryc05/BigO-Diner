@@ -1,18 +1,36 @@
-@use '/src/index.scss';
+@use '/src/mixins.scss';
 
 .itemBlockBtn {
-  @include index.button;
+  @include mixins.button;
 
   height: 8rem;
   width: calc(100% / 2);
 
-  display: flex;
+  border-radius: 1rem;
 
-  & > .itemImg {
+  transition-duration: 0.8s;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    background-color: rgb(229 231 235);
+  }
+
+  & > .itemBlockBtnContent {
     height: 100%;
-    aspect-ratio: 1/1;
 
     padding: 1rem;
-    // margin: 0.5rem;
+
+    display: flex;
+
+    & > .itemImg {
+      height: 100%;
+      aspect-ratio: 1/1;
+
+      padding: 0.8rem;
+      border-radius: 20%;
+      // margin: 0.5rem;
+
+      box-shadow: 0 0 1rem 0 #ccc;
+    }
   }
 }

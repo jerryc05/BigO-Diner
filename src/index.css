@@ -1,0 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0.2rem solid transparent;
+  border-radius: 1rem;
+  background-clip: content-box;
+  background-color: #282c34;
+}
