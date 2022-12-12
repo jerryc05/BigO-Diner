@@ -3,6 +3,12 @@
 
   display: flex;
   flex-direction: column;
+
+  $mtColor: #3e2d14;
+  $bigoColor: #774729;
+  & * {
+    color: $bigoColor;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
