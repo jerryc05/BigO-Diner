@@ -58,8 +58,9 @@ export default (props: { item: Item }) => {
           // class="w-full h-full ml-5 flex flex-col items-start whitespace-nowrap overflow-hidden"
         >
           {/* Title */}
-          <b class={css.title}
-          // class="my-1 text-lg text-shadow"
+          <b
+            class={css.title}
+            // class="my-1 text-lg text-shadow"
           >
             {props.item.cnName}
           </b>

@@ -65,7 +65,11 @@
         display: flex;
         justify-content: space-between;
 
+        vertical-align: middle;
+
         & > .time {
+          @include mixins.flex-and-center;
+
           & > img {
             height: 100%;
           }
