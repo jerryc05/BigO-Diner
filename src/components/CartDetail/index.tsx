@@ -24,9 +24,11 @@ const cartDetail = createMemo(() => {
   return arr
 })
 
+// todo: delay update if shoCart is false
+
 export default () => (
   // Cart Details
-  <div class={css.cartDetail} style={{ width: showCart() ? '100%' : 0 }}>
+  <div class={css.cartDetail} style={ showCart() ?{} :{ width: 0 }}>
     {/* Left Side Empty Part */}
     <div class={css.leftSideEmptyPart} onClick={() => setShowCart(false)} />
 
