@@ -20,9 +20,9 @@
     & > .quatity {
       @include mixins.flex-and-center;
 
-      width: 1rem;
-
       margin: 0 0.3rem;
+
+      font-variant-numeric: tabular-nums;
     }
   }
 }
