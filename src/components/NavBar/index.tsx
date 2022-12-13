@@ -28,8 +28,5 @@ export default () => (
         <img src={isDark() ? bigO : bingbing} />
       </button>
     </nav>
-
-    {/* Offset */}
-    <div class={css.navBarOffsetAboveBody} />
   </>
 )

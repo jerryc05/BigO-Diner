@@ -1,16 +1,14 @@
 @use '/src/mixins.scss';
 
-$navbar-height: 5rem;
-
 nav {
   width: 100%;
-  height: $navbar-height;
+  height: 5rem;
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
 
-  position: fixed;
+  position: sticky;
   top: 0;
 
   /* top | left and right | bottom */
@@ -48,10 +46,4 @@ nav {
       object-fit: contain;
     }
   }
-}
-
-nav + .navBarOffsetAboveBody {
-  height: $navbar-height;
-
-  flex-shrink: 0;
 }
