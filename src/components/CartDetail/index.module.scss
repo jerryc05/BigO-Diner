@@ -14,8 +14,8 @@
   z-index: 50;
 
   transition-property: width;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
+  transition-duration: 1.5s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   & > .leftSideEmptyPart {
     flex-grow: 1;
