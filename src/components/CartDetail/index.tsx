@@ -1,4 +1,3 @@
-// import TitleIcon from './TitleIcon'
 import { JSXElement, createMemo } from 'solid-js'
 
 import close from '@/assets/close.svg'
@@ -18,7 +17,6 @@ const cartDetailJsx = createMemo(() => {
 // todo: delay update if showCart is false
 
 export default () => (
-  // Cart Details
   <div class={css.cartDetail} style={showCart() ? {} : { width: 0 }}>
     {/* Left Side Empty Part */}
     <div class={css.leftSideEmptyPart} onClick={() => setShowCart(false)} />

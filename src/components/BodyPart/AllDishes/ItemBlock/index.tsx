@@ -36,33 +36,18 @@ export default (props: { item: Item }) => {
     <button
       type='button'
       class={css.itemBlockBtn}
-      // class="h-34 w-full p-3 my-1 flex shadow-y-lg rounded-xl
-      // hover:bg-gray-200 transition-all duration-800 ease-out" :class="[darkBgBigOColor]"
       onClick={() => {
         cartAddAtMostOne(props.item)
       }}
     >
       <div class={css.itemBlockBtnContent}>
         {/* Image */}
-        <img
-          class={css.itemImg}
-          src={imgSrc()}
-          // class="h-full p-5 aspect-square self-center bg-white
-          // dark:(filter invert) rounded-3xl shadow-md"
-        />
+        <img class={css.itemImg} src={imgSrc()} />
 
         {/* Detail */}
-        <div
-          class={css.detail}
-          // class="w-full h-full ml-5 flex flex-col items-start whitespace-nowrap overflow-hidden"
-        >
+        <div class={css.detail}>
           {/* Title */}
-          <b
-            class={css.title}
-            // class="my-1 text-lg text-shadow"
-          >
-            {props.item.cnName}
-          </b>
+          <b class={css.title}>{props.item.cnName}</b>
 
           {/* Category & chefs */}
           <div class={css.categoryAndChef}>
@@ -70,26 +55,15 @@ export default (props: { item: Item }) => {
           </div>
 
           {/* Time & Price */}
-          <div
-            class={css.timeAndPrice}
-            // class="h-6 w-full flex justify-between"
-          >
+          <div class={css.timeAndPrice}>
             {/* Time */}
-            <div
-              class={css.time}
-              // class="flex flex-center"
-            >
+            <div class={css.time}>
               <img src={timer} />
               {durText()}
             </div>
 
             {/* Price */}
-            <div
-              class={css.price}
-              //  class="max-h-full flex"
-            >
-              {priceJsx()}
-            </div>
+            <div class={css.price}>{priceJsx()}</div>
           </div>
         </div>
       </div>

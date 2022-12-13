@@ -1,10 +1,8 @@
-// import TitleIcon from './TitleIcon'
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 import cartIcon from '@/assets/cart.svg'
 import { cart, isDark, setShowCart, showCart } from '@/states'
 import ScrSize from '@/utils/ScrSize'
-// import { darkBgBigOColor} from '@/utils/colors'
 import { isDev } from '@/utils/constants'
 
 import css from './index.module.scss'
