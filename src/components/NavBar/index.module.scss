@@ -3,9 +3,8 @@
 $navbar-height: 5rem;
 
 .shadow {
-  box-shadow: 0.05rem 0.05rem .5rem 0 #ccc;
+  box-shadow: 0.05rem 0.05rem 0.5rem 0 #ccc;
 }
-
 
 nav {
   width: 100%;
@@ -19,9 +18,9 @@ nav {
   top: 0;
 
   /* top | left and right | bottom */
-  padding: 1.5rem 1rem .8rem;
+  padding: 1.5rem 1rem 0.8rem;
 
-  $round-radius: .75rem;
+  $round-radius: 0.75rem;
   /* top-left | top-right | bottom-right | bottom-left */
   border-radius: 0 0 $round-radius $round-radius;
 
@@ -29,15 +28,15 @@ nav {
 
   z-index: 10;
 
-  &>* {
-    margin: 0 .5rem;
+  & > * {
+    margin: 0 0.5rem;
   }
 
-  &>.cartBtn {
+  & > .cartBtn {
     @include mixins.button;
     @include mixins.flex-and-center;
 
-    padding: .1rem .75rem;
+    padding: 0.1rem 0.75rem;
 
     @extend .shadow;
     border-radius: 1.5rem;
@@ -46,27 +45,27 @@ nav {
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
 
-    &>img {
+    & > img {
       height: 2rem;
 
-      $py: .2rem;
+      $py: 0.2rem;
       /* top | right | bottom | left */
-      padding: $py .5rem $py 0;
+      padding: $py 0.5rem $py 0;
     }
   }
 
-  &>b {
+  & > b {
     font-size: 1.1rem;
   }
 
-  &>.avatarBtn {
+  & > .avatarBtn {
     @include mixins.button;
     @include mixins.flex-and-center;
 
     height: 100%;
     aspect-ratio: 1/1;
 
-    &>img {
+    & > img {
       height: 100%;
 
       @extend .shadow;
@@ -77,7 +76,7 @@ nav {
   }
 }
 
-nav+.navBarOffsetAboveBody {
+nav + .navBarOffsetAboveBody {
   height: $navbar-height;
 
   flex-shrink: 0;
