@@ -19,7 +19,6 @@ export default (props: { item: Item }) => {
     const { price } = props.item
     return (
       <>
-        {' '}
         {price[0] > 0 && <CatFood price={price[0]} />}
         {(price[0] > 0 || price[1] > 0) && <CatFoodCan price={price[1]} />}
         <Fish price={price[2]} />
