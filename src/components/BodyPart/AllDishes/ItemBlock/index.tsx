@@ -31,14 +31,14 @@ export default (props: { item: Item }) => {
   })
 
   return (
-    <button
-      type='button'
-      class={css.itemBlockBtn}
-      onClick={() => {
-        cartAddAtMostOne(props.item)
-      }}
-    >
-      <div class={css.itemBlockBtnContent}>
+    <div class={css.itemBlock}>
+      <button
+        type='button'
+        class={css.itemBlockContentBtn}
+        onClick={() => {
+          cartAddAtMostOne(props.item)
+        }}
+      >
         {/* Image */}
         <img class={css.itemImg} src={imgSrc()} />
 
@@ -64,7 +64,12 @@ export default (props: { item: Item }) => {
             <div class={css.price}>{priceJsx()}</div>
           </div>
         </div>
+      </button>
+
+      {/* Checkmark */}
+      <div class={css.checkmark}>
+        <img />
       </div>
-    </button>
+    </div>
   )
 }
