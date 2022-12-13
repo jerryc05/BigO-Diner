@@ -1,10 +1,10 @@
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
-import cartIcon from '@/assets/cart.svg'
-import { cart, isDark, setShowCart, showCart } from '@/states'
+import { isDark } from '@/states'
 import ScrSize from '@/utils/ScrSize'
 import { isDev } from '@/utils/constants'
 
+import Cart from './Cart'
 import css from './index.module.scss'
 
 export default () => (
@@ -16,15 +16,7 @@ export default () => (
       {isDev ? <ScrSize /> : null}
 
       {/* Cart */}
-      <button
-        class={css.cartBtn}
-        type='button'
-        disabled={showCart()}
-        onClick={() => setShowCart(true)}
-      >
-        <img src={cartIcon} />
-        {cart.size}
-      </button>
+      <Cart />
 
       {/* Username */}
       <b class='hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap'>

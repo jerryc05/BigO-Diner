@@ -2,10 +2,6 @@
 
 $navbar-height: 5rem;
 
-.shadow {
-  box-shadow: 0.05rem 0.05rem 0.5rem 0 #ccc;
-}
-
 nav {
   width: 100%;
   height: $navbar-height;
@@ -32,28 +28,6 @@ nav {
     margin: 0 0.5rem;
   }
 
-  & > .cartBtn {
-    @include mixins.button;
-    @include mixins.flex-and-center;
-
-    padding: 0.1rem 0.75rem;
-
-    @extend .shadow;
-    border-radius: 1.5rem;
-
-    font-size: large;
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-
-    & > img {
-      height: 2rem;
-
-      $py: 0.2rem;
-      /* top | right | bottom | left */
-      padding: $py 0.5rem $py 0;
-    }
-  }
-
   & > b {
     font-size: 1.1rem;
   }
@@ -68,8 +42,8 @@ nav {
     & > img {
       height: 100%;
 
-      @extend .shadow;
       border-radius: 50%;
+      box-shadow: 0.05rem 0.05rem 0.5rem 0 #ccc;
 
       object-fit: contain;
     }

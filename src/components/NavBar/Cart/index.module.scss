@@ -1,0 +1,36 @@
+@use '/src/mixins.scss';
+
+$zoomInDurSec: 0.3;
+:export {
+  zoomInDurSec: $zoomInDurSec;
+}
+
+.zoomIn {
+  transform: scale(1.3);
+}
+
+.cartBtn {
+  @include mixins.button;
+  @include mixins.flex-and-center;
+
+  padding: 0.1rem 0.75rem;
+
+  border-radius: 1.5rem;
+  box-shadow: 0.05rem 0.05rem 0.5rem 0 #ccc;
+
+  font-size: large;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+
+  transition-property: transform;
+  transition-duration: #{$zoomInDurSec}s;
+  @include mixins.timing-fast-in-slow-out;
+
+  & > img {
+    height: 2rem;
+
+    $py: 0.2rem;
+    /* top | right | bottom | left */
+    padding: $py 0.5rem $py 0;
+  }
+}

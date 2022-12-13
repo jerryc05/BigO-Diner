@@ -15,7 +15,7 @@
 
   transition-property: width;
   transition-duration: 1.5s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  @include mixins.timing-fast-in-slow-out;
 
   & > .leftSideEmptyPart {
     flex-grow: 1;
@@ -37,8 +37,6 @@
 
     & > .closeBtn {
       @include mixins.button;
-      //class='h-13 flex-grow-0 flex-shrink-0 flex'
-      // class='rounded-full shadow bg-gray-200 cursor-pointer'
 
       width: 3rem;
       aspect-ratio: 1/1;
