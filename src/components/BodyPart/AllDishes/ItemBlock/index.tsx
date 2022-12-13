@@ -11,9 +11,7 @@ import css from './index.module.scss'
 
 export default (props: { item: Item }) => {
   const imgSrc = createMemo(() =>
-    new TextEncoder().encode(props.item.cnName).reduce((a, b) => a + b, 0) % 2
-      ? catFood
-      : catFoodCan
+    (props.item.cnName.codePointAt(0) ?? 0) % 2 ? catFood : catFoodCan
   )
   const priceJsx = createMemo(() => {
     const { price } = props.item
