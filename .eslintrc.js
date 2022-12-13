@@ -216,7 +216,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'lines-between-class-members': 'off',
     'max-classes-per-file': 'off',
-    'max-len': MAX_LEN,
+    // 'max-len': MAX_LEN,
     'max-lines': 'off',
     'max-lines-per-function': 'off',
     'max-params': 'off',

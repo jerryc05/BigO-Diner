@@ -19,7 +19,7 @@ export abstract class Item {
     this.enName = enName
     this.ingredients = ingredients
     this.chefs = chefs
-    this.price = [1, 4, 34] // todo
+    this.price = [Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9)] // todo
     this.durMin = (59 * 60) + 59 // todo
   }
 }
