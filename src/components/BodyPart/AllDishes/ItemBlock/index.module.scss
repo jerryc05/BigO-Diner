@@ -49,6 +49,7 @@
     & > .detail {
       height: 100%;
       width: 100%;
+      min-width: 0;
 
       margin-left: 1.5rem;
 
@@ -64,8 +65,11 @@
       }
 
       & > .categoryAndChef {
+        min-width: 0;
+
         flex-grow: 1;
 
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
