@@ -4,8 +4,9 @@ import catFood from '@/assets/catFood.svg'
 import catFoodCan from '@/assets/catFoodCan.svg'
 import timer from '@/assets/timer.svg'
 import type { Item } from '@/menu/menuTypes'
-import { cart, cartAddAtMostOne } from '@/states'
+import { cart, cartSetToOne } from '@/states'
 
+import Checkmark from './Checkmark'
 import { CatFood, CatFoodCan, Fish } from './PriceImg'
 import css from './index.module.scss'
 
@@ -29,7 +30,7 @@ export default (props: { item: Item }) => {
     const durMin = `0${Math.floor(dur % 60)}`.slice(-2)
     return `${durHour}:${durMin}`
   })
-  const [checkmarkStyle, setCheckmarkStyle] = createSignal<string>()
+  const [showCheckmark, setShowCheckmark] = createSignal(false)
 
   return (
     <div class={css.itemBlock}>
@@ -38,11 +39,9 @@ export default (props: { item: Item }) => {
         class={css.itemBlockContentBtn}
         onClick={() => {
           if (cart.has(props.item)) return
-          cartAddAtMostOne(props.item)
-          setCheckmarkStyle('display:unset')
-          setTimeout(() => {
-            setCheckmarkStyle('display:none')
-          }, 2000)
+          cartSetToOne(props.item)
+          // todo: trigger zoom cart btn here
+          setShowCheckmark(true)
         }}
       >
         {/* Image */}
@@ -72,13 +71,13 @@ export default (props: { item: Item }) => {
         </div>
       </button>
 
-      {/* Checkmark */}
-      <div class={css.checkmark} style={checkmarkStyle()}>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'>
-          <circle cx='26' cy='26' r='25' fill='none' />
-          <path fill='none' d='M14.1 27.2l7.1 7.2 16.7-16.8' />
-        </svg>
-      </div>
+      {showCheckmark() && (
+        <Checkmark
+          destroySelfFn={() => {
+            setShowCheckmark(false)
+          }}
+        />
+      )}
     </div>
   )
 }

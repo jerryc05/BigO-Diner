@@ -41,7 +41,7 @@ export const cartTotal = createMemo(() => {
 export function cartAdd(x: Item) {
   cart.set(x, (cart.get(x) ?? 0) + 1)
 }
-export function cartAddAtMostOne(x: Item) {
+export function cartSetToOne(x: Item) {
   cart.set(x, Math.max(cart.get(x) ?? 0, 1))
 }
 export function cartDel(x: Item) {

@@ -1,0 +1,133 @@
+@use '/src/mixins.scss';
+
+$fadeInDurSec: 0.5;
+
+$circleStrokeDurSec: 0.5;
+
+$circleFillBgDelaySec: $circleStrokeDurSec;
+$circleFillBgDurSec: 0.2;
+
+$checkmarkDelaySec: ($circleFillBgDelaySec + $circleFillBgDurSec);
+$checkmarkStrokeDurSec: $circleStrokeDurSec;
+
+$circleBounceDelaySec: $checkmarkDelaySec + ($checkmarkStrokeDurSec * 0.15);
+$circleBounceDurSec: 0.4;
+
+$fadeOutDelaySec: ($circleBounceDelaySec + $circleBounceDurSec + 1);
+$fadeOutDurSec: $fadeInDurSec;
+
+.checkmark {
+  @include mixins.flex-and-center;
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  opacity: 0;
+
+  border-radius: 1rem;
+
+  background-color: #00ab41;
+
+  animation: fadeIn #{$fadeInDurSec}s forwards,
+    fadeOut #{$fadeOutDurSec}s #{$fadeOutDelaySec}s forwards;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* & > div {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: block;
+    box-shadow: inset 0 0 0 #7ac142;
+    animation: fillBg 0.4s ease-in-out 0.4s forwards,
+      scaleBounce 0.4s ease-in-out 0.9s both;
+
+    @keyframes fillBg {
+      100% {
+        box-shadow: inset 0 0 0 30px #7ac142;
+      }
+    }
+    @keyframes scaleBounce {
+      0%,
+      100% {
+        transform: none;
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+  } */
+
+  & > svg {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 10% auto;
+    box-shadow: inset 0 0 0 #7ac142;
+    animation: fillBg #{$circleFillBgDurSec}s ease-in-out #{$circleFillBgDelaySec}s
+        forwards,
+      scaleBounce #{$circleBounceDurSec}s ease-in-out #{$circleBounceDelaySec}s
+        both;
+
+    & > circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+      stroke: #7ac142;
+      fill: none;
+      animation: strokeAnim #{$circleStrokeDurSec}s
+        cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+
+    & > path {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: strokeAnim #{$checkmarkStrokeDurSec}s
+        cubic-bezier(0.65, 0, 0.45, 1) #{$checkmarkDelaySec}s forwards;
+    }
+
+    @keyframes fillBg {
+      100% {
+        box-shadow: inset 0 0 0 30px #7ac142;
+      }
+    }
+    @keyframes strokeAnim {
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes scaleBounce {
+      0%,
+      100% {
+        transform: none;
+      }
+      50% {
+        transform: scale(1.4);
+      }
+    }
+  }
+}
