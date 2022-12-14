@@ -5,7 +5,7 @@ import { cartAdd, cartDel } from '@/states'
 
 import css from './index.module.scss'
 
-const Sign = (props: { src: string; onClick: () => void }) => (
+const Sign = (props: { src: string; onClick: VoidFunction }) => (
   <button
     type='button'
     class={css.signBtn}

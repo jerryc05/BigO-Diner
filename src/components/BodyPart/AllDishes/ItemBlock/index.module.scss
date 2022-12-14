@@ -42,9 +42,34 @@
       padding: 0.8rem;
       border-radius: 20%;
 
+      position: relative;
       background-color: white;
 
       box-shadow: 0 0 1rem 0 #ccc;
+
+      & > img {
+        height: 100%;
+      }
+
+      & > .count {
+        @include mixins.flex-and-center;
+
+        $width: 1.5rem;
+
+        width: $width;
+        aspect-ratio: 1/1;
+
+        border-radius: 50%;
+
+        position: absolute;
+        top: calc(-#{$width} / 4);
+        left: calc(-#{$width} / 4);
+
+        background-color: red;
+        color: white;
+
+        font-variant-numeric: tabular-nums;
+      }
     }
 
     & > .detail {

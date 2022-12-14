@@ -31,6 +31,8 @@ export default (props: { item: Item }) => {
     return `${durHour}:${durMin}`
   })
   const [showCheckmark, setShowCheckmark] = createSignal(false)
+  const itemCount = createMemo(() => cart.get(props.item) ?? 0)
+  const [showItemCount, setShowItemCount] = createSignal(false)
 
   return (
     <div class={css.itemBlock}>
@@ -45,7 +47,12 @@ export default (props: { item: Item }) => {
         }}
       >
         {/* Image */}
-        <img class={css.itemImg} src={imgSrc()} />
+        <div class={css.itemImg}>
+          {showItemCount() && itemCount() > 0 && (
+            <div class={css.count}>{itemCount()}</div>
+          )}
+          <img src={imgSrc()} />
+        </div>
 
         {/* Detail */}
         <div class={css.detail}>
@@ -75,6 +82,9 @@ export default (props: { item: Item }) => {
         <Checkmark
           destroySelfFn={() => {
             setShowCheckmark(false)
+          }}
+          showItemCountFn={() => {
+            setShowItemCount(true)
           }}
         />
       )}

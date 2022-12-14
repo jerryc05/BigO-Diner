@@ -2,8 +2,14 @@ import { onMount } from 'solid-js'
 
 import css from './index.module.scss'
 
-export default (props: { destroySelfFn: () => void }) => {
+export default (props: {
+  showItemCountFn: VoidFunction
+  destroySelfFn: VoidFunction
+}) => {
   onMount(() => {
+    setTimeout(() => {
+      props.showItemCountFn()
+    }, 1000 * (Number.parseFloat(css.checkmarkStrokeDelaySec) + Number.parseFloat(css.checkmarkStrokeDurSec)))
     setTimeout(() => {
       props.destroySelfFn()
     }, 1000 * (Number.parseFloat(css.fadeOutDelaySec) + Number.parseFloat(css.fadeOutDurSec)))

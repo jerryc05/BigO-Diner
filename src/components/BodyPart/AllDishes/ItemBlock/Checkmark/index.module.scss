@@ -7,16 +7,19 @@ $circleStrokeDurSec: 0.5;
 $circleFillBgDelaySec: $circleStrokeDurSec;
 $circleFillBgDurSec: 0.2;
 
-$checkmarkDelaySec: ($circleFillBgDelaySec + $circleFillBgDurSec);
+$checkmarkStrokeDelaySec: ($circleFillBgDelaySec + $circleFillBgDurSec);
 $checkmarkStrokeDurSec: $circleStrokeDurSec;
 
-$circleBounceDelaySec: $checkmarkDelaySec + ($checkmarkStrokeDurSec * 0.2);
+$circleBounceDelaySec: $checkmarkStrokeDelaySec + ($checkmarkStrokeDurSec * 0.2);
 $circleBounceDurSec: 0.4;
 
 $fadeOutDelaySec: ($circleBounceDelaySec + $circleBounceDurSec + 1);
 $fadeOutDurSec: $fadeInDurSec;
 
 :export {
+  checkmarkStrokeDelaySec:$checkmarkStrokeDelaySec;
+  checkmarkStrokeDurSec:$checkmarkStrokeDurSec;
+
   fadeOutDelaySec: $fadeOutDelaySec;
   fadeOutDurSec: $fadeOutDurSec;
 }
@@ -87,7 +90,7 @@ $fadeOutDurSec: $fadeInDurSec;
       stroke-dasharray: 48;
       stroke-dashoffset: 48;
       animation: strokeAnim #{$checkmarkStrokeDurSec}s
-        cubic-bezier(0.65, 0, 0.45, 1) #{$checkmarkDelaySec}s forwards;
+        cubic-bezier(0.65, 0, 0.45, 1) #{$checkmarkStrokeDelaySec}s forwards;
     }
 
     @keyframes fillBg {
