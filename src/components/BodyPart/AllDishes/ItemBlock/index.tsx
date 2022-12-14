@@ -4,7 +4,7 @@ import catFood from '@/assets/catFood.svg'
 import catFoodCan from '@/assets/catFoodCan.svg'
 import timer from '@/assets/timer.svg'
 import type { Item } from '@/menu/menuTypes'
-import { cart, cartSetToOne } from '@/states'
+import { cart, cartAdd } from '@/states'
 
 import Checkmark from './Checkmark'
 import { CatFood, CatFoodCan, Fish } from './PriceImg'
@@ -40,8 +40,8 @@ export default (props: { item: Item }) => {
         type='button'
         class={css.itemBlockContentBtn}
         onClick={() => {
-          if (cart.has(props.item)) return
-          cartSetToOne(props.item)
+          cartAdd(props.item)
+          if ((cart.get(props.item) ?? 0) > 1) return
           // todo: trigger zoom cart btn here
           setShowCheckmark(true)
         }}
