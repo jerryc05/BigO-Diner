@@ -10,11 +10,16 @@ $circleFillBgDurSec: 0.2;
 $checkmarkDelaySec: ($circleFillBgDelaySec + $circleFillBgDurSec);
 $checkmarkStrokeDurSec: $circleStrokeDurSec;
 
-$circleBounceDelaySec: $checkmarkDelaySec + ($checkmarkStrokeDurSec * 0.15);
+$circleBounceDelaySec: $checkmarkDelaySec + ($checkmarkStrokeDurSec * 0.2);
 $circleBounceDurSec: 0.4;
 
 $fadeOutDelaySec: ($circleBounceDelaySec + $circleBounceDurSec + 1);
 $fadeOutDurSec: $fadeInDurSec;
+
+:export {
+  fadeOutDelaySec: $fadeOutDelaySec;
+  fadeOutDurSec: $fadeOutDurSec;
+}
 
 .checkmark {
   @include mixins.flex-and-center;

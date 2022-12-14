@@ -6,7 +6,7 @@ export default (props: { destroySelfFn: () => void }) => {
   onMount(() => {
     setTimeout(() => {
       props.destroySelfFn()
-    }, 3000)
+    }, 1000 * (Number.parseFloat(css.fadeOutDelaySec) + Number.parseFloat(css.fadeOutDurSec)))
   })
 
   return (
