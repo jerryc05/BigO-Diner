@@ -1,7 +1,6 @@
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 
-
 const bodyClasses = document.body.classList
 let icon: HTMLLinkElement | null = null
 
@@ -35,7 +34,10 @@ function isSystemDark() {
 
 export function detectAndSetDarkMode() {
   const userSettingIsDark = localStorage.getItem('dark')
-  if (userSettingIsDark === '1' || (userSettingIsDark === null && isSystemDark())) {
+  if (
+    userSettingIsDark === '1' ||
+    (userSettingIsDark === null && isSystemDark())
+  ) {
     setDark()
     return true
   }

@@ -1,6 +1,1 @@
-export type Chef =
-  'Jaybase'
-  | 'Jerryc05'
-  | 'Titi'
-  | 'Wuge'
-  | 'Tuge'
+export type Chef = 'Jaybase' | 'Jerryc05' | 'Titi' | 'Wuge' | 'Tuge'

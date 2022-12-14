@@ -1,49 +1,130 @@
 import {
-  BeefDish, ChickenDish, ColdDish, CongeeDish, Dessert, DessertCake, Drink, Item, LambDish,
-  NoodleDish, PorkDish, RiceDish, SeafoodDish, SoupDish, StreetFoodDish, VegetableDish, WheatenDish
-} from './menuTypes'
-import {
-  BeefShank, Chicken, ChickenFeet, Corn, Cucumber, Egg, Goji, Jellyfish, Lemon, Millet,
-  MungBean, Mushroom, Peanut, Pork, Potato, PotherbMustard, PreservedEgg, Sesame, Shrimp, WoodEar
+  BeefShank,
+  Chicken,
+  ChickenFeet,
+  Corn,
+  Cucumber,
+  Egg,
+  Goji,
+  Jellyfish,
+  Lemon,
+  Millet,
+  MungBean,
+  Mushroom,
+  Peanut,
+  Pork,
+  Potato,
+  PotherbMustard,
+  PreservedEgg,
+  Sesame,
+  Shrimp,
+  WoodEar,
 } from './ingredients'
+import {
+  BeefDish,
+  ChickenDish,
+  ColdDish,
+  CongeeDish,
+  Dessert,
+  DessertCake,
+  Drink,
+  Item,
+  LambDish,
+  NoodleDish,
+  PorkDish,
+  RiceDish,
+  SeafoodDish,
+  SoupDish,
+  StreetFoodDish,
+  VegetableDish,
+  WheatenDish,
+} from './menuTypes'
 
 export const menu: ReadonlyArray<Item> = [
-  new CongeeDish('香菇鸡肉粥', 'Congee w/ Chicken & Mushrooms', [Chicken, Mushroom], ['Jaybase']),
   new CongeeDish(
-    '皮蛋瘦肉粥', 'Congee w/ Pork & Preserved Eggs', [Pork, PreservedEgg], ['Jaybase', 'Jerryc05']
+    '香菇鸡肉粥',
+    'Congee w/ Chicken & Mushrooms',
+    [Chicken, Mushroom],
+    ['Jaybase']
   ),
   new CongeeDish(
-    '雪菜肉丝粥', 'Congee w/ potherb mustard & shredded pork', [PotherbMustard, Pork], ['Jaybase']
+    '皮蛋瘦肉粥',
+    'Congee w/ Pork & Preserved Eggs',
+    [Pork, PreservedEgg],
+    ['Jaybase', 'Jerryc05']
+  ),
+  new CongeeDish(
+    '雪菜肉丝粥',
+    'Congee w/ potherb mustard & shredded pork',
+    [PotherbMustard, Pork],
+    ['Jaybase']
   ),
   new CongeeDish('八宝粥', 'Mixed Congee', null, ['Jaybase']),
-  new CongeeDish('玉米碴子粥', 'Congee w/ Crushed Corn', [Corn, Goji], ['Jaybase']),
+  new CongeeDish(
+    '玉米碴子粥',
+    'Congee w/ Crushed Corn',
+    [Corn, Goji],
+    ['Jaybase']
+  ),
   new CongeeDish('小米粥', 'Millet Congee', [Millet, Goji], ['Jaybase']),
   new CongeeDish('白米粥', 'Rice Congee', [], ['Jaybase', 'Jerryc05']),
-  new ColdDish('凉拌海蜇头', 'Jellyfish Head Salad', [Jellyfish], ['Jaybase', 'Jerryc05']),
+  new ColdDish(
+    '凉拌海蜇头',
+    'Jellyfish Head Salad',
+    [Jellyfish],
+    ['Jaybase', 'Jerryc05']
+  ),
   new ColdDish('凉拌黄瓜', 'Cucumber Salad', [Cucumber], ['Jaybase']),
   new ColdDish('拍黄瓜', 'Smashed Cucumber Salad', [Cucumber], ['Jaybase']),
   new ColdDish('油炸花生米', 'Fried Peanuts', [Peanut], ['Jaybase']),
   new ColdDish('五香牛肉', 'Multi Spiced Beef', [BeefShank], ['Jaybase']),
-  new ColdDish('酱牛肉', 'Spiced Beef', [BeefShank], ['Jaybase', 'Jerryc05', 'Titi', 'Tuge']),
+  new ColdDish(
+    '酱牛肉',
+    'Spiced Beef',
+    [BeefShank],
+    ['Jaybase', 'Jerryc05', 'Titi', 'Tuge']
+  ),
   new ColdDish('卤蛋', 'Marinated Egg', [Egg], ['Jaybase']),
   new ColdDish('酸辣虾', 'Sour & Spicy Shrimp', [Shrimp], ['Jaybase', 'Titi']),
   new ColdDish('泰式柠檬虾', null, null, ['Titi']),
   new ColdDish(
-    '酸辣无骨鸡爪', 'Sour & Spicy Chicken Feet',
-    [ChickenFeet, Lemon], ['Jaybase', 'Jerryc05', 'Titi', 'Wuge']
+    '酸辣无骨鸡爪',
+    'Sour & Spicy Chicken Feet',
+    [ChickenFeet, Lemon],
+    ['Jaybase', 'Jerryc05', 'Titi', 'Wuge']
   ),
   new ColdDish('凉拌土豆丝', 'Shredded Potato Salad', [Potato], ['Jaybase']),
-  new ColdDish('酸辣土豆丝', 'Sour & Spicy Shredded Potato', [Potato], ['Jaybase']),
-  new ColdDish('白糖西红柿', 'Sour & Spicy Shredded Potato', [Potato], ['Jaybase']),
+  new ColdDish(
+    '酸辣土豆丝',
+    'Sour & Spicy Shredded Potato',
+    [Potato],
+    ['Jaybase']
+  ),
+  new ColdDish(
+    '白糖西红柿',
+    'Sour & Spicy Shredded Potato',
+    [Potato],
+    ['Jaybase']
+  ),
   new ColdDish('凉拌木耳', 'Wood Ear Salad', [WoodEar], ['Jaybase']),
   new ColdDish('五彩拉皮', 'Wood Ear Salad', [WoodEar], ['Jerryc05']),
   new WheatenDish('馅饼（自选）', 'Pie (Customized Filling)', [], ['Jaybase']),
   new WheatenDish('油条', 'Fried Dough Fritter', [], ['Jaybase']),
   new WheatenDish('葱油饼', 'Scallion Crepe', [], ['Jaybase']),
-  new WheatenDish('农家酱香饼', 'Soy Flavored Flatbread Crepe', [], ['Jaybase']),
+  new WheatenDish(
+    '农家酱香饼',
+    'Soy Flavored Flatbread Crepe',
+    [],
+    ['Jaybase']
+  ),
   new WheatenDish('鸡蛋饼', 'Egg Crepe', [Egg], ['Jaybase', 'Jerryc05']),
   new WheatenDish('春饼', 'Spring Crepe', [], ['Jaybase']),
-  new WheatenDish('麻酱红糖饼', 'Brown Sugar Crepe w/ Sesame Paste', [Sesame], ['Jaybase']),
+  new WheatenDish(
+    '麻酱红糖饼',
+    'Brown Sugar Crepe w/ Sesame Paste',
+    [Sesame],
+    ['Jaybase']
+  ),
   new WheatenDish('煎饺', 'Fried Dumpling', [], ['Jaybase']),
   new WheatenDish('水饺', 'Dumpling', [], ['Jaybase']),
   new WheatenDish('红油抄手', 'Spicy Wonton in Chili Oil', null, ['Jaybase']),
@@ -52,7 +133,12 @@ export const menu: ReadonlyArray<Item> = [
   new WheatenDish('海鲜煎饼', null, null, ['Jaybase', 'Jerryc05']),
   new WheatenDish('蚵仔煎', 'Oyster Omelette', null, []),
   new NoodleDish('香菇鸡肉面', null, null, ['Jaybase']),
-  new NoodleDish('红烧牛肉面', null, null, ['Jaybase', 'Jerryc05', 'Tuge', 'Titi']),
+  new NoodleDish('红烧牛肉面', null, null, [
+    'Jaybase',
+    'Jerryc05',
+    'Tuge',
+    'Titi',
+  ]),
   new NoodleDish('排骨卤肉面', null, null, ['Jerryc05', 'Tuge']),
   new NoodleDish('重庆小面', null, null, ['Jaybase']),
   new NoodleDish('榨菜肉丝面', null, null, ['Jaybase']),
@@ -192,7 +278,12 @@ export const menu: ReadonlyArray<Item> = [
   new SeafoodDish('蒜蓉大虾', null, null, ['Jaybase']),
   new SeafoodDish('干烧大虾', null, null, ['Jaybase']),
   new SeafoodDish('凤尾大虾', null, null, ['Jaybase']),
-  new SeafoodDish('油焖大虾', null, null, ['Jaybase', 'Jerryc05', 'Tuge', 'Wuge']),
+  new SeafoodDish('油焖大虾', null, null, [
+    'Jaybase',
+    'Jerryc05',
+    'Tuge',
+    'Wuge',
+  ]),
   new SeafoodDish('葱烧海参', null, null, ['Jaybase']),
   new SeafoodDish('肉末海参', null, null, ['Jaybase']),
   new SeafoodDish('蒜蓉小海鲜', null, null, ['Jaybase']),

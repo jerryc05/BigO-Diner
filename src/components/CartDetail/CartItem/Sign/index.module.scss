@@ -1,7 +1,7 @@
 @use '/src/mixins.scss';
 
 .signBtn {
-@include mixins.button;
+  @include mixins.button;
 
   height: 100%;
 
@@ -9,9 +9,9 @@
     height: 100%;
     aspect-ratio: 1/1;
 
-    padding: .3rem;
+    padding: 0.3rem;
     border-radius: 50%;
 
-    background-color: rgb(229 231 235);;
+    background-color: rgb(229 231 235);
   }
 }

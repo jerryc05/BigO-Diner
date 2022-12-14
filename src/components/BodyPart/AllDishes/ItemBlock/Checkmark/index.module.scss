@@ -17,8 +17,8 @@ $fadeOutDelaySec: ($circleBounceDelaySec + $circleBounceDurSec + 1);
 $fadeOutDurSec: $fadeInDurSec;
 
 :export {
-  checkmarkStrokeDelaySec:$checkmarkStrokeDelaySec;
-  checkmarkStrokeDurSec:$checkmarkStrokeDurSec;
+  checkmarkStrokeDelaySec: $checkmarkStrokeDelaySec;
+  checkmarkStrokeDurSec: $checkmarkStrokeDurSec;
 
   fadeOutDelaySec: $fadeOutDelaySec;
   fadeOutDurSec: $fadeOutDurSec;
