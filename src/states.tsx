@@ -21,6 +21,8 @@ export const getEnabledMenuItems = createMemo(() =>
   menu.filter(x => !disabledCategories.has(x.constructor.name))
 )
 
+export const [zoomInCartFn, setZoomInCartFn] = createSignal<VoidFunction>()
+
 export const cart = new ReactiveMap<Item, number>()
 export const cartTotal = createMemo(() => {
   const total = [0, 0, 0] as [number, number, number]
@@ -40,6 +42,9 @@ export const cartTotal = createMemo(() => {
 })
 export function cartAdd(x: Item) {
   cart.set(x, (cart.get(x) ?? 0) + 1)
+  const zoomInCart = zoomInCartFn()
+  if (!zoomInCart) throw new Error(`${cartAdd.name}: zoomInCartFn is undefined`)
+  zoomInCart()
 }
 export function cartDel(x: Item) {
   const val = cart.get(x)

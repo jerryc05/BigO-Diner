@@ -42,7 +42,6 @@ export default (props: { item: Item }) => {
         onClick={() => {
           cartAdd(props.item)
           if ((cart.get(props.item) ?? 0) > 1) return
-          // todo: trigger zoom cart btn here
           setShowCheckmark(true)
         }}
       >

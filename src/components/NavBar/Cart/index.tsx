@@ -1,24 +1,23 @@
-import { createEffect, createSignal } from 'solid-js'
+import { createSignal } from 'solid-js'
 
 import cartIcon from '@/assets/cart.svg'
-import { cart, setShowCart, showCart } from '@/states'
+import { cart, setShowCart, setZoomInCartFn, showCart } from '@/states'
 
 import css from './index.module.scss'
 
 export default () => {
-  const [cartBtnClass, setCartBtnClass] = createSignal(css.cartBtn)
-
-  createEffect(() => {
-    if (cart.size === 0) return
-    setCartBtnClass(`${css.cartBtn} ${css.zoomIn}`)
+  const [cartBtnClassExtra, setCartBtnClassExtra] = createSignal('')
+  function zoomInCartFn() {
+    setCartBtnClassExtra(css.zoomIn)
     setTimeout(() => {
-      setCartBtnClass(css.cartBtn)
-    }, 1000 * Number.parseFloat(css.zoomInDurSec))
-  })
+      setCartBtnClassExtra('')
+    }, Number.parseFloat(css.zoomInDurSec) * 1000)
+  }
+  setZoomInCartFn(() => zoomInCartFn)
 
   return (
     <button
-      class={cartBtnClass()}
+      class={`${css.cartBtn} ${cartBtnClassExtra()}`}
       type='button'
       disabled={showCart()}
       onClick={() => setShowCart(true)}

@@ -269,6 +269,7 @@ module.exports = {
     'space-in-parens': ['warn', 'never'],
     'space-infix-ops': 'warn',
     'unicorn/catch-error-name': 'off',
+    'unicorn/consistent-function-scoping': 'off',  // only prettier
     'unicorn/filename-case': [
       'warn',
       {
