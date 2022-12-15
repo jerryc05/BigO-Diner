@@ -59,9 +59,7 @@ export default (props: { item: Item }) => {
           <b class={css.title}>{props.item.cnName}</b>
 
           {/* Category & chefs */}
-          <div class={css.categoryAndChef}>
-            {`${props.item.category.cnName} | ${props.item.chefs.join(' · ')}`}
-          </div>
+          <div class={css.categoryAndChef}>{props.item.category.cnName}</div>
 
           {/* Time & Price */}
           <div class={css.timeAndPrice}>

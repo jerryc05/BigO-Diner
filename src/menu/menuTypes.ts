@@ -1,4 +1,4 @@
-import { Chef } from './chefs'
+// import { Chef } from './chefs'
 import { Ingredient, Rice } from './ingredients'
 
 export type Category = Readonly<{ cnName: string; enName: string }>
@@ -7,7 +7,7 @@ export abstract class Item {
   cnName: Readonly<string>
   enName: Readonly<string> | null
   ingredients: Readonly<Ingredient>[] | null
-  chefs: Readonly<Chef[]>
+  // chefs: Readonly<Chef[]>
   price: Readonly<[number, number, number]>
   durMin: Readonly<number>
   abstract category: Category
@@ -15,12 +15,12 @@ export abstract class Item {
     cnName: Readonly<string>,
     enName: Readonly<string> | null,
     ingredients: Readonly<Ingredient>[] | null,
-    chefs: Readonly<Chef[]>
+    // chefs: Readonly<Chef[]>
   ) {
     this.cnName = cnName
     this.enName = enName
     this.ingredients = ingredients
-    this.chefs = chefs
+    // this.chefs = chefs
     this.price = [
       Math.floor(Math.random() * 9),
       Math.floor(Math.random() * 9),
@@ -48,10 +48,10 @@ export class CongeeDish extends Item {
   constructor(
     cnName: Readonly<string>,
     enName: Readonly<string> | null,
-    ingredients: Readonly<Ingredient>[] | null,
-    chefs: Readonly<Chef[]>
+    ingredientsBesidesRice: Readonly<Ingredient>[] | null,
+    // chefs: Readonly<Chef[]>
   ) {
-    super(cnName, enName, [...(ingredients || []), Rice], chefs)
+    super(cnName, enName, [...(ingredientsBesidesRice ?? []), Rice]/* , chefs */)
   }
 }
 
