@@ -1,11 +1,18 @@
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
-import { isDark } from '@/states'
+import { isDark, setUserInfo, userInfo } from '@/states'
 import ScrSize from '@/utils/ScrSize'
 import { isDev } from '@/utils/constants'
 
 import Cart from './Cart'
 import css from './index.module.scss'
+
+setUserInfo(info => ({
+  ...info,
+  avatarUrl: bigO,
+  userId: 1,
+  username: 'jerryc05',
+}))
 
 export default () => (
   <>
@@ -20,12 +27,12 @@ export default () => (
 
       {/* Username */}
       <b class='hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap'>
-        jerryc05
+        {userInfo()?.username}
       </b>
 
       {/* Avatar */}
       <button type='button' class={css.avatarBtn}>
-        <img src={isDark() ? bigO : bingbing} />
+        <img src={userInfo()?.avatarUrl ?? bigO} />
       </button>
     </nav>
   </>

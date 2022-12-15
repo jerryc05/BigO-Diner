@@ -21,6 +21,10 @@ export const getEnabledMenuItems = createMemo(() =>
   menu.filter(x => !disabledCategories.has(x.constructor.name))
 )
 
+//
+//
+//
+
 export const [zoomInCartFn, setZoomInCartFn] = createSignal<VoidFunction>()
 
 export const cart = new ReactiveMap<Item, number>()
@@ -53,3 +57,13 @@ export function cartDel(x: Item) {
   if (val - 1 <= 0) cart.delete(x)
   else cart.set(x, val - 1)
 }
+
+//
+//
+//
+
+export const [userInfo, setUserInfo] = createSignal<{
+  userId: number
+  username: string
+  avatarUrl: string | null
+}>()
