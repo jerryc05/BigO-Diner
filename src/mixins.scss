@@ -19,6 +19,12 @@ $phone: 768px;
 $tablet: 1280px;
 $pc: 1600px;
 
+@mixin notPhone {
+  @media screen and (min-width: #{$phone}) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media screen and (min-width: #{$phone}) and (max-width: #{$tablet}) {
     @content;
