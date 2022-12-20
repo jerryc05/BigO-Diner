@@ -5,9 +5,8 @@
   height: 100%;
 
   padding: 0 1.5rem;
-  $normalPaddingX: 3.5rem;
   @include mixins.notPhone {
-    padding: 0 $normalPaddingX;
+    padding: 0 3.5rem;
   }
 
   flex-grow: 0;
