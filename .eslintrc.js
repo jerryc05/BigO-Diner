@@ -204,11 +204,11 @@ module.exports = {
     // 'function-paren-newline': ['warn', 'consistent'],
     'id-length': 'off',
     // 'implicit-arrow-linebreak': 'warn',
-    indent: [
-      'warn',
-      INDENT,
-      { SwitchCase: 1, ignoredNodes: ['JSXElement *', 'JSXElement'] },
-    ],
+    // indent: [
+    //   'warn',
+    //   INDENT,
+    //   { SwitchCase: 1, ignoredNodes: ['JSXElement *', 'JSXElement'] },
+    // ],
     // eslint-disable-next-line @typescript-eslint/no-base-to-string, @typescript-eslint/restrict-template-expressions
     'jsx-quotes': ['warn', `prefer-${QUOTE[1]}`],
     'key-spacing': 'warn',
