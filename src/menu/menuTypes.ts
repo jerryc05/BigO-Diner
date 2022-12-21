@@ -14,7 +14,7 @@ export abstract class Item {
   constructor(
     cnName: Readonly<string>,
     enName: Readonly<string> | null,
-    ingredients: Readonly<Ingredient>[] | null,
+    ingredients: Readonly<Ingredient>[] | null
     // chefs: Readonly<Chef[]>
   ) {
     this.cnName = cnName
@@ -48,10 +48,14 @@ export class CongeeDish extends Item {
   constructor(
     cnName: Readonly<string>,
     enName: Readonly<string> | null,
-    ingredientsBesidesRice: Readonly<Ingredient>[] | null,
+    ingredientsBesidesRice: Readonly<Ingredient>[] | null
     // chefs: Readonly<Chef[]>
   ) {
-    super(cnName, enName, [...(ingredientsBesidesRice ?? []), Rice]/* , chefs */)
+    super(
+      cnName,
+      enName,
+      [...(ingredientsBesidesRice ?? []), Rice] /* , chefs */
+    )
   }
 }
 
@@ -173,6 +177,13 @@ export class StreetFoodDish extends Item {
   // constructor (cnName: Readonly<string>, enName: Readonly<string> | null, ingredients: Readonly<Ingredient>[] | null, chefs: Readonly<Chef[]>) {
   //   super(cnName, enName, ingredients, chefs)
   // }
+}
+
+export class DairyDish extends Item {
+  category = {
+    cnName: '乳品类',
+    enName: 'Dairy Food',
+  }
 }
 
 export class Drink extends Item {
