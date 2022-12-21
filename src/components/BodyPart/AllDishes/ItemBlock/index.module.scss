@@ -112,7 +112,8 @@
         vertical-align: middle;
 
         & > .time {
-          @include mixins.flex-and-center;
+          display: flex;
+          align-items: center;
 
           & > img {
             height: 100%;
