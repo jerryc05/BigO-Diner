@@ -139,6 +139,13 @@ export class ChickenDish extends MeatDish {
   // }
 }
 
+export class RabbitDish extends MeatDish {
+  override category = {
+    cnName: '兔肉类',
+    enName: 'Rabbit',
+  }
+}
+
 export class SeafoodDish extends Item {
   category = {
     cnName: '海鲜类',
