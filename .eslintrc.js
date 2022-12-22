@@ -222,7 +222,7 @@ module.exports = {
     'max-params': 'off',
     'max-statements': 'off',
     'multiline-comment-style': 'off',
-    'multiline-ternary': ['warn', 'always-multiline'],
+    // 'multiline-ternary': ['warn', 'always-multiline'],
     'n/no-missing-import': 'off', // only vite
     'n/no-unpublished-import': 'off', // only vite
     'n/no-unpublished-require': 'off',
