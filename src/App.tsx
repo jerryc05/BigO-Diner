@@ -10,23 +10,29 @@ const App = () => {
   const [acknowledgeSafari, setAcknowledgeSafari] = createSignal(false)
 
   return (
-    <div class={css.app}>
+    <>
       {acknowledgeSafari() || detect()?.name !== 'safari' ? (
-        <>
+        <div class={css.app}>
           <CartDetail />
           <NavBar />
           <BodyPart />
-        </>
+        </div>
       ) : (
-        <button
-          onClick={() => {
-            setAcknowledgeSafari(true)
-          }}
-        >
-          Safari is bullshit!
-        </button>
+        <>
+          <div>Safari has mysterious bugs! </div>
+          <div>Safari is bullshit!</div>
+          <div>I don't fix Safari style bugs! At least for now!</div>
+          <button
+            type='button'
+            onClick={() => {
+              setAcknowledgeSafari(true)
+            }}
+          >
+            Click here to continue
+          </button>
+        </>
       )}
-    </div>
+    </>
   )
 }
 
