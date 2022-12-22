@@ -11,17 +11,19 @@ const App = () => {
 
   return (
     <>
-      {acknowledgeSafari() || detect()?.name !== 'safari' ? (
+      {acknowledgeSafari() ||
+      (detect()?.name !== 'safari' && detect()?.os !== 'iOS') ? (
         <div class={css.app}>
           <CartDetail />
           <NavBar />
+          {JSON.stringify(detect())}
           <BodyPart />
         </div>
       ) : (
         <>
-          <div>Safari has mysterious bugs! </div>
-          <div>Safari is bullshit!</div>
-          <div>I don't fix Safari style bugs! At least for now!</div>
+          <div>Webkit/iOS has mysterious bugs! </div>
+          <div>Webkit/iOS is bullshit!</div>
+          <div>I don't fix Webkit/iOS style bugs! At least for now!</div>
           <button
             type='button'
             onClick={() => {
