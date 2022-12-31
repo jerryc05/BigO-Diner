@@ -7,4 +7,4 @@ import './index.css'
 
 const mount = document.createElement('div')
 document.body.insertBefore(mount, document.body.firstChild)
-render(() => <App />, mount)
+render(App, mount)
