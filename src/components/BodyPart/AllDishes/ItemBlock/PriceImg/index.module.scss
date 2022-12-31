@@ -1,4 +1,5 @@
 @use '/src/mixins.scss';
+@use '../index.module.scss' as ItemBlock;
 
 .priceImg {
   @include mixins.flex-and-center;
@@ -7,10 +8,12 @@
 
   margin-left: 0.2rem;
 
+  font-variant-numeric: tabular-nums;
   user-select: none;
 
   & > img {
     height: 100%;
+    width: ItemBlock.$timeAndPriceHeight;
     aspect-ratio: 1/1;
 
     margin-left: 0.1rem;

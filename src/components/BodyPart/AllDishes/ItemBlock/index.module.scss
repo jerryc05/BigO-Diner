@@ -1,5 +1,7 @@
 @use '/src/mixins.scss';
 
+$timeAndPriceHeight: 1.3rem;
+
 .itemBlock {
   height: 8rem;
   width: 100%;
@@ -104,7 +106,7 @@
       }
 
       & > .timeAndPrice {
-        height: 1.3rem;
+        height: $timeAndPriceHeight;
 
         display: flex;
         justify-content: space-between;

@@ -7,34 +7,34 @@ import CartDetail from './components/CartDetail'
 import NavBar from './components/NavBar'
 
 const App = () => {
-  const [acknowledgeSafari, setAcknowledgeSafari] = createSignal(false)
+  // const [acknowledgeSafari, setAcknowledgeSafari] = createSignal(false)
 
   return (
-    <>
-      {acknowledgeSafari() ||
-      (detect()?.name !== 'safari' && detect()?.os !== 'iOS') ? (
+    // <>
+    //   {acknowledgeSafari() ||
+    //   (detect()?.name !== 'safari' && detect()?.os !== 'iOS') ? (
         <div class={css.app}>
           <CartDetail />
           <NavBar />
           {JSON.stringify(detect())}
           <BodyPart />
         </div>
-      ) : (
-        <>
-          <div>Webkit/iOS has mysterious bugs! </div>
-          <div>Webkit/iOS is bullshit!</div>
-          <div>I don't fix Webkit/iOS style bugs! At least for now!</div>
-          <button
-            type='button'
-            onClick={() => {
-              setAcknowledgeSafari(true)
-            }}
-          >
-            Click here to continue
-          </button>
-        </>
-      )}
-    </>
+    //   ) : (
+    //     <>
+    //       <div>Webkit/iOS has mysterious bugs! </div>
+    //       <div>Webkit/iOS is bullshit!</div>
+    //       <div>I don't fix Webkit/iOS style bugs! At least for now!</div>
+    //       <button
+    //         type='button'
+    //         onClick={() => {
+    //           setAcknowledgeSafari(true)
+    //         }}
+    //       >
+    //         Click here to continue
+    //       </button>
+    //     </>
+    //   )}
+    // </>
   )
 }
 
