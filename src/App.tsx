@@ -16,7 +16,7 @@ const App = () => {
         <div class={css.app}>
           <CartDetail />
           <NavBar />
-          {JSON.stringify(detect())}
+          {/* {JSON.stringify(detect())} */}
           <BodyPart />
         </div>
     //   ) : (
