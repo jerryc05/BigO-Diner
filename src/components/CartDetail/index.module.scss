@@ -23,7 +23,7 @@
 
   & > .realCart {
     width: 100%;
-    @include mixins.notPhone {
+    @include mixins.notPhoneVertical {
       width: clamp(23rem, calc(100% / 3), 32rem);
     }
     min-height: 12rem;

@@ -15,18 +15,31 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-$phone: 768px;
+$phone: 500px;
+$phoneHorizontal: 768px;
 $tablet: 1280px;
 $pc: 1600px;
 
-@mixin notPhone {
+@mixin notPhoneVertical {
   @media screen and (min-width: #{$phone}) {
     @content;
   }
 }
 
+@mixin notPhone {
+  @media screen and (min-width: #{$phoneHorizontal}) {
+    @content;
+  }
+}
+
+@mixin phoneHorizontal {
+  @media screen and (min-width: #{$phone}) and (max-width: #{$phoneHorizontal}) {
+    @content;
+  }
+}
+
 @mixin tablet {
-  @media screen and (min-width: #{$phone}) and (max-width: #{$tablet}) {
+  @media screen and (min-width: #{$phoneHorizontal}) and (max-width: #{$tablet}) {
     @content;
   }
 }
