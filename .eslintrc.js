@@ -247,7 +247,7 @@ module.exports = {
     'no-undefined': 'off',
     'no-warning-comments': 'warn',
     'nonblock-statement-body-position': 'off',
-    'object-curly-newline': ['warn', { multiline: true }],
+    // 'object-curly-newline': ['warn', { multiline: true }],
     'object-curly-spacing': ['warn', 'always'],
     'object-property-newline': ['warn', { allowAllPropertiesOnSameLine: true }],
     'one-var': 'off',

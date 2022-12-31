@@ -1,3 +1,4 @@
+import { toPng } from 'html-to-image'
 import { JSXElement, createMemo } from 'solid-js'
 
 import close from '@/assets/close.svg'
@@ -16,39 +17,59 @@ const cartDetailJsx = createMemo(() => {
 
 // todo: delay update if showCart is false
 
-export default () => (
-  <div class={css.cartDetail} style={showCart() ? {} : { width: 0 }}>
-    {/* Left Side Empty Part */}
-    <div class={css.leftSideEmptyPart} onClick={() => setShowCart(false)} />
+export default () => {
+  let cartContent: HTMLDivElement | undefined
 
-    {/* Real Cart */}
-    <div class={css.realCart}>
-      {/* Close */}
-      <button
-        type='button'
-        class={css.closeBtn}
-        onClick={() => setShowCart(false)}
-      >
-        <img class={css.closeBtnImg} src={close} />
-      </button>
+  return (
+    <div class={css.cartDetail} style={showCart() ? {} : { width: 0 }}>
+      {/* Left Side Empty Part */}
+      <div class={css.leftSideEmptyPart} onClick={() => setShowCart(false)} />
 
-      {/* Cart Content */}
-      <div class={css.cartContent}>{cartDetailJsx()}</div>
+      {/* Real Cart */}
+      <div class={css.realCart}>
+        {/* Close */}
+        <button
+          type='button'
+          class={css.closeBtn}
+          onClick={() => setShowCart(false)}
+        >
+          <img class={css.closeBtnImg} src={close} />
+        </button>
 
-      {/* Total */}
-      <b class={css.total}>Total: {cartTotal().toString()}</b>
+        {/* Cart Content */}
+        <div class={css.cartContent} ref={cartContent}>
+          {cartDetailJsx()}
+        </div>
 
-      {/* Checkout Btn */}
-      <button
-        type='button'
-        class={css.chechoutBtn}
-        onClick={() => {
-          cart.clear()
-        }}
-      >
-        <img class={css.checkoutBtnImg} src={paw} />
-        <b class={css.checkoutBtnText}>Checkout</b>
-      </button>
+        {/* Total */}
+        <b class={css.total}>Total: {cartTotal().toString()}</b>
+
+        {/* Checkout Btn */}
+        <button
+          type='button'
+          class={css.chechoutBtn}
+          onClick={() => {
+            if (cartContent !== undefined)
+              toPng(cartContent, {
+                backgroundColor: 'white',
+              })
+                .then(dataUrl => {
+                  cart.clear()
+                  const link = document.createElement('a')
+                  link.href = dataUrl
+                  link.download = `BigO-Diner-Receipt-${new Date().toISOString()}.png`
+                  link.click()
+                })
+                .catch(e => {
+                  console.error(e)
+                })
+            // cart.clear()
+          }}
+        >
+          <img class={css.checkoutBtnImg} src={paw} />
+          <b class={css.checkoutBtnText}>Checkout</b>
+        </button>
+      </div>
     </div>
-  </div>
-)
+  )
+}

@@ -1,7 +1,7 @@
 import { babel } from '@rollup/plugin-babel'
 // @ts-expect-error: no type declaration file
 import incstr from 'incstr'
-import { constants } from 'node:fs'
+import { constants, readFileSync } from 'node:fs'
 import { access, open, readFile, readdir, stat } from 'node:fs/promises'
 import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -103,7 +103,7 @@ export default defineConfig({
           },
           {
             attrs: {
-              content: `upgrade-insecure-requests;default-src 'self';script-src 'self' ${jsdelivr};style-src 'self' 'unsafe-inline' ${jsdelivr}`, // [*-elem] doesn't work in Safari/iOS, fvck Safari
+              content: `upgrade-insecure-requests;default-src 'self' data:;script-src 'self' ${jsdelivr};style-src 'self' 'unsafe-inline' ${jsdelivr}`, // [*-elem] doesn't work in Safari/iOS, fvck Safari
               'http-equiv': 'Content-Security-Policy',
             },
             injectTo: 'head-prepend',
@@ -163,5 +163,8 @@ export default defineConfig({
       ) /* check tsconfig.json => paths */,
     },
   },
-  server: { host: true },
+  server: { host: true, https:{
+    key: readFileSync('./localhost+1-key.pem'),
+    cert: readFileSync('./localhost+1.pem'),
+  } },
 })
