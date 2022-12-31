@@ -13,7 +13,7 @@
 
   & > img {
     height: 100%;
-    width: ItemBlock.$timeAndPriceHeight;
+    width: ItemBlock.$timeAndPriceHeight; // safari only
     aspect-ratio: 1/1;
 
     margin-left: 0.1rem;

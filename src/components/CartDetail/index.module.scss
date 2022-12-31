@@ -45,6 +45,9 @@
       margin-bottom: 0.3rem;
 
       & > .closeBtnImg {
+        height: 100%;  // safari only
+        width: 100%;  // safari only
+
         padding: 0.3rem;
 
         border-radius: 50%;
