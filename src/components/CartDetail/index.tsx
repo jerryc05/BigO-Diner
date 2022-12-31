@@ -1,5 +1,5 @@
 import { toPng } from 'html-to-image'
-import { JSXElement, createMemo } from 'solid-js'
+import { JSX, JSXElement, createMemo, createSignal } from 'solid-js'
 
 import close from '@/assets/close.svg'
 import paw from '@/assets/pets_paw.svg'
@@ -19,6 +19,8 @@ const cartDetailJsx = createMemo(() => {
 
 export default () => {
   let cartContent: HTMLDivElement | null = null
+  const [cartContentStyle, setCartContentStyle] =
+    createSignal<JSX.CSSProperties>()
 
   return (
     <div class={css.cartDetail} style={showCart() ? {} : { width: 0 }}>
@@ -39,6 +41,7 @@ export default () => {
         {/* Cart Content */}
         <div
           class={css.cartContent}
+          style={cartContentStyle()}
           ref={ref => {
             cartContent = ref
           }}
@@ -54,21 +57,22 @@ export default () => {
           type='button'
           class={css.chechoutBtn}
           onClick={() => {
-            if (cartContent !== null)
-              toPng(cartContent, {
-                backgroundColor: 'white',
+            if (cartContent === null) return
+            setCartContentStyle({ 'overflow-y': 'unset' })
+            toPng(cartContent, {
+              backgroundColor: 'white',
+            })
+              .then(dataUrl => {
+                setCartContentStyle()
+                const link = document.createElement('a')
+                link.href = dataUrl
+                link.download = `BigO-Diner-Receipt-${new Date().toISOString()}.png`
+                link.target = '_blank'
+                link.click()
               })
-                .then(dataUrl => {
-                  const link = document.createElement('a')
-                  link.href = dataUrl
-                  link.download = `BigO-Diner-Receipt-${new Date().toISOString()}.png`
-                  link.target = '_blank'
-                  link.click()
-                })
-                .catch(e => {
-                  console.error(e)
-                })
-            // cart.clear()
+              .catch(e => {
+                console.error(e)
+              })
           }}
         >
           <img class={css.checkoutBtnImg} src={paw} />

@@ -28,7 +28,8 @@
     }
     min-height: 12rem;
 
-    padding: 2rem;
+    /* top | left and right | bottom */
+    padding: 1.7rem 1.7rem 1rem;
 
     flex-shrink: 0;
     display: flex;
@@ -62,6 +63,8 @@
     & > .cartContent {
       //class='mt-2 flex-grow flex-shrink overflow-y-auto scroll-smooth'
       flex-grow: 1;
+
+      overflow-y: scroll;
     }
 
     & > .total {
@@ -74,20 +77,23 @@
       @include mixins.button;
       @include mixins.flex-and-center;
 
-      padding: 0.7rem;
+      padding: 0.5rem;
 
       border-radius: 999rem;
 
       background-color: gray;
 
       & > .checkoutBtnImg {
+        height: 90%;
         width: 2rem;
-        margin: auto 0.5rem;
+        aspect-ratio: 1/1;
+
+        margin: auto 0.2rem;
       }
 
       & > .checkoutBtnText {
         color: white;
-        font-size: x-large;
+        font-size: 1.3rem;
       }
     }
   }
