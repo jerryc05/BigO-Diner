@@ -18,7 +18,7 @@ const cartDetailJsx = createMemo(() => {
 // todo: delay update if showCart is false
 
 export default () => {
-  let cartContent: HTMLDivElement | undefined
+  let cartContent: HTMLDivElement | null = null
 
   return (
     <div class={css.cartDetail} style={showCart() ? {} : { width: 0 }}>
@@ -37,7 +37,12 @@ export default () => {
         </button>
 
         {/* Cart Content */}
-        <div class={css.cartContent} ref={cartContent}>
+        <div
+          class={css.cartContent}
+          ref={ref => {
+            cartContent = ref
+          }}
+        >
           {cartDetailJsx()}
         </div>
 
@@ -49,15 +54,15 @@ export default () => {
           type='button'
           class={css.chechoutBtn}
           onClick={() => {
-            if (cartContent !== undefined)
+            if (cartContent !== null)
               toPng(cartContent, {
                 backgroundColor: 'white',
               })
                 .then(dataUrl => {
-                  cart.clear()
                   const link = document.createElement('a')
                   link.href = dataUrl
                   link.download = `BigO-Diner-Receipt-${new Date().toISOString()}.png`
+                  link.target = '_blank'
                   link.click()
                 })
                 .catch(e => {
