@@ -1,0 +1,70 @@
+// jagged effect
+.receipt {
+  $triangle-size: 0.3rem;
+  $stop1: $triangle-size * 1.42;
+  $stop1r: $stop1 + 0.01;
+  $stop2: $triangle-size * 0.7;
+  $stop2r: $stop2 + 0.01;
+
+  padding: $triangle-size 0;
+
+  background: linear-gradient(135deg, transparent #{$stop1}, white #{$stop1r})
+      top left,
+    linear-gradient(45deg, white #{$stop2}, transparent #{$stop2r}) top left,
+    linear-gradient(135deg, white #{$stop2}, transparent #{$stop2r}) bottom left,
+    linear-gradient(45deg, transparent #{$stop1}, white #{$stop1r}) bottom left;
+  background-repeat: repeat-x;
+  background-size: ($triangle-size * 2) $triangle-size;
+}
+
+.receipt {
+  width: 30rem;
+
+  margin: 2.5rem auto;
+
+  font-family: monospace;
+  filter: drop-shadow(0.1rem 0.1rem 0.2rem rgba(black, 0.25));
+
+  & > .receiptContent {
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+    padding: 1.7rem;
+
+    & > .title {
+      margin-bottom: 1rem;
+
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    & > .item {
+      display: flex;
+      justify-content: space-between;
+
+      border-bottom: 0.1rem solid #ccc;
+
+      overflow: hidden;
+      font-size: 1rem;
+
+      &:not(:first-child) {
+        margin-top: 1rem;
+      }
+    }
+
+    & > .count {
+      margin-top: 1.5rem;
+
+      align-self: flex-end;
+
+      font-size: 1.2rem;
+    }
+
+    & > .total {
+      align-self: flex-end;
+
+      font-size: 1.3rem;
+    }
+  }
+}
