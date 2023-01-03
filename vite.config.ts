@@ -163,8 +163,5 @@ export default defineConfig({
       ) /* check tsconfig.json => paths */,
     },
   },
-  server: { host: true, https:{
-    key: readFileSync('./localhost+1-key.pem'),
-    cert: readFileSync('./localhost+1.pem'),
-  } },
+  server: { host: true },
 })

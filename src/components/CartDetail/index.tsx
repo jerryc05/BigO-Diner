@@ -1,11 +1,14 @@
 import { toPng } from 'html-to-image'
 import { JSX, JSXElement, createMemo, createSignal } from 'solid-js'
+import { render } from 'solid-js/web'
 
 import close from '@/assets/close.svg'
 import paw from '@/assets/pets_paw.svg'
 import { cart, cartTotal, setShowCart, showCart } from '@/states'
 
 import CartItem from './CartItem'
+import Receipt from './Receipt'
+import receiptCss from './Receipt/index.module.scss'
 import css from './index.module.scss'
 
 const cartDetailJsx = createMemo(() => {
@@ -18,7 +21,6 @@ const cartDetailJsx = createMemo(() => {
 // todo: delay update if showCart is false
 
 export default () => {
-  let cartContent: HTMLDivElement | null = null
   const [cartContentStyle, setCartContentStyle] =
     createSignal<JSX.CSSProperties>()
 
@@ -39,13 +41,7 @@ export default () => {
         </button>
 
         {/* Cart Content */}
-        <div
-          class={css.cartContent}
-          style={cartContentStyle()}
-          ref={ref => {
-            cartContent = ref
-          }}
-        >
+        <div class={css.cartContent} style={cartContentStyle()}>
           {cartDetailJsx()}
         </div>
 
@@ -57,21 +53,33 @@ export default () => {
           type='button'
           class={css.chechoutBtn}
           onClick={() => {
-            if (cartContent === null) return
             setCartContentStyle({ 'overflow-y': 'unset' })
-            toPng(cartContent, {
-              backgroundColor: 'white',
+
+            const elem = document.createElement('div')
+            render(Receipt, elem)
+            document.body.appendChild(elem)
+            elem.style.display = 'flex'
+            elem.style.width = '40rem'
+
+            toPng(elem, {
+              backgroundColor: '#eee',
             })
               .then(dataUrl => {
-                setCartContentStyle()
                 const link = document.createElement('a')
                 link.href = dataUrl
                 link.download = `BigO-Diner-Receipt-${new Date().toISOString()}.png`
                 link.target = '_blank'
                 link.click()
+                // const img = new Image()
+                // img.src = dataUrl
+                // document.body.insertBefore(img, document.body.firstChild)
               })
               .catch(e => {
                 console.error(e)
+              })
+              .finally(() => {
+                setCartContentStyle()
+                elem.remove()
               })
           }}
         >
