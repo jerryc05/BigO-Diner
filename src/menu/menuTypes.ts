@@ -3,18 +3,20 @@ import { Ingredient, Rice } from './ingredients'
 
 export type Category = Readonly<{ cnName: string; enName: string }>
 
+export type ItemPrice = [number, number]
+
 export abstract class Item {
   cnName: Readonly<string>
   enName: Readonly<string> | null
   ingredients: Readonly<Ingredient>[] | null
   // chefs: Readonly<Chef[]>
-  price: Readonly<[number, number, number]>
+  price: Readonly<ItemPrice>
   durMin: Readonly<number>
   abstract category: Category
   constructor(
-    cnName: Readonly<string>,
-    enName: Readonly<string> | null,
-    ingredients: Readonly<Ingredient>[] | null
+    cnName: Item['cnName'],
+    enName: Item['enName'],
+    ingredients: Item['ingredients']
     // chefs: Readonly<Chef[]>
   ) {
     this.cnName = cnName
@@ -22,9 +24,9 @@ export abstract class Item {
     this.ingredients = ingredients
     // this.chefs = chefs
     this.price = [
-      Math.floor(Math.random() * 9),
-      Math.floor(Math.random() * 9),
-      Math.floor(Math.random() * 9),
+      // todo
+      Math.floor(Math.random() * 15),
+      Math.floor(Math.random() * 15),
     ] // todo
     this.durMin = 59 * 60 + 59 // todo
   }

@@ -237,7 +237,7 @@ module.exports = {
     ], */
     'no-inline-comments': 'off',
     'no-magic-numbers': 'off',
-    'no-mixed-operators': 'warn',
+    'no-mixed-operators': 'off',  // conflicts with prettier
     'no-multi-spaces': ['warn', { ignoreEOLComments: true }],
     'no-multiple-empty-lines': 'warn',
     'no-secrets/no-secrets': 'warn',

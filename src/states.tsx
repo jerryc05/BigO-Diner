@@ -3,7 +3,7 @@ import { ReactiveSet } from '@solid-primitives/set'
 import { createMemo, createSignal } from 'solid-js'
 
 import { menu } from '@/menu/menu'
-import { Item } from '@/menu/menuTypes'
+import { Item, type ItemPrice } from '@/menu/menuTypes'
 import { detectAndSetDarkMode, setDarkMode } from '@/utils/dark-mode'
 
 export const [isDark, setIsDark] = createSignal(detectAndSetDarkMode())
@@ -29,19 +29,14 @@ export const [zoomInCartFn, setZoomInCartFn] = createSignal<VoidFunction>()
 
 export const cart = new ReactiveMap<Item, number>()
 export const cartTotal = createMemo(() => {
-  const total = [0, 0, 0] as [number, number, number]
+  const total = [0, 0] as ItemPrice
   for (const [k, v] of cart.entries()) {
     total[0] += v * k.price[0]
     total[1] += v * k.price[1]
-    total[2] += v * k.price[2]
   }
-
-  total[1] += Math.floor(total[2] / 100)
-  total[2] %= 100
-
-  total[0] += Math.floor(total[1] / 10)
-  total[1] %= 10
-
+  const BASE = 16
+  total[0] += Math.floor(total[1] / BASE)
+  total[1] %= BASE
   return total
 })
 export function cartAdd(x: Item) {
