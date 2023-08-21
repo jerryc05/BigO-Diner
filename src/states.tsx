@@ -1,10 +1,12 @@
 import { ReactiveMap } from '@solid-primitives/map'
 import { ReactiveSet } from '@solid-primitives/set'
-import { createMemo, createSignal } from 'solid-js'
+import { createMemo, createResource, createSignal } from 'solid-js'
 
 import { menu } from '@/menu/menu'
 import { Item, type ItemPrice } from '@/menu/menuTypes'
 import { detectAndSetDarkMode, setDarkMode } from '@/utils/dark-mode'
+
+import { SSO_ENDPOINT } from './utils/constants'
 
 export const [isDark, setIsDark] = createSignal(detectAndSetDarkMode())
 export function toggleLightDarkMode() {
@@ -18,7 +20,7 @@ export const [showCart, setShowCart] = createSignal(false)
 export const disabledCategories = new ReactiveSet<typeof Function.name>()
 
 export const getEnabledMenuItems = createMemo(() =>
-  menu.filter(x => !disabledCategories.has(x.constructor.name))
+  menu.filter(x => !disabledCategories.has(x.constructor.name)),
 )
 
 //
@@ -57,8 +59,24 @@ export function cartDel(x: Item) {
 //
 //
 
-export const [userInfo, setUserInfo] = createSignal<{
-  userId: number
+type User = {
+  userId: string
   username: string
-  avatarUrl: string | null
-}>()
+  firstName?: string
+  lastName?: string
+  avatarUrl?: string
+}
+
+export const [user, { mutate: mutateUser, refetch: refetchUser }] =
+  createResource<User | null>(async () => {
+    const res = await fetch(`${SSO_ENDPOINT}/sessions/whoami`)
+    if (res.status === 401) return null
+    const jsonDict = await res.json()
+    console.log(jsonDict)
+    return {
+      userId: jsonDict.identity.id,
+      username: jsonDict.identity.traits.username,
+      firstName: jsonDict.identity.traits.name?.first,
+      lastName: jsonDict.identity.traits.name?.last,
+    } as User
+  })

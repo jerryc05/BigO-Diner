@@ -1,21 +1,15 @@
 import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
-import { isDark, setUserInfo, userInfo } from '@/states'
+import { isDark, refetchUser, user } from '@/states'
 import ScrSize from '@/utils/ScrSize'
 import { isDev } from '@/utils/constants'
 
 import Cart from './Cart'
 import css from './index.module.scss'
 
-setUserInfo(info => ({
-  ...info,
-  avatarUrl: bigO,
-  userId: 1,
-  username: 'jerryc05',
-}))
-
-export default () => (
-  <>
+export default () => {
+  refetchUser()
+  return (
     <nav>
       {/* Dark Mode Btn */}
 
@@ -27,13 +21,13 @@ export default () => (
 
       {/* Username */}
       <b class='hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap'>
-        {userInfo()?.username}
+        {user()?.username ?? 'Please login'}
       </b>
 
       {/* Avatar */}
       <button type='button' class={css.avatarBtn}>
-        <img src={userInfo()?.avatarUrl ?? bigO} />
+        <img src={user()?.avatarUrl ?? bigO} />
       </button>
     </nav>
-  </>
-)
+  )
+}

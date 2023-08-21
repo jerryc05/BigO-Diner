@@ -103,7 +103,7 @@ export default defineConfig({
           },
           {
             attrs: {
-              content: `upgrade-insecure-requests;default-src 'self' data:;script-src 'self' ${jsdelivr};style-src 'self' 'unsafe-inline' ${jsdelivr}`, // [*-elem] doesn't work in Safari/iOS, fvck Safari
+              content: `upgrade-insecure-requests;default-src 'self' data:;script-src 'self' ${jsdelivr};style-src 'self' 'unsafe-inline' ${jsdelivr};connect-src 'self' https://sso.jerryc05.icu`, // [*-elem] doesn't work in Safari/iOS, fvck Safari
               'http-equiv': 'Content-Security-Policy',
             },
             injectTo: 'head-prepend',
