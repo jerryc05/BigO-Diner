@@ -8,7 +8,6 @@ import Cart from './Cart'
 import css from './index.module.scss'
 
 export default () => {
-  console.log(user.state)
   refetchUser() as never
   return (
     <nav>

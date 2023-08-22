@@ -7,7 +7,7 @@ export default () => (
     <div class={css.greetings}>
       Hi,
       <b>
-        {user.loading ? 'Please wait...' : user()?.username ?? 'Please login'}!
+        {user.loading ? 'there' : user()?.username ?? 'Please login'}!
       </b>
     </div>
     <div class={css.welcome}>
