@@ -7,12 +7,13 @@ mv dist ..
 cp vercel.json ..
 
 git switch dist
+git reset --hard $(git rh)
+
 rm -rf dist
 mv ../dist .
-cp ../vercel.json .
-
-git reset --hard $(git rh)
+mv ../vercel.json .
 git add dist
+
 git commit -m 'dist'
 git push
 
