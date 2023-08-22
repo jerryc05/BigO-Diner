@@ -14,7 +14,8 @@ mv ../dist .
 mv ../vercel.json .
 git add dist
 
+git status
 git commit -m 'dist'
-git push
+git push -f
 
 git switch dev-solidjs
