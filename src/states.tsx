@@ -69,13 +69,13 @@ export type User = {
 
 export const [user, { mutate: mutateUser, refetch: refetchUser }] =
   createResource<User | null>(async () => {
-    if (isDev)
-      return {
-        firstName: 'Firstname',
-        lastName: 'Lastname',
-        userId: 'a0a0a0a0',
-        username: 'username',
-      } as User
+    // if (isDev)
+    //   return {
+    //     firstName: 'Firstname',
+    //     lastName: 'Lastname',
+    //     userId: 'a0a0a0a0',
+    //     username: 'username',
+    //   } as User
     try {
       const res = await fetch(`${SSO_ENDPOINT}/sessions/whoami`, {
         credentials: 'include',

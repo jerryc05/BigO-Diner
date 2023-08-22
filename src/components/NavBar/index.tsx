@@ -27,7 +27,10 @@ export default () => {
           ? 'Loading...'
           : user()?.username ?? (
               <>
-                Please <a href={loginUrl.href}>login</a>
+                Please{' '}
+                <a class={css.loginBtn} href={loginUrl.href}>
+                  login
+                </a>
               </>
             )}
       </b>

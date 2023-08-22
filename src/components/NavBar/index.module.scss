@@ -28,6 +28,15 @@ nav {
 
   & > b {
     font-size: 1.1rem;
+
+    & > .loginBtn {
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+      border: 0.1rem solid mixins.$mtColor;
+
+      box-shadow: 0 0 0.5rem 0 #ccc;
+      text-decoration: none;
+    }
   }
 
   & > .avatarBtn {

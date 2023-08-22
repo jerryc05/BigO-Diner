@@ -1,14 +1,13 @@
+@use '/src/mixins.scss';
+
 .app {
   height: 100vh;
   min-width: 360px;
 
   display: flex;
   flex-direction: column;
-
-  $mtColor: #3e2d14;
-  $bigoColor: #582800;
   & * {
-    color: $bigoColor;
+    color: mixins.$mtColor;
   }
 }
 
