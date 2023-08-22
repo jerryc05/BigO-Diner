@@ -86,7 +86,7 @@ function includeJsx(cfg) {
         'error',
         { extensions: ['.jsx', '.tsx'] },
       ],
-      'react/jsx-indent': 'off',  // conflicts with prettier
+      'react/jsx-indent': 'off', // conflicts with prettier
       'react/jsx-indent-props': ['warn', 'first'],
       'react/jsx-max-depth': 'off',
       'react/jsx-newline': 'off',
@@ -111,6 +111,9 @@ const react = includeJsx({
 const solidjs = includeJsx({
   extends: ['plugin:solid/typescript'],
   plugins: ['solid'],
+  rules: {
+    'solid/event-handlers': 'error',
+  },
 })
 
 /** @type {import('eslint').Linter.Config} */
@@ -237,7 +240,7 @@ module.exports = {
     ], */
     'no-inline-comments': 'off',
     'no-magic-numbers': 'off',
-    'no-mixed-operators': 'off',  // conflicts with prettier
+    'no-mixed-operators': 'off', // conflicts with prettier
     'no-multi-spaces': ['warn', { ignoreEOLComments: true }],
     'no-multiple-empty-lines': 'warn',
     'no-secrets/no-secrets': 'warn',
@@ -269,7 +272,7 @@ module.exports = {
     'space-in-parens': ['warn', 'never'],
     'space-infix-ops': 'warn',
     'unicorn/catch-error-name': 'off',
-    'unicorn/consistent-function-scoping': 'off',  // only prettier
+    'unicorn/consistent-function-scoping': 'off', // only prettier
     'unicorn/filename-case': [
       'warn',
       {
