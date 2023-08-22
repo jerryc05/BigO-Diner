@@ -6,7 +6,7 @@ import { menu } from '@/menu/menu'
 import { Item, type ItemPrice } from '@/menu/menuTypes'
 import { detectAndSetDarkMode, setDarkMode } from '@/utils/dark-mode'
 
-import { SSO_ENDPOINT } from './utils/constants'
+import { SSO_ENDPOINT, isDev } from './utils/constants'
 
 export const [isDark, setIsDark] = createSignal(detectAndSetDarkMode())
 export function toggleLightDarkMode() {
@@ -69,6 +69,13 @@ export type User = {
 
 export const [user, { mutate: mutateUser, refetch: refetchUser }] =
   createResource<User | null>(async () => {
+    if (isDev)
+      return {
+        firstName: 'Firstname',
+        lastName: 'Lastname',
+        userId: 'a0a0a0a0',
+        username: 'username',
+      } as User
     try {
       const res = await fetch(`${SSO_ENDPOINT}/sessions/whoami`, {
         credentials: 'include',

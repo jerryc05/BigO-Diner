@@ -9,8 +9,8 @@ export default () => {
       <div class={css.greetings}>
         Hi,{' '}
         <b>
-          {user()?.username ??
-            ' good ' + (hr < 12 ? 'morning' : hr < 18 ? 'afternoon' : 'evening')}
+          {user()?.firstName ?? user()?.username ??
+            `good ${(hr < 12 ? 'morning' : hr < 18 ? 'afternoon' : 'evening')}`}
           !
         </b>
       </div>
