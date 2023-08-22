@@ -34,10 +34,12 @@ export default () => {
       </b>
 
       {/* Avatar */}
-      <button type='button' class={css.avatarBtn}>
-        <a href={selfServiceUrl('logout')}>
-          <img src={user()?.avatarUrl ?? bigO} />
-        </a>
+      <button
+        type='button'
+        class={css.avatarBtn}
+        onClick={() => window.location.replace(selfServiceUrl('logout'))}
+      >
+        <img src={user()?.avatarUrl ?? bigO} />
       </button>
     </nav>
   )
