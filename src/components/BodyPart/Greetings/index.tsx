@@ -6,9 +6,7 @@ export default () => (
   <>
     <div class={css.greetings}>
       Hi,
-      <b>
-        {user.loading ? 'there' : user()?.username ?? 'Please login'}!
-      </b>
+      <b>{user()?.username ?? 'there'}!</b>
     </div>
     <div class={css.welcome}>
       Welcome to {isDark() ? 'BigO' : 'MilkTea'} Diner!
