@@ -69,7 +69,9 @@ type User = {
 
 export const [user, { mutate: mutateUser, refetch: refetchUser }] =
   createResource<User | null>(async () => {
-    const res = await fetch(`${SSO_ENDPOINT}/sessions/whoami`)
+    const res = await fetch(`${SSO_ENDPOINT}/sessions/whoami`, {
+      credentials: 'include',
+    })
     if (res.status === 401) return null
     const jsonDict = await res.json()
     console.log(jsonDict)
