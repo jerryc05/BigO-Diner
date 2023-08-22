@@ -3,7 +3,7 @@ set -exuo pipefail
 
 rm -rf dist || true
 npm run build
-rm -rf ../dist
+rm -rf ../dist || true
 mv dist ..
 cp vercel.json ..
 
