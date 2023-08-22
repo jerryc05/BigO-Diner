@@ -179,6 +179,10 @@ module.exports = {
   rules: {
     '@typescript-eslint/consistent-type-assertions': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    '@typescript-eslint/no-floating-promises': [
+      'error',
+      { ignoreIIFE: true, ignoreVoid: true },
+    ],
     '@typescript-eslint/no-redundant-type-constituents': 'error',
     '@typescript-eslint/prefer-readonly': 'warn',
     '@typescript-eslint/restrict-template-expressions': [

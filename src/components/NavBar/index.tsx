@@ -37,7 +37,16 @@ export default () => {
       <button
         type='button'
         class={css.avatarBtn}
-        onClick={() => window.location.replace(selfServiceUrl('logout'))}
+        onClick={() => {
+          ;(async () => {
+            const res = await fetch(selfServiceUrl('logout'), {
+              credentials: 'include',
+            })
+            if (!res.ok) return
+            const obj = (await res.json()) as { logout_url: string }
+            window.location.replace(obj.logout_url)
+          })()
+        }}
       >
         <img src={user()?.avatarUrl ?? bigO} />
       </button>
