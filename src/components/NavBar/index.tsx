@@ -2,15 +2,13 @@ import bigO from '@/assets/bigO.png'
 import bingbing from '@/assets/bingbing.png'
 import { isDark, refetchUser, user } from '@/states'
 import ScrSize from '@/utils/ScrSize'
-import { SSO_ENDPOINT, isDev } from '@/utils/constants'
+import { isDev, selfServiceUrl } from '@/utils/constants'
 
 import Cart from './Cart'
 import css from './index.module.scss'
 
 export default () => {
   refetchUser() as never
-  const loginUrl = new URL(`${SSO_ENDPOINT}/self-service/login/browser`)
-  loginUrl.searchParams.append('return_to', window.location.href)
   return (
     <nav>
       {/* Dark Mode Btn */}
@@ -28,7 +26,7 @@ export default () => {
           : user()?.username ?? (
               <>
                 Please{' '}
-                <a class={css.loginBtn} href={loginUrl.href}>
+                <a class={css.loginBtn} href={selfServiceUrl('login')}>
                   login
                 </a>
               </>
@@ -37,7 +35,9 @@ export default () => {
 
       {/* Avatar */}
       <button type='button' class={css.avatarBtn}>
-        <img src={user()?.avatarUrl ?? bigO} />
+        <a href={selfServiceUrl('logout')}>
+          <img src={user()?.avatarUrl ?? bigO} />
+        </a>
       </button>
     </nav>
   )
