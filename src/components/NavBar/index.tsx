@@ -9,8 +9,8 @@ import css from './index.module.scss'
 
 export default () => {
   refetchUser() as never
-  const login_url = new URL(`${SSO_ENDPOINT}/self-service/login/browser`)
-  login_url.searchParams.append('return_to', window.location.href)
+  const loginUrl = new URL(`${SSO_ENDPOINT}/self-service/login/browser`)
+  loginUrl.searchParams.append('return_to', window.location.href)
   return (
     <nav>
       {/* Dark Mode Btn */}
@@ -27,7 +27,7 @@ export default () => {
           ? 'Loading...'
           : user()?.username ?? (
               <>
-                Please <a href={login_url.href}>login</a>
+                Please <a href={loginUrl.href}>login</a>
               </>
             )}
       </b>

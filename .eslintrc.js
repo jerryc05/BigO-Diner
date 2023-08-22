@@ -86,7 +86,7 @@ function includeJsx(cfg) {
         'error',
         { extensions: ['.jsx', '.tsx'] },
       ],
-      'react/jsx-indent': ['warn', INDENT],
+      'react/jsx-indent': 'off',  // conflicts with prettier
       'react/jsx-indent-props': ['warn', 'first'],
       'react/jsx-max-depth': 'off',
       'react/jsx-newline': 'off',
