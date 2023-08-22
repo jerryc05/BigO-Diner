@@ -266,7 +266,6 @@ module.exports = {
     ],
     'sort-keys/sort-keys-fix': 'warn',
     'sort-vars': 'off',
-    'space-before-function-paren': ['warn', 'never'],
     'space-in-parens': ['warn', 'never'],
     'space-infix-ops': 'warn',
     'unicorn/catch-error-name': 'off',
