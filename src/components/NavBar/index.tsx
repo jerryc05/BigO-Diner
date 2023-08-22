@@ -8,7 +8,8 @@ import Cart from './Cart'
 import css from './index.module.scss'
 
 export default () => {
-  refetchUser()
+  console.log(user.state)
+  refetchUser() as never
   return (
     <nav>
       {/* Dark Mode Btn */}
@@ -21,7 +22,7 @@ export default () => {
 
       {/* Username */}
       <b class='hidden sm:inline-flex flex-center text-lg mx-2 whitespace-nowrap'>
-        {user()?.username ?? 'Please login'}
+        {user.loading ? 'Loading...' : user()?.username ?? 'Please login'}
       </b>
 
       {/* Avatar */}

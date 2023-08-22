@@ -59,7 +59,7 @@ export function cartDel(x: Item) {
 //
 //
 
-type User = {
+export type User = {
   userId: string
   username: string
   firstName?: string
@@ -69,16 +69,25 @@ type User = {
 
 export const [user, { mutate: mutateUser, refetch: refetchUser }] =
   createResource<User | null>(async () => {
-    const res = await fetch(`${SSO_ENDPOINT}/sessions/whoami`, {
-      credentials: 'include',
-    })
-    if (res.status === 401) return null
-    const jsonDict = await res.json()
-    console.log(jsonDict)
-    return {
-      userId: jsonDict.identity.id,
-      username: jsonDict.identity.traits.username,
-      firstName: jsonDict.identity.traits.name?.first,
-      lastName: jsonDict.identity.traits.name?.last,
-    } as User
+    try {
+      const res = await fetch(`${SSO_ENDPOINT}/sessions/whoami`, {
+        credentials: 'include',
+      })
+      if (res.status === 401) return null
+      const jsonDict = (await res.json()) as {
+        identity: {
+          id: string
+          traits: { username: string; name?: { first?: string; last?: string } }
+        }
+      }
+      return {
+        firstName: jsonDict.identity.traits.name?.first,
+        lastName: jsonDict.identity.traits.name?.last,
+        userId: jsonDict.identity.id,
+        username: jsonDict.identity.traits.username,
+      } as User
+    } catch (e) {
+      console.error(e)
+      return null
+    }
   })
