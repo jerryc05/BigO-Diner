@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -exuo pipefail
 
-
+rm -r dist || true
 npm run build
 mv dist ..
 cp vercel.json ..
