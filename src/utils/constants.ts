@@ -7,3 +7,5 @@ export function selfServiceUrl(op: string) {
   url.searchParams.append('return_to', window.location.href)
   return url.href
 }
+
+export const SW_PATH = '/sw.js'

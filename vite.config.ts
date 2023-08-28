@@ -1,7 +1,9 @@
 import { babel } from '@rollup/plugin-babel'
 // @ts-expect-error: no type declaration file
 import incstr from 'incstr'
-import { constants, readFileSync } from 'node:fs'
+import assert from 'node:assert'
+import { execSync } from 'node:child_process'
+import { constants, existsSync, readFileSync, unlinkSync } from 'node:fs'
 import { access, open, readFile, readdir, stat } from 'node:fs/promises'
 import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -9,6 +11,30 @@ import { brotliCompress } from 'node:zlib'
 import { PluginOption, defineConfig, normalizePath } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import solidPlugin from 'vite-plugin-solid'
+
+import { SW_PATH } from './src/utils/constants'
+
+// PWA files
+const favicon = '/favicon.webp'
+const pwaManifest = '/pwa.webmanifest'
+
+for (const f of [favicon, pwaManifest]) {
+  assert(
+    existsSync(
+      path.resolve(path.dirname(fileURLToPath(import.meta.url)), `public/${f}`),
+    ),
+  )
+}
+const swJsPath = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  `public${SW_PATH}`,
+)
+const swtsPath = `${swJsPath.substring(0, swJsPath.length - 3)}.ts`
+try {
+  unlinkSync(swJsPath)
+} catch {}
+execSync(`npx tsc ${swtsPath} --lib webworker`, { stdio: 'inherit' })
+assert(existsSync(swJsPath))
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 const nextId = incstr.idGenerator({
@@ -19,7 +45,7 @@ const cssClassMap = new Map<string, string>()
 const jsdelivr = 'https://cdn.jsdelivr.net'
 
 function buildPostProcessor(
-  fn: (p: string) => Promise<void> | void
+  fn: (p: string) => Promise<void> | void,
 ): PluginOption {
   let outRoot = ''
   async function iterDir(dir: string) {
@@ -31,10 +57,10 @@ function buildPostProcessor(
           await (statRes.isDirectory()
             ? iterDir(x)
             : fn(
-                path.relative(path.dirname(fileURLToPath(import.meta.url)), x)
+                path.relative(path.dirname(fileURLToPath(import.meta.url)), x),
               ))
-        })
-      )
+        }),
+      ),
     )
   }
   return {
@@ -122,14 +148,23 @@ export default defineConfig({
           //   tag: 'title',
           //   children: 'Title'
           // },
-          // {
-          //   injectTo: 'head-prepend',
-          //   tag: 'link',
-          //   attrs: {
-          //     rel: 'icon',
-          //     href: '/favicon.ico',
-          //   },
-          // },
+          {
+            injectTo: 'head-prepend',
+            tag: 'link',
+            attrs: {
+              rel: 'icon',
+              type: 'image/webp',
+              href: favicon,
+            },
+          },
+          {
+            injectTo: 'head-prepend',
+            tag: 'link',
+            attrs: {
+              rel: 'manifest',
+              href: pwaManifest,
+            },
+          },
         ],
       },
       minify: true,
@@ -151,7 +186,7 @@ export default defineConfig({
       // eslint-disable-next-line no-console
       console.log(
         `${p}\n\t${origSz} \t-> ${newSz} bytes \t` +
-          `${(newSz / origSz).toFixed(4)}x ${willSave ? '✅' : '❌'}`
+          `${(newSz / origSz).toFixed(4)}x ${willSave ? '✅' : '❌'}`,
       )
     }),
   ],
@@ -159,7 +194,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(
         path.dirname(fileURLToPath(import.meta.url)),
-        './src'
+        './src',
       ) /* check tsconfig.json => paths */,
     },
   },
