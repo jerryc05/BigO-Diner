@@ -1,4 +1,4 @@
-const urlsToPreCache = []
+const urlsToPreCache = ['/']
 
 const cacheName = 'v1'
 
