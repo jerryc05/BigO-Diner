@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/assets/(.*).(js|css|html|svg)",
+      "source": "/(.*).(js|css|html|svg)",
       "headers": [
         {
           "key": "Content-Encoding",
