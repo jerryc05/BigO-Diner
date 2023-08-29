@@ -11,8 +11,14 @@ if ('serviceWorker' in navigator) {
     .register(SW_PATH)
     .then(reg => {
       reg.update()
+      location.replace(
+        // Force all requests are cached,
+        // especially those send before sw is installed,
+        // otherwise offline cache won't be complete
+        location.href
+      )
     })
-    .catch(err => console.error('SW reg failed: ', err))
+    .catch(err => console.error(err))
 }
 
 const mount = document.createElement('div')
