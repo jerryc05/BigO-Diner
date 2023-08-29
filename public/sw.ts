@@ -7,11 +7,12 @@ self.addEventListener('install', e => {
   // but if you don't need that feature,
   // you can make your new service worker activate sooner by calling self.skipWaiting().
   ;(self as any).skipWaiting()
-  ;(e as any).waitUntil(
-    caches.open(cacheName).then(cache => {
-      return cache.addAll(urlsToPreCache)
-    }),
-  )
+  urlsToPreCache &&
+    (e as any).waitUntil(
+      caches.open(cacheName).then(cache => {
+        return cache.addAll(urlsToPreCache)
+      }),
+    )
 })
 
 self.addEventListener('fetch', event => {
@@ -33,7 +34,12 @@ function networkFirst(event) {
     fetch(event.request)
       .then(networkResponse => {
         return caches.open(cacheName).then(cache => {
-          if (event.request.url.startsWith('http'))
+          if (
+            event.request.url.startsWith('http') &&
+            !event.request.headers
+              .get('cache-control')
+              .includes('no-store' /* IMPORTANT! */)
+          )
             cache.put(event.request, networkResponse.clone())
           return networkResponse
         })
