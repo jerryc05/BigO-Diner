@@ -16,7 +16,7 @@ navigator.serviceWorker
         newWorker.onstatechange = () => {
           if (newWorker.state == 'activated') {
             location.replace(
-              // Force all requests are cached,
+              // Force all requests to be cached,
               // especially those send before sw is installed,
               // otherwise offline cache won't be complete
               location.href,
