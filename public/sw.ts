@@ -1,8 +1,7 @@
-const urlsToPreCache = ['/']
-
 const cacheName = 'v1'
 
 self.addEventListener('install', e => {
+  const urlsToPreCache = []
   // The waiting phase means you're only running one version of your site at once,
   // but if you don't need that feature,
   // you can make your new service worker activate sooner by calling self.skipWaiting().
@@ -38,7 +37,11 @@ function networkFirst(event) {
             event.request.url.startsWith('http') &&
             !resp.headers
               .get('cache-control')
-              .includes('no-store' /* IMPORTANT! */)
+              .includes(
+                'no-store' /* IMPORTANT! */,
+              ) /* let browser cache do the job! */ &&
+            (resp.headers.get('cache-control').includes('must-revalidate') ||
+              resp.headers.get('cache-control').includes('no-cache'))
           )
             cache.put(event.request, resp.clone())
           return resp
