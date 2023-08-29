@@ -15,7 +15,7 @@ self.addEventListener('install', e => {
 })
 
 self.addEventListener('fetch', event => {
-  if (true) networkFirst(event)
+  ;(event as any).respondWith(immutableAwareNetworkFirst(event))
 })
 
 self.addEventListener('activate', e => {
@@ -28,27 +28,35 @@ self.addEventListener('activate', e => {
   // )
 })
 
-function networkFirst(event) {
-  event.respondWith(
-    fetch(event.request)
-      .then(resp => {
-        return caches.open(cacheName).then(cache => {
-          if (
-            event.request.url.startsWith('http') &&
-            !resp.headers
-              .get('cache-control')
-              .includes(
-                'no-store' /* IMPORTANT! */,
-              ) /* let browser cache do the job! */ &&
-            (resp.headers.get('cache-control').includes('must-revalidate') ||
-              resp.headers.get('cache-control').includes('no-cache'))
-          )
-            cache.put(event.request, resp.clone())
-          return resp
-        })
-      })
-      .catch(() => {
-        return caches.match(event.request)
-      }),
-  )
+async function immutableAwareNetworkFirst(event) {
+  if (!event.request.url.startsWith('http')) return await fetch(event.request)
+
+  const cache = await caches.open(cacheName)
+
+  //
+  //
+  // Intercept immutable requests
+  const inCache = await caches.match(event.request)
+  if (inCache && inCache.headers.get('cache-control').includes('immutable')) {
+    return inCache
+  }
+
+  //
+  //
+  // Attempt network
+  try {
+    const resp = await fetch(event.request)
+    const cacheControl = resp.headers.get('cache-control') || ''
+
+    // Cache them if we can
+    if (
+      !cacheControl.includes(
+        'no-store' /* IMPORTANT! Those requests are meant not to be cached */,
+      )
+    )
+      cache.put(event.request, resp.clone())
+    return resp
+  } catch {
+    return inCache
+  }
 }
