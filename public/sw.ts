@@ -32,16 +32,16 @@ self.addEventListener('activate', e => {
 function networkFirst(event) {
   event.respondWith(
     fetch(event.request)
-      .then(networkResponse => {
+      .then(resp => {
         return caches.open(cacheName).then(cache => {
           if (
             event.request.url.startsWith('http') &&
-            !event.request.headers
+            !resp.headers
               .get('cache-control')
               .includes('no-store' /* IMPORTANT! */)
           )
-            cache.put(event.request, networkResponse.clone())
-          return networkResponse
+            cache.put(event.request, resp.clone())
+          return resp
         })
       })
       .catch(() => {
