@@ -4,7 +4,7 @@ set -exuo pipefail
 rm -rf dist || true
 npm run build
 rm -rf ../dist  || true
-mv dist public ..
+mv dist ..
 cp vercel.json ..
 
 git switch dist
