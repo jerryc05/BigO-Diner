@@ -25,7 +25,7 @@ navigator.serviceWorker
         }
     }
   })
-  .catch(err => console.error(err))
+  .catch(console.error)
 
 const mount = document.createElement('div')
 document.body.insertBefore(mount, document.body.firstChild)
