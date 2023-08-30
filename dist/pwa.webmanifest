@@ -1,0 +1,21 @@
+{
+  "short_name": "BigO Diner",
+  "description": "The diner for BigO, and us!",
+  "background_color": "#FFF",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "favicon.webp",
+      "type": "image/webp",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    }
+  ]
+}

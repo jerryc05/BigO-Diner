@@ -1,0 +1,31 @@
+{
+  "headers": [
+    {
+      "source": "/assets/(.+)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=999999,immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).(js|css|html|svg)",
+      "headers": [
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        }
+      ]
+    }
+  ]
+}
