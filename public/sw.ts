@@ -1,21 +1,10 @@
 const cacheName = 'v1'
 
 self.addEventListener('install', e => {
-  const urlsToPreCache = []
   // The waiting phase means you're only running one version of your site at once,
   // but if you don't need that feature,
   // you can make your new service worker activate sooner by calling self.skipWaiting().
   ;(self as any).skipWaiting()
-  urlsToPreCache &&
-    (e as any).waitUntil(
-      caches.open(cacheName).then(cache => {
-        return cache.addAll(urlsToPreCache)
-      }),
-    )
-})
-
-self.addEventListener('fetch', event => {
-  ;(event as any).respondWith(immutableAwareNetworkFirst(event))
 })
 
 self.addEventListener('activate', e => {
@@ -26,6 +15,10 @@ self.addEventListener('activate', e => {
     )
   })
   // )
+})
+
+self.addEventListener('fetch', event => {
+  ;(event as any).respondWith(immutableAwareNetworkFirst(event))
 })
 
 async function immutableAwareNetworkFirst(event) {
